@@ -1,0 +1,26 @@
+{
+  "name": "quiqqer/areas",
+  "type": "quiqqer-library",
+  "description": "",
+  "version": "dev-master",
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "Henning Leutz",
+      "email": "leutz@pcsg.de",
+      "homepage": "http://www.pcsg.de",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "support@pcsg.de"
+  },
+  "require": {
+    "quiqqer/quiqqer": "*"
+  },
+  "autoload": {
+    "psr-0": {
+      "QUI": "src/"
+    }
+  }
+}
