@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu>
+    <item parent="/extras/"
+          name="erm"
+          icon="icon-sun"
+    >
+        <locale group="quiqqer/areas" var="menu.erm.title" />
+    </item>
+    <item parent="/extras/erm/"
+          name="areas"
+          require="package/quiqqer/areas/bin/controls/Areas"
+          icon="icon-globe"
+    >
+        <locale group="quiqqer/areas" var="menu.erm.areas.title" />
+    </item>
+
+</menu>

@@ -1,0 +1,12 @@
+
+<permissions>
+    <permission name="quiqqer.areas.area.create" type="bool">
+        <defaultvalue>1</defaultvalue>
+    </permission>
+    <permission name="quiqqer.areas.area.edit" type="bool">
+        <defaultvalue>1</defaultvalue>
+    </permission>
+    <permission name="quiqqer.areas.area.delete" type="bool">
+        <defaultvalue>1</defaultvalue>
+    </permission>
+</permissions>

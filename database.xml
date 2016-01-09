@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <global>
+        <table name="areas">
+            <field type="INT( 10 ) NOT NULL PRIMARY KEY">id</field>
+            <field type="text">title</field>
+            <field type="text">countries</field>
+
+            <auto_increment>id</auto_increment>
+        </table>
+    </global>
+</database>

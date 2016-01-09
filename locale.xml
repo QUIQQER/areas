@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<locales>
+    <groups name="quiqqer/areas" datatype="php,js">
+
+        <locale name="menu.erm.title">
+            <de><![CDATA[ERM]]></de>
+            <en><![CDATA[ERM]]></en>
+        </locale>
+        <locale name="menu.erm.areas.title">
+            <de><![CDATA[Zonen]]></de>
+            <en><![CDATA[Areas]]></en>
+        </locale>
+
+        <locale name="area.grid.areaname.title">
+            <de><![CDATA[Zonen]]></de>
+            <en><![CDATA[Areas]]></en>
+        </locale>
+        <locale name="area.grid.areaname.countries">
+            <de><![CDATA[Länder]]></de>
+            <en><![CDATA[Countries]]></en>
+        </locale>
+
+        <locale name="menu.erm.areas.panel.title">
+            <de><![CDATA[Zonen]]></de>
+            <en><![CDATA[Areas]]></en>
+        </locale>
+        <locale name="area.import.euDigital">
+            <de><![CDATA[Zonen für digital Güter in der EU]]></de>
+            <en><![CDATA[Areas for digital goods in the EU]]></en>
+        </locale>
+        <locale name="import.text.world">
+            <de><![CDATA[Rest der Welt]]></de>
+            <en><![CDATA[Rest of the world]]></en>
+        </locale>
+
+    </groups>
+
+    <groups name="quiqqer/areas" datatype="js">
+        <locale name="control.AreaEdit.btn.delete">
+            <de><![CDATA[Markierte Länder löschen]]></de>
+            <en><![CDATA[Delete marked countries]]></en>
+        </locale>
+        <locale name="control.AreaEdit.btn.add">
+            <de><![CDATA[Markierte Länder übernehmen]]></de>
+            <en><![CDATA[Delete marked countries]]></en>
+        </locale>
+    </groups>
+</locales>
