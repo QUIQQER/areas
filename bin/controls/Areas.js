@@ -270,7 +270,7 @@ define('package/quiqqer/areas/bin/controls/Areas', [
                             self.refresh();
                             Win.close();
 
-                            self.edit(areaId);
+                            self.editChild(areaId);
                         });
                     }
                 }

@@ -18,11 +18,12 @@ define('package/quiqqer/areas/bin/controls/AreaEdit', [
     'qui/controls/buttons/Button',
     'Locale',
     'package/quiqqer/areas/bin/classes/Handler',
+    'package/quiqqer/translator/bin/controls/VariableTranslation',
 
     'text!package/quiqqer/areas/bin/controls/AreasSettings.html',
     'css!package/quiqqer/areas/bin/controls/Areas.css'
 
-], function (QUI, QUIControl, QUIButton, QUILocale, Handler, templateAreasSettings) {
+], function (QUI, QUIControl, QUIButton, QUILocale, Handler, Translation, templateAreasSettings) {
     "use strict";
 
     var lg = 'quiqqer/areas';
@@ -49,7 +50,8 @@ define('package/quiqqer/areas/bin/controls/AreaEdit', [
 
             this.$SelectOwnCountries       = null;
             this.$SelectAvailableCountries = null;
-            this.$TextField                = null;
+
+            this.$Text = null;
 
             this.addEvents({
                 onInject: this.$onInject
@@ -89,8 +91,8 @@ define('package/quiqqer/areas/bin/controls/AreaEdit', [
                     '[name="areaId"]'
                 );
 
-                this.$TextField = Content.getElement(
-                    '[name="areaTitle"]'
+                this.$Text = Content.getElement(
+                    '.quiqqer-areas-setting-areaTitle'
                 );
 
                 this.$SelectOwnCountries = Content.getElement(
@@ -101,8 +103,12 @@ define('package/quiqqer/areas/bin/controls/AreaEdit', [
                     '[name="availableCountries"]'
                 );
 
-                IdField.value         = areaId;
-                this.$TextField.value = data.title;
+                IdField.value = areaId;
+
+                new Translation({
+                    'group': 'quiqqer/areas',
+                    'var'  : 'area.' + areaId + '.title'
+                }).inject(this.$Text);
 
                 // countries
                 countries = [];
@@ -190,7 +196,6 @@ define('package/quiqqer/areas/bin/controls/AreaEdit', [
             });
 
             return Areas.save(this.getAttribute('areaId'), {
-                title    : this.$TextField.value,
                 countries: countries.join(',')
             });
         }
