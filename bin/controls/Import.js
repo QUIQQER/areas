@@ -146,8 +146,15 @@ define('package/quiqqer/areas/bin/controls/Import', [
             }
 
             QUIAjax.get('package_quiqqer_areas_ajax_import_preconfigure', function () {
-                self.close();
-                self.fireEvent('success');
+
+                require([
+                    'package/quiqqer/translator/bin/classes/Translator'
+                ], function (Translator) {
+                    new Translator().refreshLocale().then(function () {
+                        self.close();
+                        self.fireEvent('success');
+                    });
+                });
             }, {
                 'package' : 'quiqqer/areas',
                 importName: selectValue

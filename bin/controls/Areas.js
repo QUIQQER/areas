@@ -7,9 +7,11 @@
  * @require qui/QUI
  * @require qui/controls/desktop/Panel
  * @require qui/controls/buttons/Button
+ * @require qui/controls/windows/Confirm
  * @require controls/grid/Grid
  * @require Locale
  * @require package/quiqqer/areas/bin/classes/Handler
+ * @require text!package/quiqqer/areas/bin/controls/AreasAdd.html
  * @require css!package/quiqqer/areas/bin/controls/Areas.css
  */
 define('package/quiqqer/areas/bin/controls/Areas', [
@@ -209,8 +211,8 @@ define('package/quiqqer/areas/bin/controls/Areas', [
                     gridData.push({
                         id       : dataEntry.id,
                         title    : QUILocale.get(
-                            dataEntry.title[0],
-                            dataEntry.title[1]
+                            'quiqqer/areas',
+                            'area.' + dataEntry.id + '.title'
                         ),
                         countries: dataEntry.countries
                     });
@@ -231,9 +233,9 @@ define('package/quiqqer/areas/bin/controls/Areas', [
             var self = this;
 
             new QUIConfirm({
-                title      : 'Neue Zone anlegen',
-                text       : 'Neue Zone anlegen',
-                information: 'Nach dem Anlegen der Zone können Sie Länder der Zone zuweisen.' +
+                title      : QUILocale.get(lg, 'window.create.title'),
+                text       : QUILocale.get(lg, 'window.create.text'),
+                information: QUILocale.get(lg, 'window.create.information') +
                              '<div class="container"></div>',
                 texticon   : 'icon-plus fa fa-plus',
                 icon       : 'icon-plus fa fa-plus',
@@ -251,11 +253,21 @@ define('package/quiqqer/areas/bin/controls/Areas', [
                             }
                         });
 
-                        Container.getElement('input').setStyles({
+                        var Input = Container.getElement('input');
+
+                        Input.setStyles({
                             marginTop: 10,
                             maxWidth : 240,
                             width    : '100%'
-                        }).focus();
+                        });
+
+                        Input.addEvent('keyup', function (event) {
+                            if (event.key == 'enter') {
+                                Win.submit();
+                            }
+                        });
+
+                        Input.focus();
                     },
                     onSubmit: function (Win) {
                         var Input = Win.getContent().getElement('input');
@@ -266,7 +278,9 @@ define('package/quiqqer/areas/bin/controls/Areas', [
 
                         Win.Loader.show();
 
-                        Areas.createChild().then(function (areaId) {
+                        Areas.createChild({
+                            title: Input.value
+                        }).then(function (areaId) {
                             self.refresh();
                             Win.close();
 
@@ -285,11 +299,11 @@ define('package/quiqqer/areas/bin/controls/Areas', [
             var areaList = areaIds.join(', ');
 
             new QUIConfirm({
-                title      : 'Markierte Zonen löschen',
-                text       : 'Möchten Sie folgende Zonen wirklich löschen?',
-                information: 'Die Zonen sind nach dem Löschvorgang nicht ' +
-                             'wieder herstellbar. Folgende Zonen werden gelöscht:<br /><br />' +
-                             areaList,
+                title      : QUILocale.get(lg, 'window.delete.title'),
+                text       : QUILocale.get(lg, 'window.delete.text'),
+                information: QUILocale.get(lg, 'window.delete.information', {
+                    areaList: areaList
+                }),
                 icon       : 'icon-trash',
                 textimage  : 'icon-trash',
                 maxHeight  : 300,

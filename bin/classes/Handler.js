@@ -80,13 +80,24 @@ define('package/quiqqer/areas/bin/classes/Handler', [
         /**
          * Create a new area
          *
+         * @params {Array} [params] - area attributes
          * @returns {Promise}
          */
-        createChild: function () {
+        createChild: function (params) {
             return new Promise(function (resolve, reject) {
-                Ajax.post('package_quiqqer_areas_ajax_create', resolve, {
+                Ajax.post('package_quiqqer_areas_ajax_create', function (result) {
+
+                    require([
+                        'package/quiqqer/translator/bin/classes/Translator'
+                    ], function (Translator) {
+                        new Translator().refreshLocale().then(function () {
+                            resolve(result);
+                        });
+                    });
+                }, {
                     'package': 'quiqqer/areas',
-                    onError  : reject
+                    onError  : reject,
+                    params   : JSON.encode(params)
                 });
             });
         },

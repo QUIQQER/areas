@@ -44,5 +44,39 @@
             <de><![CDATA[Markierte Länder übernehmen]]></de>
             <en><![CDATA[Delete marked countries]]></en>
         </locale>
+
+        <locale name="window.delete.title">
+            <de><![CDATA[Markierte Zonen löschen]]></de>
+            <en><![CDATA[Delete selected areas]]></en>
+        </locale>
+        <locale name="window.delete.text">
+            <de><![CDATA[Möchten Sie folgende Zonen wirklich löschen?]]></de>
+            <en><![CDATA[Do you really want to delete the following areas?]]></en>
+        </locale>
+        <locale name="window.delete.information">
+            <de><![CDATA[
+                Die Zonen sind nach dem Löschvorgang nicht
+                wieder herstellbar. Folgende Zonen werden gelöscht:<br /><br />
+                [areaList]
+            ]]></de>
+            <en><![CDATA[
+                The areas can not be restored after the deletion.
+                The following areas would be deleted: <br /><br />
+                [areaList]
+            ]]></en>
+        </locale>
+
+        <locale name="window.create.title">
+            <de><![CDATA[Neue Zone anlegen]]></de>
+            <en><![CDATA[Create a new area]]></en>
+        </locale>
+        <locale name="window.create.text">
+            <de><![CDATA[Neue Zone anlegen]]></de>
+            <en><![CDATA[Create a new area]]></en>
+        </locale>
+        <locale name="window.create.information">
+            <de><![CDATA[Nach dem Anlegen der Zone können Sie Länder der Zone zuweisen.]]></de>
+            <en><![CDATA[After creating the area, you can assign countries to it.]]></en>
+        </locale>
     </groups>
 </locales>

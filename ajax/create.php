@@ -11,12 +11,13 @@
  */
 QUI::$Ajax->registerFunction(
     'package_quiqqer_areas_ajax_create',
-    function () {
-        $Areas = new QUI\ERP\Areas\Handler();
-        $Area  = $Areas->createChild();
+    function ($params) {
+        $params = json_decode($params, true);
+        $Areas  = new QUI\ERP\Areas\Handler();
+        $Area   = $Areas->createChild($params);
 
         return $Area->getId();
     },
-    false,
+    array('params'),
     'Permission::checkAdminUser'
 );

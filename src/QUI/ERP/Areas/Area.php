@@ -34,6 +34,13 @@ class Area extends QUI\CRUD\Child
             Permission::checkPermission('quiqqer.areas.area.delete');
         });
 
+        $this->Events->addEvent('onDeleteEnd', function () {
+            QUI\Translator::delete(
+                'quiqqer/areas',
+                'area.' . $this->getId() . '.title'
+            );
+        });
+
         $this->Events->addEvent('onSaveBegin', function () {
             Permission::checkPermission('quiqqer.areas.area.edit');
         });
