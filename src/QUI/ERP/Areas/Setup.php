@@ -16,6 +16,8 @@ class Setup
 {
     /**
      * Import the standard areas
+     *
+     * @param string $xmlFile
      */
     public static function import($xmlFile)
     {

@@ -57,6 +57,13 @@
 
         <area>
             <title>
+                <locale group="quiqqer/countries" var="country.CZ"/>
+            </title>
+            <countries>CZ</countries>
+        </area>
+
+        <area>
+            <title>
                 <locale group="quiqqer/countries" var="country.FR"/>
             </title>
             <countries>FR</countries>

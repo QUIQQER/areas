@@ -26,9 +26,14 @@ QUI::$Ajax->registerFunction(
             $result[] = array(
                 'id' => $entry['id'],
                 'countries' => $entry['countries'],
-                'title' => $Locale->getPartsOfLocaleString($entry['title'])
+                'title' => $Locale->getPartsOfLocaleString($entry['title']),
+                'text' => $Locale->parseLocaleString($entry['title'])
             );
         }
+
+        usort($result, function ($a, $b) {
+            return $a['text'] > $b['text'];
+        });
 
         return $result;
     },

@@ -81,6 +81,18 @@ class Handler extends QUI\CRUD\Factory
     }
 
     /**
+     * Return an area
+     *
+     * @param int $id - Area-ID
+     * @return QUI\ERP\Areas\Area
+     * @throws QUI\Exception
+     */
+    public function getChild($id)
+    {
+        return parent::getChild($id);
+    }
+
+    /**
      *
      * @return array
      */
