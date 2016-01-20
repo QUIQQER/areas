@@ -9,7 +9,6 @@
  * @require Locale
  * @require Ajax
  * @require controls/upload/Form
- * @require package/quiqqer/areas/bin/classes/Handler
  * @require text!package/quiqqer/areas/bin/controls/Import.html
  *
  * @event onSuccess
@@ -22,7 +21,6 @@ define('package/quiqqer/areas/bin/controls/Import', [
     'Locale',
     'Ajax',
     'controls/upload/Form',
-    'package/quiqqer/areas/bin/classes/Handler',
 
     'text!package/quiqqer/areas/bin/controls/Import.html'
 
@@ -32,14 +30,13 @@ define('package/quiqqer/areas/bin/controls/Import', [
              QUILocale,
              QUIAjax,
              UploadForm,
-             Handler,
              templateImport) {
     "use strict";
 
     return new Class({
 
         Extends: QUIConfirm,
-        Type   : 'package/quiqqer/areas/bin/controls/Areas',
+        Type   : 'package/quiqqer/areas/bin/controls/Import',
 
         Binds: [
             '$onOpen',

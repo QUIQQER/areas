@@ -2,11 +2,11 @@
 <locales>
     <groups name="quiqqer/areas" datatype="php,js">
 
-        <locale name="menu.erm.title">
-            <de><![CDATA[ERM]]></de>
-            <en><![CDATA[ERM]]></en>
+        <locale name="menu.erp.title">
+            <de><![CDATA[ERP]]></de>
+            <en><![CDATA[ERP]]></en>
         </locale>
-        <locale name="menu.erm.areas.title">
+        <locale name="menu.erp.areas.title">
             <de><![CDATA[Zonen]]></de>
             <en><![CDATA[Areas]]></en>
         </locale>
@@ -20,17 +20,17 @@
             <en><![CDATA[Countries]]></en>
         </locale>
 
-        <locale name="menu.erm.areas.panel.title">
+        <locale name="menu.erp.areas.panel.title">
             <de><![CDATA[Zonen]]></de>
             <en><![CDATA[Areas]]></en>
         </locale>
         <locale name="area.import.euDigital">
-            <de><![CDATA[Zonen für digital Güter in der EU]]></de>
+            <de><![CDATA[Zonen für digitale Güter in der EU]]></de>
             <en><![CDATA[Areas for digital goods in the EU]]></en>
         </locale>
         <locale name="import.text.world">
-            <de><![CDATA[Rest der Welt]]></de>
-            <en><![CDATA[Rest of the world]]></en>
+            <de><![CDATA[Andere Länder]]></de>
+            <en><![CDATA[Other countries]]></en>
         </locale>
 
     </groups>

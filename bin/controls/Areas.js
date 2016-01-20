@@ -55,7 +55,7 @@ define('package/quiqqer/areas/bin/controls/Areas', [
             this.$Grid = null;
 
             this.setAttributes({
-                'title': QUILocale.get(lg, 'menu.erm.areas.panel.title')
+                'title': QUILocale.get(lg, 'menu.erp.areas.panel.title')
             });
 
             this.addEvents({
