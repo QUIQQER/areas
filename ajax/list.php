@@ -19,7 +19,7 @@ QUI::$Ajax->registerFunction(
         $Locale = QUI::getLocale();
 
         $Grid = new \QUI\Utils\Grid();
-        
+
         $data = $Areas->getChildrenData(
             $Grid->parseDBParams(json_decode($params, true))
         );
