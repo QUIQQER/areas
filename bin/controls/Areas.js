@@ -107,6 +107,7 @@ define('package/quiqqer/areas/bin/controls/Areas', [
 
             this.$Grid = new Grid(Container, {
                 multipleSelection: true,
+                pagination       : true,
                 columnModel      : [{
                     header   : QUILocale.get('quiqqer/system', 'id'),
                     dataIndex: 'id',
@@ -181,9 +182,12 @@ define('package/quiqqer/areas/bin/controls/Areas', [
             this.Loader.show();
             this.getButtons('delete').disable();
 
-            Areas.getList().then(function (data) {
+            Areas.getList({
+                perPage: this.$Grid.options.perPage,
+                page   : this.$Grid.options.page
+            }).then(function (data) {
 
-                if (!data.length && importCheck) {
+                if (!data.total && importCheck) {
                     require([
                         'package/quiqqer/areas/bin/controls/Import'
                     ], function (AreaImport) {
@@ -205,8 +209,8 @@ define('package/quiqqer/areas/bin/controls/Areas', [
                 var dataEntry,
                     gridData = [];
 
-                for (var i = 0, len = data.length; i < len; i++) {
-                    dataEntry = data[i];
+                for (var i = 0, len = data.data.length; i < len; i++) {
+                    dataEntry = data.data[i];
 
                     gridData.push({
                         id       : dataEntry.id,
@@ -218,10 +222,9 @@ define('package/quiqqer/areas/bin/controls/Areas', [
                     });
                 }
 
-                self.$Grid.setData({
-                    data: gridData
-                });
+                data.data = gridData;
 
+                self.$Grid.setData(data);
                 self.Loader.hide();
             });
         },

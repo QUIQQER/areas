@@ -18,7 +18,7 @@ QUI::$Ajax->registerFunction(
         $Areas  = new QUI\ERP\Areas\Handler();
         $Area   = $Areas->getChild($areaId);
         $params = json_decode($params, true);
-\QUI\System\Log::writeRecursive($params);
+
         $Area->setAttributes($params);
         $Area->update();
     },

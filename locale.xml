@@ -78,5 +78,6 @@
             <de><![CDATA[Nach dem Anlegen der Zone können Sie Länder der Zone zuweisen.]]></de>
             <en><![CDATA[After creating the area, you can assign countries to it.]]></en>
         </locale>
+
     </groups>
 </locales>

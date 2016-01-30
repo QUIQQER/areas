@@ -40,10 +40,16 @@ class Handler extends QUI\CRUD\Factory
                 $title = QUI::getLocale()->get($parts[0], $parts[1]);
             }
 
-            QUI\Translator::addUserVar('quiqqer/areas', $newVar, array(
-                $current => $title,
-                'datatype' => 'php,js'
-            ));
+            try {
+                QUI\Translator::addUserVar('quiqqer/areas', $newVar, array(
+                    $current => $title,
+                    'datatype' => 'php,js'
+                ));
+            } catch (QUI\Exception $Exception) {
+                QUI::getMessagesHandler()->addAttention(
+                    $Exception->getMessage()
+                );
+            }
         });
     }
 

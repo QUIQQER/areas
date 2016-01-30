@@ -56,11 +56,21 @@ define('package/quiqqer/areas/bin/classes/Handler', [
         },
 
         /**
+         * Search areas and return the result for a grid
          *
+         * @param {Object} params
          * @returns {Promise}
          */
-        getList: function () {
-            return this.search();
+        getList: function (params) {
+            params = params || {};
+
+            return new Promise(function (resolve, reject) {
+                Ajax.get('package_quiqqer_areas_ajax_list', resolve, {
+                    'package': 'quiqqer/areas',
+                    onError  : reject,
+                    params   : JSON.encode(params)
+                });
+            });
         },
 
         /**
