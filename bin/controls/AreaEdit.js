@@ -140,7 +140,7 @@ define('package/quiqqer/areas/bin/controls/AreaEdit', [
 
                 new QUIButton({
                     text     : QUILocale.get(lg, 'control.AreaEdit.btn.delete'),
-                    textimage: 'icon-angle-right',
+                    textimage: 'fa fa-angle-right',
                     events   : {
                         click: this.$removeSelectedCountries
                     },
@@ -152,7 +152,7 @@ define('package/quiqqer/areas/bin/controls/AreaEdit', [
 
                 new QUIButton({
                     text     : QUILocale.get(lg, 'control.AreaEdit.btn.add'),
-                    textimage: 'icon-angle-left',
+                    textimage: 'fa fa-angle-left',
                     events   : {
                         click: this.$addSelectedCountries
                     }

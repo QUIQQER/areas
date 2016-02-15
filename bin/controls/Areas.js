@@ -73,7 +73,7 @@ define('package/quiqqer/areas/bin/controls/Areas', [
             this.addButton({
                 name     : 'add',
                 text     : QUILocale.get('quiqqer/system', 'add'),
-                textimage: 'icon-plus',
+                textimage: 'fa fa-plus',
                 events   : {
                     onClick: this.createChild
                 }
@@ -82,7 +82,7 @@ define('package/quiqqer/areas/bin/controls/Areas', [
             this.addButton({
                 name     : 'delete',
                 text     : QUILocale.get('quiqqer/system', 'delete'),
-                textimage: 'icon-trash',
+                textimage: 'fa fa-trash',
                 disabled : true,
                 events   : {
                     onClick: function () {
@@ -240,8 +240,8 @@ define('package/quiqqer/areas/bin/controls/Areas', [
                 text       : QUILocale.get(lg, 'window.create.text'),
                 information: QUILocale.get(lg, 'window.create.information') +
                              '<div class="container"></div>',
-                texticon   : 'icon-plus fa fa-plus',
-                icon       : 'icon-plus fa fa-plus',
+                texticon   : 'fa fa-plus',
+                icon       : 'fa fa-plus',
                 autoclose  : false,
                 maxHeight  : 300,
                 maxWidth   : 450,
@@ -307,8 +307,8 @@ define('package/quiqqer/areas/bin/controls/Areas', [
                 information: QUILocale.get(lg, 'window.delete.information', {
                     areaList: areaList
                 }),
-                icon       : 'icon-trash',
-                textimage  : 'icon-trash',
+                icon       : 'fa fa-trash',
+                textimage  : 'fa fa-trash',
                 maxHeight  : 300,
                 maxWidth   : 450,
                 events     : {
@@ -364,7 +364,7 @@ define('package/quiqqer/areas/bin/controls/Areas', [
 
                             Sheet.addButton({
                                 text     : QUILocale.get('quiqqer/system', 'save'),
-                                textimage: 'icon-save',
+                                textimage: 'fa fa-save',
                                 events   : {
                                     click: function () {
                                         self.Loader.show();

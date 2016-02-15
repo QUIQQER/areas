@@ -48,8 +48,8 @@ define('package/quiqqer/areas/bin/controls/Import', [
             this.setAttributes({
                 maxHeight: 460,
                 maxWidth : 690,
-                title    : 'Noch keine Zonen vorhanden',
-                icon     : 'icon-upload',
+                title    : 'Noch keine Zonen vorhanden', // #locale
+                icon     : 'fa fa-upload',
                 autoclose: false
             });
 

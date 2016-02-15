@@ -2,14 +2,14 @@
 <menu>
     <item parent="/extras/"
           name="erp"
-          icon="icon-sun"
+          icon="fa fa-sun-o"
     >
         <locale group="quiqqer/areas" var="menu.erp.title" />
     </item>
     <item parent="/extras/erp/"
           name="areas"
           require="package/quiqqer/areas/bin/controls/Areas"
-          icon="icon-globe"
+          icon="fa fa-globe"
     >
         <locale group="quiqqer/areas" var="menu.erp.areas.title" />
     </item>
