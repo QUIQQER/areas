@@ -79,5 +79,10 @@
             <en><![CDATA[After creating the area, you can assign countries to it.]]></en>
         </locale>
 
+        <locale name="control.select.placeholder">
+            <de><![CDATA[Suche nach einer Zone ...]]></de>
+            <en><![CDATA[Search for an area ...]]></en>
+        </locale>
+
     </groups>
 </locales>

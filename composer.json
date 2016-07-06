@@ -18,7 +18,8 @@
   "require": {
     "quiqqer/quiqqer": "*",
     "quiqqer/countries": "*",
-    "quiqqer/translator": "*"
+    "quiqqer/translator": "*",
+    "quiqqer/products": "*"
   },
   "autoload": {
     "psr-0": {

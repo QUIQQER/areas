@@ -6,7 +6,7 @@
 namespace QUI\ERP\Areas;
 
 use QUI;
-use QUI\Rights\Permission;
+use QUI\Permissions\Permission;
 
 /**
  * Class Handler
@@ -42,7 +42,7 @@ class Handler extends QUI\CRUD\Factory
 
             try {
                 QUI\Translator::addUserVar('quiqqer/areas', $newVar, array(
-                    $current => $title,
+                    $current   => $title,
                     'datatype' => 'php,js'
                 ));
             } catch (QUI\Exception $Exception) {
