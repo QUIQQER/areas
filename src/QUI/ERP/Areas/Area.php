@@ -6,7 +6,7 @@
 namespace QUI\ERP\Areas;
 
 use QUI;
-use QUI\Rights\Permission;
+use QUI\Permissions\Permission;
 
 /**
  * Class Handler
