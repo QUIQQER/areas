@@ -53,8 +53,12 @@ class Utils
      * @param Country $Country
      * @return bool|Area
      */
-    public static function getAreaByCountry(Country $Country)
+    public static function getAreaByCountry($Country)
     {
+        if (!QUI\Countries\Manager::isCountry($Country)) {
+            return false;
+        }
+
         $Areas = new Handler();
         $areas = $Areas->getChildren();
 
