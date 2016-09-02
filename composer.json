@@ -17,6 +17,7 @@
   },
   "require": {
     "quiqqer/quiqqer": "*",
+    "quiqqer/utils": ">=1.4",
     "quiqqer/countries": "*",
     "quiqqer/translator": "*",
     "quiqqer/products": "*"

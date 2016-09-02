@@ -96,7 +96,6 @@ class Area extends QUI\CRUD\Child
         if (!($Country instanceof QUI\Countries\Country)) {
             try {
                 $Country = QUI\Countries\Manager::get($Country);
-
             } catch (QUI\Exception $Exception) {
                 return false;
             }

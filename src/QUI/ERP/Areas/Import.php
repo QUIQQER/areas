@@ -6,7 +6,8 @@
 namespace QUI\ERP\Areas;
 
 use QUI;
-use QUI\Utils\XML;
+use QUI\Utils\DOM;
+use QUI\Utils\Text\XML;
 
 /**
  * Class Import
@@ -24,14 +25,14 @@ class Import
         $result   = array();
 
         foreach ($xmlFiles as $xmlFile) {
-            $Document = QUI\Utils\XML::getDomFromXml($dir . $xmlFile);
+            $Document = XML::getDomFromXml($dir . $xmlFile);
             $Path     = new \DOMXPath($Document);
             $title    = $Path->query("//quiqqer/title");
 
             if ($title->item(0)) {
                 $result[] = array(
-                    'file' => $xmlFile,
-                    'locale' => QUI\Utils\DOM::getTextFromNode($title->item(0), false)
+                    'file'   => $xmlFile,
+                    'locale' => DOM::getTextFromNode($title->item(0), false)
                 );
             }
         }
@@ -112,7 +113,6 @@ class Import
                     try {
                         $Country       = QUI\Countries\Manager::get($country);
                         $countryList[] = $Country->getCode();
-
                     } catch (QUI\Exception $Exception) {
                     }
                 }
@@ -130,7 +130,7 @@ class Import
 
             $Areas->createChild(array(
                 'countries' => implode(',', $countryList),
-                'title' => $localeValue
+                'title'     => $localeValue
             ));
         }
     }
