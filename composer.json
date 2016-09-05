@@ -17,14 +17,14 @@
   },
   "require": {
     "quiqqer/quiqqer": "*",
-    "quiqqer/utils": ">=1.4|dev-dev",
+    "quiqqer/utils": ">=1.4|dev-master|dev-dev",
     "quiqqer/countries": "*",
     "quiqqer/translator": "*",
     "quiqqer/products": "*"
   },
   "autoload": {
-    "psr-0": {
-      "QUI": "src/"
+    "psr-4": {
+      "QUI\\ERP\\Areas\\": "src/QUI/ERP/Areas/"
     }
   }
 }
