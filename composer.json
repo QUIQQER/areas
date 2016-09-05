@@ -24,7 +24,7 @@
   },
   "autoload": {
     "psr-4": {
-      "QUI\\ERP\\Areas\\": "src/QUI/ERP/Areas/"
+      "QUI\\ERP\\Areas\\": "src/QUI/ERP/Areas"
     }
   }
 }
