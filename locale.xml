@@ -2,6 +2,15 @@
 <locales>
     <groups name="quiqqer/areas" datatype="php,js">
 
+        <locale name="package.title">
+            <de><![CDATA[QUIQQER - Shop - Zonen]]></de>
+            <en><![CDATA[QUIQQER - Shop - Areas]]></en>
+        </locale>
+        <locale name="package.description">
+            <de><![CDATA[QUIQQER - Shop - Zonen]]></de>
+            <en><![CDATA[QUIQQER - Shop - Areas]]></en>
+        </locale>
+
         <locale name="menu.erp.title">
             <de><![CDATA[Shop]]></de>
             <en><![CDATA[Shop]]></en>
