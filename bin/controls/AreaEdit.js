@@ -107,8 +107,9 @@ define('package/quiqqer/areas/bin/controls/AreaEdit', [
                 IdField.value = areaId;
 
                 new Translation({
-                    'group': 'quiqqer/areas',
-                    'var'  : 'area.' + areaId + '.title'
+                    'group'  : 'quiqqer/areas',
+                    'var'    : 'area.' + areaId + '.title',
+                    'package': 'quiqqer/areas'
                 }).inject(this.$Text);
 
                 // countries

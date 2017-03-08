@@ -43,7 +43,8 @@ class Handler extends QUI\CRUD\Factory
             try {
                 QUI\Translator::addUserVar('quiqqer/areas', $newVar, array(
                     $current   => $title,
-                    'datatype' => 'php,js'
+                    'datatype' => 'php,js',
+                    'package'  => 'quiqqer/areas'
                 ));
             } catch (QUI\Exception $Exception) {
                 QUI::getMessagesHandler()->addAttention(
