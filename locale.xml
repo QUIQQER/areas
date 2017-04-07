@@ -11,6 +11,27 @@
             <en><![CDATA[QUIQQER - Shop - Areas]]></en>
         </locale>
 
+        <locale name="permission.quiqqer.areas._header">
+            <de><![CDATA[Shop - Zonen]]></de>
+            <en><![CDATA[Shop - Areas]]></en>
+        </locale>
+        <locale name="permission.quiqqer.areas.area._header">
+            <de><![CDATA[Zonen]]></de>
+            <en><![CDATA[Areas]]></en>
+        </locale>
+        <locale name="permission.quiqqer.areas.area.delete">
+            <de><![CDATA[Darf Zonen löschen]]></de>
+            <en><![CDATA[Is allowed to delete areas]]></en>
+        </locale>
+        <locale name="permission.quiqqer.areas.area.edit">
+            <de><![CDATA[Darf Zonen bearbeiten]]></de>
+            <en><![CDATA[Is allowed to edit areas]]></en>
+        </locale>
+        <locale name="permission.quiqqer.areas.area.create">
+            <de><![CDATA[Darf Zonen erstellen]]></de>
+            <en><![CDATA[Is allowed to create areas]]></en>
+        </locale>
+
         <locale name="menu.erp.title">
             <de><![CDATA[Shop]]></de>
             <en><![CDATA[Shop]]></en>
