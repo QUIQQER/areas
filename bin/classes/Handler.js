@@ -25,22 +25,25 @@ define('package/quiqqer/areas/bin/classes/Handler', [
         /**
          * Search areas
          *
+         * @param {String} [freeText] - Free text search value
          * @param {Object} [params] - query params
          * @returns {Promise}
          */
-        search: function (params) {
+        search: function (freeText, params) {
             params = params || {};
 
             return new Promise(function (resolve, reject) {
                 Ajax.get('package_quiqqer_areas_ajax_search', resolve, {
                     'package': 'quiqqer/areas',
                     onError  : reject,
+                    freeText : freeText,
                     params   : JSON.encode(params)
                 });
             });
         },
 
         /**
+         * Return an area
          *
          * @param {number} areaId
          * @returns {Promise}

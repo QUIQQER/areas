@@ -114,5 +114,17 @@
             <en><![CDATA[Search for an area ...]]></en>
         </locale>
 
+        <locale name="control.search.window.title">
+            <de><![CDATA[Suche nach einer Zone]]></de>
+            <en><![CDATA[Search for an area]]></en>
+        </locale>
+        <locale name="control.window.button.search">
+            <de><![CDATA[Zonen suchen]]></de>
+            <en><![CDATA[Search area]]></en>
+        </locale>
+        <locale name="control.window.button.back">
+            <de><![CDATA[Zur suchen]]></de>
+            <en><![CDATA[To the search]]></en>
+        </locale>
     </groups>
 </locales>

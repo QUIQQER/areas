@@ -3,6 +3,7 @@
 /**
  * This file contains QUI\ERP\Areas\Handler
  */
+
 namespace QUI\ERP\Areas;
 
 use QUI;
@@ -111,6 +112,62 @@ class Handler extends QUI\CRUD\Factory
                 $result[] = $code;
             }
         }
+
+        return $result;
+    }
+
+    /**
+     * Search some areas
+     *
+     * @param string $freeText
+     * @param array $queryParams
+     * @return array
+     */
+    public function search($freeText, $queryParams = array())
+    {
+        $areas  = $this->getChildren();
+        $result = array();
+
+        if (empty($freeText)) {
+            $result = $areas;
+        } else {
+            /* @var $Area Area */
+            foreach ($areas as $Area) {
+                if (mb_stripos($Area->getTitle(), $freeText) !== false) {
+                    $result[] = $Area;
+                    continue;
+                }
+
+                $countries = $Area->getCountries();
+
+                /* @var $Country QUI\Countries\Country */
+                foreach ($countries as $Country) {
+                    if (mb_stripos($Country->getName(), $freeText) !== false
+                        || mb_stripos($Country->getCode(), $freeText) !== false
+                        || mb_stripos($Country->getCodeToLower(), $freeText) !== false
+                        || mb_stripos($Country->getCurrencyCode(), $freeText) !== false
+                    ) {
+                        $result[] = $Area;
+                        continue 2;
+                    }
+                }
+            }
+        }
+
+        if (isset($queryParams['limit'])) {
+            $start = 0;
+
+            if (strpos($queryParams['limit'], ',') !== false) {
+                $explode = explode(',', $queryParams['limit']);
+                $start   = $explode[0];
+                $max     = $explode[1];
+            } else {
+                $max = (int)$queryParams['limit'];
+            }
+
+            $result = array_slice($result, $start, $max);
+        }
+
 
         return $result;
     }
