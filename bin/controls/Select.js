@@ -11,11 +11,14 @@ define('package/quiqqer/areas/bin/controls/Select', [
 
     'qui/QUI',
     'qui/controls/elements/Select',
+    'package/quiqqer/areas/bin/classes/Handler',
     'Ajax',
     'Locale'
 
-], function (QUI, QUIElementSelect, QUIAjax, QUILocale) {
+], function (QUI, QUIElementSelect, Handler, QUIAjax, QUILocale) {
     "use strict";
+
+    var Areas = new Handler();
 
     return new Class({
 
@@ -23,7 +26,8 @@ define('package/quiqqer/areas/bin/controls/Select', [
         Type   : 'package/quiqqer/areas/bin/controls/Select',
 
         Binds: [
-            'areaSearch'
+            'areaSearch',
+            '$onSearchButtonClick'
         ],
 
         initialize: function (options) {
@@ -32,12 +36,16 @@ define('package/quiqqer/areas/bin/controls/Select', [
             this.setAttribute('Search', this.areaSearch);
             this.setAttribute('icon', 'fa fa-globe');
             this.setAttribute('child', 'package/quiqqer/areas/bin/controls/SelectItem');
-            this.setAttribute('searchbutton', false);
+            this.setAttribute('searchbutton', true);
 
             this.setAttribute(
                 'placeholder',
                 QUILocale.get('quiqqer/areas', 'control.select.placeholder')
             );
+
+            this.addEvents({
+                onSearchButtonClick: this.$onSearchButtonClick
+            });
         },
 
         /**
@@ -47,18 +55,41 @@ define('package/quiqqer/areas/bin/controls/Select', [
          * @returns {Promise}
          */
         areaSearch: function (value) {
-            return new Promise(function (resolve) {
-                QUIAjax.get('package_quiqqer_areas_ajax_search', resolve, {
-                    'package': 'quiqqer/areas',
-                    params   : JSON.encode({
-                        where_or: {
-                            title    : value,
-                            countries: value
-                        },
-                        limit   : '0,10'
-                    })
-                });
+            return Areas.search(value, {
+                limit: '0,10'
             });
+        },
+
+        /**
+         * event : on search button click
+         *
+         * @param {Object} self - select object
+         * @param {Object} Btn - button object
+         */
+        $onSearchButtonClick: function (self, Btn) {
+            Btn.setAttribute('icon', 'fa fa-spinner fa-spin');
+
+            require([
+                'package/quiqqer/areas/bin/controls/search/Window'
+            ], function (Window) {
+                new Window({
+                    autoclose: true,
+                    multiple : this.getAttribute('multiple'),
+                    events   : {
+                        onSubmit: function (Win, data) {
+                            data = data.map(function (Entry) {
+                                return parseInt(Entry.id);
+                            });
+
+                            for (var i = 0, len = data.length; i < len; i++) {
+                                this.addItem(data[i]);
+                            }
+                        }.bind(this)
+                    }
+                }).open();
+
+                Btn.setAttribute('icon', 'fa fa-search');
+            }.bind(this));
         }
     });
 });

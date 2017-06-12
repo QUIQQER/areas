@@ -7,27 +7,27 @@
 /**
  * Returns area list
  *
+ * @param string $freeText - Freetext search, String to search
  * @param string $params - JSON query params
  *
  * @return array
  */
 QUI::$Ajax->registerFunction(
     'package_quiqqer_areas_ajax_search',
-    function ($params) {
+    function ($freeText, $params) {
         $Areas  = new QUI\ERP\Areas\Handler();
         $result = array();
         $Locale = QUI::getLocale();
 
-        $data = $Areas->getChildrenData(
-            json_decode($params, true)
-        );
+        $areas = $Areas->search($freeText, json_decode($params, true));
 
-        foreach ($data as $entry) {
+        /* @var $Area \QUI\ERP\Areas\Area */
+        foreach ($areas as $Area) {
             $result[] = array(
-                'id' => $entry['id'],
-                'countries' => $entry['countries'],
-                'title' => $Locale->getPartsOfLocaleString($entry['title']),
-                'text' => $Locale->parseLocaleString($entry['title'])
+                'id'        => $Area->getId(),
+                'countries' => $Area->getAttribute('countries'),
+                'title'     => $Area->getTitle($Locale),
+                'text'      => $Area->getTitle($Locale)
             );
         }
 
@@ -37,6 +37,6 @@ QUI::$Ajax->registerFunction(
 
         return $result;
     },
-    array('params'),
+    array('freeText', 'params'),
     'Permission::checkAdminUser'
 );

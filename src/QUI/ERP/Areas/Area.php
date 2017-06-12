@@ -3,6 +3,7 @@
 /**
  * This file contains QUI\ERP\Areas\Area
  */
+
 namespace QUI\ERP\Areas;
 
 use QUI;
@@ -47,11 +48,16 @@ class Area extends QUI\CRUD\Child
     }
 
     /**
+     * @param null|QUI\Locale $Locale - optional
      * @return array|string
      */
-    public function getTitle()
+    public function getTitle($Locale = null)
     {
-        return QUI::getLocale()->get(
+        if ($Locale === null) {
+            $Locale = QUI::getLocale();
+        }
+
+        return $Locale->get(
             'quiqqer/areas',
             'area.' . $this->getId() . '.title'
         );
