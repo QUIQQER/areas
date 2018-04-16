@@ -14,6 +14,6 @@ QUI::$Ajax->registerFunction(
     function () {
         return QUI\ERP\Areas\Import::getAvailableImports();
     },
-    array(),
+    [],
     'Permission::checkAdminUser'
 );

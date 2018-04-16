@@ -22,6 +22,6 @@ QUI::$Ajax->registerFunction(
         $Area->setAttributes($params);
         $Area->update();
     },
-    array('areaId', 'params'),
+    ['areaId', 'params'],
     'Permission::checkAdminUser'
 );

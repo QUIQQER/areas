@@ -3,8 +3,8 @@
     <global>
         <table name="areas">
             <field type="INT( 10 ) NOT NULL PRIMARY KEY">id</field>
-            <field type="text NULL">title</field>
             <field type="text NULL">countries</field>
+            <field type="text NULL">data</field>
 
             <auto_increment>id</auto_increment>
         </table>

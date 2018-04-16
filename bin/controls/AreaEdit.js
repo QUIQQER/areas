@@ -1,16 +1,8 @@
 /**
  * Area edit control
  *
+ * @module package/quiqqer/areas/bin/controls/AreaEdit
  * @author www.pcsg.de (Henning Leutz)
- *
- * @require qui/QUI
- * @require qui/controls/Control
- * @require qui/controls/buttons/Button
- * @require Locale
- * @require package/quiqqer/areas/bin/classes/Handler
- * @require package/quiqqer/translator/bin/controls/VariableTranslation
- * @require text!package/quiqqer/areas/bin/controls/AreasSettings.html
- * @require css!package/quiqqer/areas/bin/controls/Areas.css
  */
 define('package/quiqqer/areas/bin/controls/AreaEdit', [
 

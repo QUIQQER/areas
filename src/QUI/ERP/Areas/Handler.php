@@ -31,22 +31,14 @@ class Handler extends QUI\CRUD\Factory
         // create new translation var for the area
         $this->Events->addEvent('onCreateEnd', function ($NewArea) {
             /* @var $NewArea QUI\ERP\Areas\Area */
-            $newVar  = 'area.' . $NewArea->getId() . '.title';
-            $current = QUI::getLocale()->getCurrent();
+            $newVar = 'area.'.$NewArea->getId().'.title';
+            $locale = $this->getLocaleData($NewArea);
 
-            $title = $NewArea->getAttribute('title');
-
-            if (QUI::getLocale()->isLocaleString($title)) {
-                $parts = QUI::getLocale()->getPartsOfLocaleString($title);
-                $title = QUI::getLocale()->get($parts[0], $parts[1]);
-            }
+            $locale['datatype'] = 'php,js';
+            $locale['package']  = 'quiqqer/areas';
 
             try {
-                QUI\Translator::addUserVar('quiqqer/areas', $newVar, array(
-                    $current   => $title,
-                    'datatype' => 'php,js',
-                    'package'  => 'quiqqer/areas'
-                ));
+                QUI\Translator::addUserVar('quiqqer/areas', $newVar, $locale);
             } catch (QUI\Exception $Exception) {
                 QUI::getMessagesHandler()->addAttention(
                     $Exception->getMessage()
@@ -82,10 +74,10 @@ class Handler extends QUI\CRUD\Factory
      */
     public function getChildAttributes()
     {
-        return array(
-            'title',
-            'countries'
-        );
+        return [
+            'countries',
+            'data'
+        ];
     }
 
     /**
@@ -94,10 +86,10 @@ class Handler extends QUI\CRUD\Factory
      */
     public function getUnAssignedCountries()
     {
-        $result   = array();
+        $result   = [];
         $children = $this->getChildrenData();
 
-        $signedCountries    = array();
+        $signedCountries    = [];
         $availableCountries = QUI\Countries\Manager::getAllCountryCodes();
 
         foreach ($children as $entry) {
@@ -123,10 +115,10 @@ class Handler extends QUI\CRUD\Factory
      * @param array $queryParams
      * @return array
      */
-    public function search($freeText, $queryParams = array())
+    public function search($freeText, $queryParams = [])
     {
         $areas  = $this->getChildren();
-        $result = array();
+        $result = [];
 
         if (empty($freeText)) {
             $result = $areas;
@@ -168,6 +160,50 @@ class Handler extends QUI\CRUD\Factory
             $result = array_slice($result, $start, $max);
         }
 
+
+        return $result;
+    }
+
+    /**
+     * Return the translation vars for an area
+     *
+     * @param Area $NewArea
+     * @return array
+     */
+    public function getLocaleData(QUI\ERP\Areas\Area $NewArea)
+    {
+        try {
+            $availableLanguages = QUI\Translator::getAvailableLanguages();
+        } catch (QUI\Exception $Exception) {
+            QUI\System\Log::writeException($Exception);
+
+            return [];
+        }
+
+        $result = [];
+        $title  = '';
+
+        $data = $NewArea->getAttribute('data');
+        $data = json_decode($data, true);
+
+        if (isset($data['importLocale'])) {
+            $title = $data['importLocale'];
+        }
+
+        foreach ($availableLanguages as $language) {
+            $Locale = new QUI\Locale();
+            $Locale->setCurrent($language);
+
+            $currentTitle = $NewArea->getTitle($Locale);
+
+            if (!empty($currentTitle) && !QUI::getLocale()->isLocaleString($currentTitle)) {
+                continue;
+            }
+
+            $parts = QUI::getLocale()->getPartsOfLocaleString($title);
+
+            $result[$language] = QUI::getLocale()->getByLang($language, $parts[0], $parts[1]);
+        }
 
         return $result;
     }

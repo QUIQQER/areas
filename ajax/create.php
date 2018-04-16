@@ -16,8 +16,14 @@ QUI::$Ajax->registerFunction(
         $Areas  = new QUI\ERP\Areas\Handler();
         $Area   = $Areas->createChild($params);
 
+        try {
+            QUI\Translator::publish('quiqqer/areas');
+        } catch (QUI\Exception $Exception) {
+            QUI\System\Log::writeRecursive($Exception);
+        }
+
         return $Area->getId();
     },
-    array('params'),
+    ['params'],
     'Permission::checkAdminUser'
 );
