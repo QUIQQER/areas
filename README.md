@@ -32,8 +32,8 @@ Contribution
 Support
 -------
 
-Falls Sie ein Fehler gefunden haben, oder Verbesserungen wünschen,
-dann können Sie gerne an support@pcsg.de eine E-Mail schreiben.
+If you have found a bug, or want improvements,
+then you are welcome to send an e-mail to support@pcsg.de
 
 
 Licence
