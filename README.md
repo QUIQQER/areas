@@ -1,10 +1,14 @@
 QUIQQER Areas
 ========
 
-![](bin/images/Readme.jpg)
+![QUIQQER Areas](bin/images/Readme.jpg)
 
 The QUIQQER Areas module allows you to group countries into so-called areas. 
-Define different tax zones or shipping zones and determine different behaviors for your shop for different countries.
+Define different tax zones or shipping zones and determine different behaviors 
+for your shop for different countries.
+
+- In combination with the QUIQQER Tax module, different VAT zones can be set up.
+- In combination with the QUIQQER Discount module you can offer different discounts for different areas.
 
 Package name:
 
