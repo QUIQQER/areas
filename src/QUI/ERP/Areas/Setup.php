@@ -73,7 +73,7 @@ class Setup
             }
 
             try {
-                QUI\Translator::addUserVar($group, $var, $new);
+                QUI\Translator::update($group, $var, $group, $new);
             } catch (QUI\Exception $Exception) {
                 QUI\System\Log::writeException($Exception);
             }

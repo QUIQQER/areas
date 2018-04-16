@@ -21,8 +21,7 @@ define('package/quiqqer/areas/bin/controls/Areas', [
 ], function (QUI, QUIPanel, QUIButton, QUIConfirm, Grid, QUILocale, Handler, templateAdd) {
     "use strict";
 
-    var lg = 'quiqqer/areas';
-
+    var lg    = 'quiqqer/areas';
     var Areas = new Handler();
 
     return new Class({
@@ -46,7 +45,8 @@ define('package/quiqqer/areas/bin/controls/Areas', [
             this.$Grid = null;
 
             this.setAttributes({
-                'title': QUILocale.get(lg, 'menu.erp.areas.panel.title')
+                title: QUILocale.get(lg, 'menu.erp.areas.panel.title'),
+                icon : 'fa fa-globe'
             });
 
             this.addEvents({

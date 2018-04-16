@@ -1,25 +1,28 @@
 QUIQQER Areas
 ========
 
+The QUIQQER Areas module allows you to group countries into so-called areas. 
+Define different tax zones or shipping zones and determine different behaviors for your shop for different countries.
 
-
-Paketname:
+Package name:
 
     quiqqer/areas
 
 
-Features (Funktionen)
+Features
 --------
 
-- Zonen Verwaltung für ERP
+- Area Management for ERP
+- Import of areas for digital goods in the EU
+
 
 Installation
 ------------
 
-Der Paketname ist: quiqqer/areas
+The package name: quiqqer/areas
 
 
-Mitwirken
+Contribution
 ----------
 
 - Issue Tracker: https://dev.quiqqer.com/quiqqer/areas/issues
@@ -33,9 +36,7 @@ Falls Sie ein Fehler gefunden haben, oder Verbesserungen wünschen,
 dann können Sie gerne an support@pcsg.de eine E-Mail schreiben.
 
 
-Lizenz
+Licence
 -------
 
-
-Entwickler
---------
+GPL-3.0+
