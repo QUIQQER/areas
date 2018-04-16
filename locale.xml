@@ -72,7 +72,7 @@
         </locale>
         <locale name="control.AreaEdit.btn.add">
             <de><![CDATA[Markierte Länder übernehmen]]></de>
-            <en><![CDATA[Delete marked countries]]></en>
+            <en><![CDATA[Add marked countries]]></en>
         </locale>
 
         <locale name="window.delete.title">
@@ -107,6 +107,10 @@
         <locale name="window.create.information">
             <de><![CDATA[Nach dem Anlegen der Zone können Sie Länder der Zone zuweisen.]]></de>
             <en><![CDATA[After creating the area, you can assign countries to it.]]></en>
+        </locale>
+        <locale name="window.create.label">
+            <de><![CDATA[Name der neuen Zone]]></de>
+            <en><![CDATA[Name of the new area]]></en>
         </locale>
 
         <locale name="control.select.placeholder">

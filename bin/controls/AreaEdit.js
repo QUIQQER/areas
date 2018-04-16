@@ -10,17 +10,17 @@ define('package/quiqqer/areas/bin/controls/AreaEdit', [
     'qui/controls/Control',
     'qui/controls/buttons/Button',
     'Locale',
+    'Mustache',
     'package/quiqqer/areas/bin/classes/Handler',
-    'package/quiqqer/translator/bin/controls/VariableTranslation',
+    'package/quiqqer/translator/bin/controls/Update',
 
     'text!package/quiqqer/areas/bin/controls/AreasSettings.html',
     'css!package/quiqqer/areas/bin/controls/Areas.css'
 
-], function (QUI, QUIControl, QUIButton, QUILocale, Handler, Translation, templateAreasSettings) {
+], function (QUI, QUIControl, QUIButton, QUILocale, Mustache, Handler, Translation, templateAreasSettings) {
     "use strict";
 
-    var lg = 'quiqqer/areas';
-
+    var lg    = 'quiqqer/areas';
     var Areas = new Handler();
 
     return new Class({
@@ -58,7 +58,8 @@ define('package/quiqqer/areas/bin/controls/AreaEdit', [
          */
         create: function () {
             this.$Elm = this.parent();
-            this.$Elm.set('html', templateAreasSettings);
+            this.$Elm.set('html', Mustache.render(templateAreasSettings, {}));
+            this.$Elm.addClass('quiqqer-areas-edit');
 
             return this.$Elm;
         },
