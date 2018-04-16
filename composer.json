@@ -2,7 +2,7 @@
   "name": "quiqqer/areas",
   "type": "quiqqer-module",
   "description": "The QUIQQER Areas module allows you to group countries into so-called areas.",
-  "version": "dev-master",
+  "version": "1.1.0",
   "license": "GPL-3.0+",
   "authors": [
     {
