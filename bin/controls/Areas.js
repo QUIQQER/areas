@@ -13,12 +13,13 @@ define('package/quiqqer/areas/bin/controls/Areas', [
     'qui/controls/windows/Confirm',
     'controls/grid/Grid',
     'Locale',
+    'Mustache',
     'package/quiqqer/areas/bin/classes/Handler',
 
     'text!package/quiqqer/areas/bin/controls/AreasAdd.html',
     'css!package/quiqqer/areas/bin/controls/Areas.css'
 
-], function (QUI, QUIPanel, QUIButton, QUIConfirm, Grid, QUILocale, Handler, templateAdd) {
+], function (QUI, QUIPanel, QUIButton, QUIConfirm, Grid, QUILocale, Mustache, Handler, templateAdd) {
     "use strict";
 
     var lg    = 'quiqqer/areas';
@@ -229,12 +230,24 @@ define('package/quiqqer/areas/bin/controls/Areas', [
                 autoclose  : false,
                 maxHeight  : 300,
                 maxWidth   : 450,
-                events     : {
+
+                cancel_button: {
+                    text     : QUILocale.get('quiqqer/quiqqer', 'cancel'),
+                    textimage: 'fa fa-remove'
+                },
+                ok_button    : {
+                    text     : QUILocale.get('quiqqer/quiqqer', 'create'),
+                    textimage: 'fa fa-plus'
+                },
+
+                events: {
                     onOpen  : function (Win) {
                         var Container = Win.getContent().getElement('.container');
 
                         Container.set({
-                            html  : templateAdd,
+                            html  : Mustache.render(templateAdd, {
+                                label: QUILocale.get(lg, 'window.create.label')
+                            }),
                             styles: {
                                 paddingTop: 10
                             }

@@ -1,61 +1,50 @@
-<table class="data-table quiqqer-areas-setting-table">
+<table class="data-table data-table-flexbox">
     <thead>
     <tr>
-        <th colspan="2">
-            Daten
-        </th>
+        <th>Daten</th>
     </tr>
     </thead>
 
     <tbody>
-    <tr class="odd">
-        <td width="200">
-            <label for="areaId">
-                ID
+    <tr>
+        <td>
+            <label class="field-container">
+                <span class="field-container-item">ID</span>
+                <input class="field-container-field" type="text" id="areaId" name="areaId" disabled/>
             </label>
         </td>
-        <td>
-            <input type="text" id="areaId" name="areaId" disabled/>
-        </td>
     </tr>
-    <tr class="even">
+    <tr>
         <td>
-            Zonen-Titel
-        </td>
-        <td class="quiqqer-areas-setting-areaTitle">
+            <label class="field-container">
+                <span class="field-container-item">Zonen-Titel</span>
+                <input class="quiqqer-areas-setting-areaTitle field-container-field" type="hidden"/>
+            </label>
         </td>
     </tr>
     </tbody>
 </table>
 
-<table class="data-table quiqqer-areas-setting-table">
+<table class="data-table data-table-flexbox quiqqer-areas-edit-countries">
     <thead>
     <tr>
-        <th colspan="2">
-            Länderzuweisung
-        </th>
+        <th>Länderzuweisung</th>
     </tr>
     </thead>
 
     <tbody>
-    <tr class="odd">
-        <td width="50%">
-            <label for="areaCountries">
-                Länder in der Zonen
-            </label>
-        </td>
-        <td width="50%">
-            <label for="availableCountries">
-                Noch vorhandene Länder
-            </label>
-        </td>
-    </tr>
     <tr>
         <td>
-            <select name="areaCountries" id="areaCountries" multiple></select>
-        </td>
-        <td>
-            <select name="availableCountries" id="availableCountries" multiple></select>
+            <div class="field-container">
+                <label for="areaCountries">
+                    <span>Länder in der Zonen</span>
+                    <select name="areaCountries" id="areaCountries" multiple></select>
+                </label>
+                <label for="availableCountries">
+                    <span>Noch vorhandene Länder</span>
+                    <select name="availableCountries" id="availableCountries" multiple></select>
+                </label>
+            </div>
         </td>
     </tr>
     </tbody>

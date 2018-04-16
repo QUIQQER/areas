@@ -1,4 +1,19 @@
-.quiqqer-areas-setting-table select {
+
+.quiqqer-areas-edit-countries label {
+    display: flex;
+    flex: 1 50%;
+    flex-direction: column;
+    padding: 0 5px 0 0;
+}
+
+.quiqqer-areas-edit-countries label + label {
+    padding: 0 0 0 5px;
+}
+
+.quiqqer-areas-edit-countries label span {
+    line-height: 28px;
+}
+
+.quiqqer-areas-edit-countries select {
     height: 200px;
-    width: 100%;
 }

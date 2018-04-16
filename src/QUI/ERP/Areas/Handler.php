@@ -81,6 +81,7 @@ class Handler extends QUI\CRUD\Factory
     }
 
     /**
+     * Return the list of all unassigned countries
      *
      * @return array
      */
@@ -190,6 +191,10 @@ class Handler extends QUI\CRUD\Factory
             $title = $data['importLocale'];
         }
 
+        if (empty($title) && $NewArea->getAttribute('title')) {
+            $title = $NewArea->getAttribute('title');
+        }
+
         foreach ($availableLanguages as $language) {
             $Locale = new QUI\Locale();
             $Locale->setCurrent($language);
@@ -202,7 +207,14 @@ class Handler extends QUI\CRUD\Factory
 
             $parts = QUI::getLocale()->getPartsOfLocaleString($title);
 
-            $result[$language] = QUI::getLocale()->getByLang($language, $parts[0], $parts[1]);
+            if (count($parts) === 2) {
+                $result[$language] = QUI::getLocale()->getByLang($language, $parts[0], $parts[1]);
+
+                continue;
+            }
+
+            // getPartsOfLocaleString returns an array
+            $result[$language] = $title;
         }
 
         return $result;

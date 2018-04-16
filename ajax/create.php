@@ -16,6 +16,8 @@ QUI::$Ajax->registerFunction(
         $Areas  = new QUI\ERP\Areas\Handler();
         $Area   = $Areas->createChild($params);
 
+
+
         try {
             QUI\Translator::publish('quiqqer/areas');
         } catch (QUI\Exception $Exception) {
