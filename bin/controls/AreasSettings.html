@@ -1,7 +1,7 @@
 <table class="data-table data-table-flexbox">
     <thead>
     <tr>
-        <th>Daten</th>
+        <th>{{data}}</th>
     </tr>
     </thead>
 
@@ -9,7 +9,7 @@
     <tr>
         <td>
             <label class="field-container">
-                <span class="field-container-item">ID</span>
+                <span class="field-container-item">{{id}}</span>
                 <input class="field-container-field" type="text" id="areaId" name="areaId" disabled/>
             </label>
         </td>
@@ -17,7 +17,7 @@
     <tr>
         <td>
             <label class="field-container">
-                <span class="field-container-item">Zonen-Titel</span>
+                <span class="field-container-item">{{title}}</span>
                 <input class="quiqqer-areas-setting-areaTitle field-container-field" type="hidden"/>
             </label>
         </td>
@@ -28,7 +28,7 @@
 <table class="data-table data-table-flexbox quiqqer-areas-edit-countries">
     <thead>
     <tr>
-        <th>Länderzuweisung</th>
+        <th>{{countries}}</th>
     </tr>
     </thead>
 
@@ -37,11 +37,11 @@
         <td>
             <div class="field-container">
                 <label for="areaCountries">
-                    <span>Länder in der Zonen</span>
+                    <span>{{addTitle}}</span>
                     <select name="areaCountries" id="areaCountries" multiple></select>
                 </label>
                 <label for="availableCountries">
-                    <span>Noch vorhandene Länder</span>
+                    <span>{{countryList}}</span>
                     <select name="availableCountries" id="availableCountries" multiple></select>
                 </label>
             </div>

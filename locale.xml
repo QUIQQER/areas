@@ -7,8 +7,22 @@
             <en><![CDATA[QUIQQER - Shop - Areas]]></en>
         </locale>
         <locale name="package.description">
-            <de><![CDATA[QUIQQER - Shop - Zonen]]></de>
-            <en><![CDATA[QUIQQER - Shop - Areas]]></en>
+            <de><![CDATA[
+            Mit dem QUIQQER Zonen Module können Sie Länder zu sogenannten Gebieten zusammenfassen.
+            Definieren Sie unterschiedliche Steuerzonen oder Versandzonen und legen Sie unterschiedliche Verhaltensweisen
+            für Ihren Shop und für verschiedene Länder fest.
+
+            - In Kombination mit dem QUIQQER Tax Modul können verschiedene MwSt-Zonen eingerichtet werden.
+            - In Kombination mit dem QUIQQER Rabatt Modul können Sie verschiedene Rabatte für verschiedene Bereiche anbieten.
+            ]]></de>
+            <en><![CDATA[
+            The QUIQQER Areas module allows you to group countries into so-called areas.
+            Define different tax zones or shipping zones and determine different behaviors
+            for your shop for different countries.
+
+            - In combination with the QUIQQER Tax module, different VAT zones can be set up.
+            - In combination with the QUIQQER Discount module you can offer different discounts for different areas.
+            ]]></en>
         </locale>
 
         <locale name="permission.quiqqer.areas._header">
@@ -74,6 +88,32 @@
             <de><![CDATA[Markierte Länder übernehmen]]></de>
             <en><![CDATA[Add marked countries]]></en>
         </locale>
+
+        <locale name="window.edit.data">
+            <de><![CDATA[Daten]]></de>
+            <en><![CDATA[Data]]></en>
+        </locale>
+        <locale name="window.edit.id">
+            <de><![CDATA[ID]]></de>
+            <en><![CDATA[ID]]></en>
+        </locale>
+        <locale name="window.edit.title">
+            <de><![CDATA[Zonen-Titel]]></de>
+            <en><![CDATA[Area title]]></en>
+        </locale>
+        <locale name="window.edit.countries">
+            <de><![CDATA[Länderzuweisung]]></de>
+            <en><![CDATA[Country assignment]]></en>
+        </locale>
+        <locale name="window.edit.countries.add">
+            <de><![CDATA[Länder in der Zonen]]></de>
+            <en><![CDATA[Countries in the area]]></en>
+        </locale>
+        <locale name="window.edit.countries.list">
+            <de><![CDATA[Noch vorhandene Länder]]></de>
+            <en><![CDATA[Countries still existing]]></en>
+        </locale>
+
 
         <locale name="window.delete.title">
             <de><![CDATA[Markierte Zonen löschen]]></de>
