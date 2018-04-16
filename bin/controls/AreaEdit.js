@@ -43,8 +43,7 @@ define('package/quiqqer/areas/bin/controls/AreaEdit', [
 
             this.$SelectOwnCountries       = null;
             this.$SelectAvailableCountries = null;
-
-            this.$Text = null;
+            this.$Translation              = null;
 
             this.addEvents({
                 onInject: this.$onInject
@@ -74,7 +73,6 @@ define('package/quiqqer/areas/bin/controls/AreaEdit', [
                 Areas.getChild(areaId),
                 Areas.getUnAssignedCountries()
             ]).then(function (result) {
-
                 var data       = result[0],
                     unassigned = result[1],
                     Content    = this.getElm();
@@ -83,10 +81,6 @@ define('package/quiqqer/areas/bin/controls/AreaEdit', [
 
                 IdField = Content.getElement(
                     '[name="areaId"]'
-                );
-
-                this.$Text = Content.getElement(
-                    '.quiqqer-areas-setting-areaTitle'
                 );
 
                 this.$SelectOwnCountries = Content.getElement(
@@ -99,11 +93,6 @@ define('package/quiqqer/areas/bin/controls/AreaEdit', [
 
                 IdField.value = areaId;
 
-                new Translation({
-                    'group'  : 'quiqqer/areas',
-                    'var'    : 'area.' + areaId + '.title',
-                    'package': 'quiqqer/areas'
-                }).inject(this.$Text);
 
                 // countries
                 countries = [];
@@ -152,8 +141,24 @@ define('package/quiqqer/areas/bin/controls/AreaEdit', [
                     }
                 }).inject(this.$SelectAvailableCountries.getParent());
 
-                this.fireEvent('loaded');
 
+                // translation
+                var Text = Content.getElement(
+                    '.quiqqer-areas-setting-areaTitle'
+                );
+
+                Text.set({
+                    'data-qui': 'package/quiqqer/translator/bin/controls/Update',
+
+                    'data-qui-options-group'  : 'quiqqer/areas',
+                    'data-qui-options-var'    : 'area.' + areaId + '.title',
+                    'data-qui-options-package': 'quiqqer/areas'
+                });
+
+                QUI.parse(this.getElm()).then(function () {
+                    this.$Translation = QUI.Controls.getById(Text.get('data-quiid'));
+                    this.fireEvent('loaded');
+                }.bind(this));
             }.bind(this));
         },
 
@@ -185,14 +190,18 @@ define('package/quiqqer/areas/bin/controls/AreaEdit', [
          * @return {Promise}
          */
         save: function () {
-            var selected  = this.$SelectOwnCountries.getElements('option');
-            var countries = selected.map(function (Option) {
-                return Option.value;
-            });
+            var selected  = this.$SelectOwnCountries.getElements('option'),
+                countries = selected.map(function (Option) {
+                    return Option.value;
+                });
 
-            return Areas.save(this.getAttribute('areaId'), {
-                countries: countries.join(',')
-            });
+            return this.$Translation.save().then(function () {
+                return Areas.save(this.getAttribute('areaId'), {
+                    countries: countries.join(',')
+                });
+            }.bind(this)).then(function () {
+                this.fireEvent('save', [this]);
+            }.bind(this));
         }
     });
 });
