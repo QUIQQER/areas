@@ -1,15 +1,8 @@
 /**
  * Import window
  *
+ * @module package/quiqqer/areas/bin/controls/Import
  * @author www.pcsg.de (Henning Leutz)
- *
- * @require qui/QUI
- * @require qui/controls/windows/Confirm
- * @require qui/controls/buttons/Select
- * @require Locale
- * @require Ajax
- * @require controls/upload/Form
- * @require text!package/quiqqer/areas/bin/controls/Import.html
  *
  * @event onSuccess
  */
@@ -71,7 +64,6 @@ define('package/quiqqer/areas/bin/controls/Import', [
             var self = this;
 
             this.Loader.show();
-
             this.getContent().set('html', templateImport);
 
             var Content   = this.getContent(),
@@ -99,26 +91,23 @@ define('package/quiqqer/areas/bin/controls/Import', [
                 }
             }).inject(Available);
 
+            QUIAjax.get('package_quiqqer_areas_ajax_import_available', function (result) {
+                self.$Select.appendChild('&nbsp;', '');
 
-            QUIAjax.get(
-                'package_quiqqer_areas_ajax_import_available',
-                function (result) {
-                    self.$Select.appendChild('&nbsp;', '');
+                for (var i = 0, len = result.length; i < len; i++) {
+                    self.$Select.appendChild(
+                        QUILocale.get(
+                            result[i].locale[0],
+                            result[i].locale[1]
+                        ),
+                        result[i].file
+                    );
+                }
 
-                    for (var i = 0, len = result.length; i < len; i++) {
-                        self.$Select.appendChild(
-                            QUILocale.get(
-                                result[i].locale[0],
-                                result[i].locale[1]
-                            ),
-                            result[i].file
-                        );
-                    }
-
-                    self.Loader.hide();
-                }, {
-                    'package': 'quiqqer/areas'
-                });
+                self.Loader.hide();
+            }, {
+                'package': 'quiqqer/areas'
+            });
         },
 
         /**
@@ -131,7 +120,6 @@ define('package/quiqqer/areas/bin/controls/Import', [
                 selectValue = this.$Select.getValue();
 
             if (!selectValue || selectValue === '') {
-
                 this.$Upload.addEvent('onComplete', function () {
                     self.Loader.hide();
                     self.close();
@@ -143,10 +131,7 @@ define('package/quiqqer/areas/bin/controls/Import', [
             }
 
             QUIAjax.get('package_quiqqer_areas_ajax_import_preconfigure', function () {
-
-                require([
-                    'package/quiqqer/translator/bin/classes/Translator'
-                ], function (Translator) {
+                require(['package/quiqqer/translator/bin/classes/Translator'], function (Translator) {
                     new Translator().refreshLocale().then(function () {
                         self.close();
                         self.fireEvent('success');

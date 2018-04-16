@@ -3,6 +3,7 @@
 /**
  * This file contains QUI\ERP\Areas\Import
  */
+
 namespace QUI\ERP\Areas;
 
 use QUI;
@@ -20,20 +21,20 @@ class Import
      */
     public static function getAvailableImports()
     {
-        $dir      = OPT_DIR . 'quiqqer/areas/setup/';
+        $dir      = OPT_DIR.'quiqqer/areas/setup/';
         $xmlFiles = QUI\Utils\System\File::readDir($dir);
-        $result   = array();
+        $result   = [];
 
         foreach ($xmlFiles as $xmlFile) {
-            $Document = XML::getDomFromXml($dir . $xmlFile);
+            $Document = XML::getDomFromXml($dir.$xmlFile);
             $Path     = new \DOMXPath($Document);
             $title    = $Path->query("//quiqqer/title");
 
             if ($title->item(0)) {
-                $result[] = array(
+                $result[] = [
                     'file'   => $xmlFile,
                     'locale' => DOM::getTextFromNode($title->item(0), false)
-                );
+                ];
             }
         }
 
@@ -50,12 +51,12 @@ class Import
     {
         if (self::existPreconfigure($fileName) === false) {
             throw new QUI\Exception(
-                array('quiqqer/areas', 'exception.preconfigure.file.not.found'),
+                ['quiqqer/areas', 'exception.preconfigure.file.not.found'],
                 404
             );
         }
 
-        self::import(OPT_DIR . 'quiqqer/areas/setup/' . $fileName);
+        self::import(OPT_DIR.'quiqqer/areas/setup/'.$fileName);
     }
 
     /**
@@ -103,7 +104,7 @@ class Import
             $Title  = $title->item(0);
             $locale = $Title->getElementsByTagName('locale');
 
-            $countryList = array();
+            $countryList = [];
 
             if ($countries->item(0)) {
                 $countries = trim($countries->item(0)->nodeValue);
@@ -127,11 +128,16 @@ class Import
                 $localeValue = trim($Title->nodeValue);
             }
 
-
-            $Areas->createChild(array(
+            $Areas->createChild([
                 'countries' => implode(',', $countryList),
-                'title'     => $localeValue
-            ));
+                'data'      => json_encode(['importLocale' => $localeValue])
+            ]);
+        }
+
+        try {
+            QUI\Translator::publish('quiqqer/areas');
+        } catch (QUI\Exception $Exception) {
+            QUI\System\Log::writeRecursive($Exception);
         }
     }
 }

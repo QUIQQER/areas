@@ -15,30 +15,36 @@ QUI::$Ajax->registerFunction(
     'package_quiqqer_areas_ajax_list',
     function ($params) {
         $Areas  = new QUI\ERP\Areas\Handler();
-        $result = array();
+        $result = [];
         $Locale = QUI::getLocale();
 
-        $Grid = new \QUI\Utils\Grid();
-
+        $Grid = new QUI\Utils\Grid();
         $data = $Areas->getChildrenData(
             $Grid->parseDBParams(json_decode($params, true))
         );
 
         foreach ($data as $entry) {
-            $result[] = array(
-                'id' => $entry['id'],
-                'countries' => $entry['countries'],
-                'title' => $Locale->getPartsOfLocaleString($entry['title']),
-                'text' => $Locale->parseLocaleString($entry['title'])
-            );
+            try {
+                /* @var $Area QUI\ERP\Areas\Area */
+                $Area = $Areas->getChild($entry['id']);
+            } catch (QUI\Exception $Exception) {
+                QUI\System\Log::writeException($Exception);
+                continue;
+            }
+
+            $result[] = [
+                'id'        => $Area->getId(),
+                'countries' => $Area->getAttribute('countries'),
+                'title'     => $Area->getTitle($Locale)
+            ];
         }
 
         usort($result, function ($a, $b) {
-            return $a['text'] > $b['text'];
+            return $a['title'] > $b['title'];
         });
 
         return $Grid->parseResult($result, $Areas->countChildren());
     },
-    array('params'),
+    ['params'],
     'Permission::checkAdminUser'
 );

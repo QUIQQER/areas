@@ -18,6 +18,6 @@ QUI::$Ajax->registerFunction(
         $Area  = $Areas->getChild($areaId);
         $Area->delete();
     },
-    array('areaId'),
+    ['areaId'],
     'Permission::checkAdminUser'
 );

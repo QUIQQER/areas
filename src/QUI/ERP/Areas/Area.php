@@ -38,7 +38,7 @@ class Area extends QUI\CRUD\Child
         $this->Events->addEvent('onDeleteEnd', function () {
             QUI\Translator::delete(
                 'quiqqer/areas',
-                'area.' . $this->getId() . '.title'
+                'area.'.$this->getId().'.title'
             );
         });
 
@@ -59,7 +59,7 @@ class Area extends QUI\CRUD\Child
 
         return $Locale->get(
             'quiqqer/areas',
-            'area.' . $this->getId() . '.title'
+            'area.'.$this->getId().'.title'
         );
     }
 
@@ -74,7 +74,7 @@ class Area extends QUI\CRUD\Child
             return $this->countries;
         }
 
-        $result    = array();
+        $result    = [];
         $countries = $this->getAttribute('countries');
         $countries = explode(',', $countries);
 

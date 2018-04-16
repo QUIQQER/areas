@@ -16,19 +16,19 @@ QUI::$Ajax->registerFunction(
     'package_quiqqer_areas_ajax_search',
     function ($freeText, $params) {
         $Areas  = new QUI\ERP\Areas\Handler();
-        $result = array();
+        $result = [];
         $Locale = QUI::getLocale();
 
         $areas = $Areas->search($freeText, json_decode($params, true));
 
         /* @var $Area \QUI\ERP\Areas\Area */
         foreach ($areas as $Area) {
-            $result[] = array(
+            $result[] = [
                 'id'        => $Area->getId(),
                 'countries' => $Area->getAttribute('countries'),
                 'title'     => $Area->getTitle($Locale),
                 'text'      => $Area->getTitle($Locale)
-            );
+            ];
         }
 
         usort($result, function ($a, $b) {
@@ -37,6 +37,6 @@ QUI::$Ajax->registerFunction(
 
         return $result;
     },
-    array('freeText', 'params'),
+    ['freeText', 'params'],
     'Permission::checkAdminUser'
 );

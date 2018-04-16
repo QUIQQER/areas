@@ -1,11 +1,6 @@
 /**
  * @module package/quiqqer/areas/bin/controls/Areas
  * @author www.pcsg.de (Henning Leutz)
- *
- * @require qui/QUI
- * @require qui/controls/elements/Select
- * @require Ajax
- * @require Locale
  */
 define('package/quiqqer/areas/bin/controls/Select', [
 
@@ -69,9 +64,7 @@ define('package/quiqqer/areas/bin/controls/Select', [
         $onSearchButtonClick: function (self, Btn) {
             Btn.setAttribute('icon', 'fa fa-spinner fa-spin');
 
-            require([
-                'package/quiqqer/areas/bin/controls/search/Window'
-            ], function (Window) {
+            require(['package/quiqqer/areas/bin/controls/search/Window'], function (Window) {
                 new Window({
                     autoclose: true,
                     multiple : this.getAttribute('multiple'),

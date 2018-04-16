@@ -18,6 +18,6 @@ QUI::$Ajax->registerFunction(
 
         return $Handler->getUnAssignedCountries();
     },
-    array(),
+    [],
     'Permission::checkAdminUser'
 );

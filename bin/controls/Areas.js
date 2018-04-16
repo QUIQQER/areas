@@ -2,17 +2,8 @@
  * Area handler
  * Create and edit areas
  *
+ * @module package/quiqqer/areas/bin/controls/Areas
  * @author www.pcsg.de (Henning Leutz)
- *
- * @require qui/QUI
- * @require qui/controls/desktop/Panel
- * @require qui/controls/buttons/Button
- * @require qui/controls/windows/Confirm
- * @require controls/grid/Grid
- * @require Locale
- * @require package/quiqqer/areas/bin/classes/Handler
- * @require text!package/quiqqer/areas/bin/controls/AreasAdd.html
- * @require css!package/quiqqer/areas/bin/controls/Areas.css
  */
 define('package/quiqqer/areas/bin/controls/Areas', [
 
@@ -68,7 +59,6 @@ define('package/quiqqer/areas/bin/controls/Areas', [
          * event : on create
          */
         $onCreate: function () {
-
             // buttons
             this.addButton({
                 name     : 'add',
@@ -86,7 +76,6 @@ define('package/quiqqer/areas/bin/controls/Areas', [
                 disabled : true,
                 events   : {
                     onClick: function () {
-
                         var selected = this.$Grid.getSelectedData();
 
                         var ids = selected.map(function (data) {
@@ -174,7 +163,6 @@ define('package/quiqqer/areas/bin/controls/Areas', [
          * @param {Boolean} [importCheck] - import check if no data exists, default = true
          */
         refresh: function (importCheck) {
-
             var self = this;
 
             importCheck = importCheck || true;
@@ -186,11 +174,8 @@ define('package/quiqqer/areas/bin/controls/Areas', [
                 perPage: this.$Grid.options.perPage,
                 page   : this.$Grid.options.page
             }).then(function (data) {
-
                 if (!data.total && importCheck) {
-                    require([
-                        'package/quiqqer/areas/bin/controls/Import'
-                    ], function (AreaImport) {
+                    require(['package/quiqqer/areas/bin/controls/Import'], function (AreaImport) {
                         new AreaImport({
                             events: {
                                 onClose  : function () {
@@ -238,8 +223,7 @@ define('package/quiqqer/areas/bin/controls/Areas', [
             new QUIConfirm({
                 title      : QUILocale.get(lg, 'window.create.title'),
                 text       : QUILocale.get(lg, 'window.create.text'),
-                information: QUILocale.get(lg, 'window.create.information') +
-                             '<div class="container"></div>',
+                information: QUILocale.get(lg, 'window.create.information') + '<div class="container"></div>',
                 texticon   : 'fa fa-plus',
                 icon       : 'fa fa-plus',
                 autoclose  : false,
@@ -265,7 +249,7 @@ define('package/quiqqer/areas/bin/controls/Areas', [
                         });
 
                         Input.addEvent('keyup', function (event) {
-                            if (event.key == 'enter') {
+                            if (event.key === 'enter') {
                                 Win.submit();
                             }
                         });
@@ -342,17 +326,13 @@ define('package/quiqqer/areas/bin/controls/Areas', [
             this.createSheet({
                 events: {
                     onShow: function (Sheet) {
-
                         Sheet.getContent().set({
                             styles: {
                                 padding: 20
                             }
                         });
 
-                        require([
-                            'package/quiqqer/areas/bin/controls/AreaEdit'
-                        ], function (AreaEdit) {
-
+                        require(['package/quiqqer/areas/bin/controls/AreaEdit'], function (AreaEdit) {
                             var Area = new AreaEdit({
                                 areaId: areaId,
                                 events: {
@@ -376,7 +356,6 @@ define('package/quiqqer/areas/bin/controls/Areas', [
                                 }
                             });
                         });
-
                     }
                 }
             }).show();

@@ -3,6 +3,7 @@
 /**
  * This files contains QUI\ERP\Areas\Utils
  */
+
 namespace QUI\ERP\Areas;
 
 use QUI;

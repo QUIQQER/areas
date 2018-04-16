@@ -14,8 +14,14 @@
 QUI::$Ajax->registerFunction(
     'package_quiqqer_areas_ajax_import_preconfigure',
     function ($importName) {
-        \QUI\ERP\Areas\Import::importPreconfigureAreas($importName);
+        QUI\ERP\Areas\Import::importPreconfigureAreas($importName);
+
+        try {
+            QUI\Translator::publish('quiqqer/areas');
+        } catch (QUI\Exception $Exception) {
+            QUI\System\Log::writeRecursive($Exception);
+        }
     },
-    array('importName'),
+    ['importName'],
     'Permission::checkAdminUser'
 );
