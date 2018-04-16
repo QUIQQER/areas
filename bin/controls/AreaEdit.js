@@ -57,8 +57,15 @@ define('package/quiqqer/areas/bin/controls/AreaEdit', [
          */
         create: function () {
             this.$Elm = this.parent();
-            this.$Elm.set('html', Mustache.render(templateAreasSettings, {}));
             this.$Elm.addClass('quiqqer-areas-edit');
+            this.$Elm.set('html', Mustache.render(templateAreasSettings, {
+                data       : QUILocale.get(lg, 'window.edit.data'),
+                id         : QUILocale.get(lg, 'window.edit.id'),
+                title      : QUILocale.get(lg, 'window.edit.title'),
+                countries  : QUILocale.get(lg, 'window.edit.countries'),
+                addTitle   : QUILocale.get(lg, 'window.edit.countries.add'),
+                countryList: QUILocale.get(lg, 'window.edit.countries.list')
+            }));
 
             return this.$Elm;
         },
