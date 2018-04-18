@@ -19,11 +19,8 @@ class Setup
      */
     public static function onPackageSetup(QUI\Package\Package $Package)
     {
+        // cleanup table
         $table = QUI::getDBTableName('areas');
-
-        if (QUI::getDataBase()->table()->existColumnInTable($table, 'ocp')) {
-            QUI::getDataBase()->table()->deleteColumn($table, 'ocp');
-        }
 
         if (QUI::getDataBase()->table()->existColumnInTable($table, 'title')) {
             QUI::getDataBase()->table()->deleteColumn($table, 'title');
