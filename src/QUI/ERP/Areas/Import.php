@@ -128,10 +128,14 @@ class Import
                 $localeValue = trim($Title->nodeValue);
             }
 
-            $Areas->createChild([
-                'countries' => implode(',', $countryList),
-                'data'      => json_encode(['importLocale' => $localeValue])
-            ]);
+            try {
+                $Areas->createChild([
+                    'countries' => implode(',', $countryList),
+                    'data'      => json_encode(['importLocale' => $localeValue])
+                ]);
+            } catch (QUI\Exception $Exception) {
+                QUI\System\Log::writeException($Exception);
+            }
         }
 
         try {
