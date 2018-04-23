@@ -3,11 +3,6 @@
  * @module package/quiqqer/areas/bin/controls/search/Search
  * @author www.pcsg.de (Henning Leutz)
  *
- * @require qui/QUI
- * @require qui/controls/Control
- * @require qui/controls/buttons/Button
- * @require package/quiqqer/areas/bin/classes/Handler
- *
  * @event onLoaded
  * @event onDblClick [self]
  */
@@ -33,7 +28,8 @@ define('package/quiqqer/areas/bin/controls/search/Result', [
         ],
 
         options: {
-            multipleSelection: true
+            multipleSelection: true,
+            filterInput      : false
         },
 
         initialize: function (options) {
@@ -64,6 +60,7 @@ define('package/quiqqer/areas/bin/controls/search/Result', [
             var Container = new Element('div').inject(Elm);
 
             this.$Grid = new Grid(Container, {
+                filterInput      : this.getAttribute('filterInput'),
                 multipleSelection: this.getAttribute('multipleSelection'),
                 columnModel      : [{
                     header   : QUILocale.get('quiqqer/system', 'id'),
