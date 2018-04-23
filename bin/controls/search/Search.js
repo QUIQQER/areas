@@ -3,11 +3,6 @@
  * @module package/quiqqer/areas/bin/controls/search/Search
  * @author www.pcsg.de (Henning Leutz)
  *
- * @require qui/QUI
- * @require qui/controls/Control
- * @require qui/controls/buttons/Button
- * @require package/quiqqer/areas/bin/classes/Handler
- *
  * @event onLoaded
  * @event onSearch [self, result]
  * @event searchBegin [self]
@@ -80,6 +75,11 @@ define('package/quiqqer/areas/bin/controls/search/Search', [
                     icon  : 'fa fa-search',
                     styles: {
                         width: 60
+                    },
+                    events: {
+                        onClick: function () {
+                            self.search();
+                        }
                     }
                 }).inject(Elm);
 
