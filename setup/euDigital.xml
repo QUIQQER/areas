@@ -78,13 +78,6 @@
 
         <area>
             <title>
-                <locale group="quiqqer/countries" var="country.IE"/>
-            </title>
-            <countries>IE</countries>
-        </area>
-
-        <area>
-            <title>
                 <locale group="quiqqer/countries" var="country.NL"/>
             </title>
             <countries>NL</countries>
@@ -172,6 +165,41 @@
                 <locale group="quiqqer/countries" var="country.RO"/>
             </title>
             <countries>RO</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.CY"/>
+            </title>
+            <countries>CY</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.HU"/>
+            </title>
+            <countries>HU</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.IE"/>
+            </title>
+            <countries>IE</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.SI"/>
+            </title>
+            <countries>SI</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.SK"/>
+            </title>
+            <countries>SK</countries>
         </area>
 
         <area>
