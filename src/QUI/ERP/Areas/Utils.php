@@ -31,7 +31,7 @@ class Utils
         $Country = $User->getCountry();
 
         foreach ($areas as $Area) {
-            if (!is_object($Area) || get_class($Area) != Area::class) {
+            if (!\is_object($Area) || \get_class($Area) != Area::class) {
                 try {
                     $Area = $Areas->getChild($Area);
                 } catch (QUI\Exception $Exception) {
