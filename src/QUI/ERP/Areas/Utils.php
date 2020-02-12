@@ -49,6 +49,46 @@ class Utils
     }
 
     /**
+     * Checks if the address in the area list
+     *
+     * @param QUI\ERP\Address|QUI\Users\Address $Address
+     * @param array $areas
+     * @return bool
+     */
+    public static function isAddressInArea($Address, array $areas)
+    {
+        if (!($Address instanceof QUI\ERP\Address)
+            && !($Address instanceof QUI\Users\Address)) {
+            return false;
+        }
+
+        $Areas = new Handler();
+
+        try {
+            $Country = $Address->getCountry();
+        } catch (\Exception $Exception) {
+            return false;
+        }
+
+        foreach ($areas as $Area) {
+            if (!\is_object($Area) || \get_class($Area) != Area::class) {
+                try {
+                    $Area = $Areas->getChild($Area);
+                } catch (QUI\Exception $Exception) {
+                    continue;
+                }
+            }
+
+            /* @var $Area Area */
+            if ($Area->contains($Country)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
      * Return the area where the country is in
      *
      * @param Country $Country
@@ -61,7 +101,12 @@ class Utils
         }
 
         $Areas = new Handler();
-        $areas = $Areas->getChildren();
+
+        try {
+            $areas = $Areas->getChildren();
+        } catch (QUI\Exception $Exception) {
+            return false;
+        }
 
         /* @var $Area Area */
         foreach ($areas as $Area) {
