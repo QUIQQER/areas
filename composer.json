@@ -1,5 +1,5 @@
 {
-    "name": "quiqqer/areas",
+    "name": "quiqqer\/areas",
     "type": "quiqqer-module",
     "description": "The QUIQQER Areas module allows you to group countries into so-called areas.",
     "license": "GPL-3.0+",
