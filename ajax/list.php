@@ -40,7 +40,7 @@ QUI::$Ajax->registerFunction(
         }
 
         usort($result, function ($a, $b) {
-            return $a['title'] > $b['title'];
+            return \strnatcmp($a['title'], $b['title']);
         });
 
         return $Grid->parseResult($result, $Areas->countChildren());
