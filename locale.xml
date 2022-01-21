@@ -69,12 +69,71 @@
             <en><![CDATA[Areas]]></en>
         </locale>
         <locale name="area.import.euDigital">
-            <de><![CDATA[Zonen für digitale Güter in der EU]]></de>
-            <en><![CDATA[Areas for digital goods in the EU]]></en>
+            <de><![CDATA[Zonen für digitale Güter in der EU (deprecated)]]></de>
+            <en><![CDATA[Areas for digital goods in the EU (deprecated)]]></en>
         </locale>
         <locale name="import.text.world">
             <de><![CDATA[Andere Länder]]></de>
             <en><![CDATA[Other countries]]></en>
+        </locale>
+
+        <locale name="area.import.DigitalGoodsFromEuropaToEuropa">
+            <de><![CDATA[
+            Digitale Güter von Europa nach Europa (zb von Deutschland nach Deutschland + Österreich)
+            ]]></de>
+            <en><![CDATA[
+            Digital goods from Europe to Europe (e.g. from Germany to Germany + Austria)
+            ]]></en>
+        </locale>
+        <locale name="area.import.DigitalGoodsFromEuropeToTheWorld">
+            <de><![CDATA[
+            Digitale Güter von Europa in die Welt (zb von Deutschland nach Österreich + Schweiz)
+            ]]></de>
+            <en><![CDATA[
+            Digital goods from Europe to the world (e.g. from Germany to Austria + Switzerland)
+            ]]></en>
+        </locale>
+        <locale name="area.import.DigitalGoodsInOneCountry">
+            <de><![CDATA[Digitale Güter in einem Land (zb von Deutschland nach Deutschland)]]></de>
+            <en><![CDATA[Digital goods in one country (eg from Germany to Germany)]]></en>
+        </locale>
+
+        <locale name="area.import.PhysicalDigitalGoodsFromEuropaToEuropa">
+            <de>
+                <![CDATA[Physische + Digitale Güter von Europa nach Europa (zb von Deutschland nach Deutschland + Österreich)]]></de>
+            <en><![CDATA[Physical + Digital Goods from Europe to Europe (e.g. from Germany to Germany + Austria)]]></en>
+        </locale>
+        <locale name="area.import.PhysicalDigitalGoodsFromEuropeToTheWorld">
+            <de><![CDATA[
+            Physische + Digitale Güter von Europa in die Welt (zb von Deutschland nach Österreich + Schweiz)
+            ]]></de>
+            <en><![CDATA[
+            Physical + digital goods from Europe to the world (e.g. from Germany to Austria + Switzerland)
+            ]]></en>
+        </locale>
+        <locale name="area.import.PhysicalDigitalGoodsInOneCountry">
+            <de><![CDATA[Physische + Digitale Güter in einem Land (zb von Deutschland nach Deutschland)]]></de>
+            <en><![CDATA[Physical + digital goods in one country (e.g. from Germany to Germany)]]></en>
+        </locale>
+        <locale name="area.import.PhysicalGoodsFromEuropaToEuropa">
+            <de><![CDATA[
+            Physische Güter von Europa nach Europa (zb von Deutschland nach Deutschland + Österreich)
+            ]]></de>
+            <en><![CDATA[
+            Physical goods from Europe to Europe (e.g. from Germany to Germany + Austria)
+            ]]></en>
+        </locale>
+        <locale name="area.import.PhysicalGoodsFromEuropeToTheWorld">
+            <de><![CDATA[Physische Güter von Europa in die Welt (zb von Deutschland nach Österreich + Schweiz)]]></de>
+            <en><![CDATA[Physical goods from Europe to the world (e.g. from Germany to Austria + Switzerland)]]></en>
+        </locale>
+        <locale name="area.import.PhysicalGoodsInOneCountry">
+            <de><![CDATA[Physische Güter in einem Land (zb von Deutschland nach Deutschland)]]></de>
+            <en><![CDATA[Physical goods in a country (e.g. from Germany to Germany]]></en>
+        </locale>
+        <locale name="area.import.manual">
+            <de><![CDATA[Manuelle Konfiguration (zb innerhalb USA)]]></de>
+            <en><![CDATA[Manual configuration (e.g. within USA)]]></en>
         </locale>
 
     </groups>

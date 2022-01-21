@@ -1,0 +1,11 @@
+<quiqqer>
+    <!--
+        Zonen für Physische Güter von Europa in die Welt
+    -->
+    <title>
+        <locale group="quiqqer/areas" var="area.import.PhysicalGoodsFromEuropeToTheWorld"/>
+    </title>
+    <areas>
+
+    </areas>
+</quiqqer>

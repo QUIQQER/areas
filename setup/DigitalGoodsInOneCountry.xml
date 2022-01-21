@@ -1,0 +1,11 @@
+<quiqqer>
+    <!--
+        Zonen für Physische Güter in einem Land
+    -->
+    <title>
+        <locale group="quiqqer/areas" var="area.import.DigitalGoodsInOneCountry"/>
+    </title>
+    <areas>
+
+    </areas>
+</quiqqer>
