@@ -79,10 +79,10 @@
 
         <locale name="area.import.DigitalGoodsFromEuropaToEuropa">
             <de><![CDATA[
-            Digitale Güter von Europa nach Europa (zb von Deutschland nach Deutschland + Österreich)
+            Digitale Güter von Europa nach Europa (One-Stop-Shop - zb von Deutschland nach Deutschland + Österreich)
             ]]></de>
             <en><![CDATA[
-            Digital goods from Europe to Europe (e.g. from Germany to Germany + Austria)
+            Digital goods from Europe to Europe (One-Stop-Shop - zb von Deutschland nach Deutschland + Österreich)
             ]]></en>
         </locale>
         <locale name="area.import.DigitalGoodsFromEuropeToTheWorld">
@@ -94,14 +94,17 @@
             ]]></en>
         </locale>
         <locale name="area.import.DigitalGoodsInOneCountry">
-            <de><![CDATA[Digitale Güter in einem Land (zb von Deutschland nach Deutschland)]]></de>
-            <en><![CDATA[Digital goods in one country (eg from Germany to Germany)]]></en>
+            <de><![CDATA[Digitale Güter in einem EU-Land (zb von Deutschland nach Deutschland)]]></de>
+            <en><![CDATA[Digital goods in one european country (eg from Germany to Germany)]]></en>
         </locale>
 
         <locale name="area.import.PhysicalDigitalGoodsFromEuropaToEuropa">
-            <de>
-                <![CDATA[Physische + Digitale Güter von Europa nach Europa (zb von Deutschland nach Deutschland + Österreich)]]></de>
-            <en><![CDATA[Physical + Digital Goods from Europe to Europe (e.g. from Germany to Germany + Austria)]]></en>
+            <de><![CDATA[
+            Physische + Digitale Güter von Europa nach Europa (One-Stop-Shop - zb von Deutschland nach Deutschland + Österreich)
+            ]]></de>
+            <en><![CDATA[
+            Physical + Digital Goods from Europe to Europe (One-Stop-Shop - zb von Deutschland nach Deutschland + Österreich)
+            ]]></en>
         </locale>
         <locale name="area.import.PhysicalDigitalGoodsFromEuropeToTheWorld">
             <de><![CDATA[
@@ -117,10 +120,10 @@
         </locale>
         <locale name="area.import.PhysicalGoodsFromEuropaToEuropa">
             <de><![CDATA[
-            Physische Güter von Europa nach Europa (zb von Deutschland nach Deutschland + Österreich)
+            Physische Güter von Europa nach Europa (One-Stop-Shop - zb von Deutschland nach Deutschland + Österreich)
             ]]></de>
             <en><![CDATA[
-            Physical goods from Europe to Europe (e.g. from Germany to Germany + Austria)
+            Physical goods from Europe to Europe (One-Stop-Shop - zb von Deutschland nach Deutschland + Österreich)
             ]]></en>
         </locale>
         <locale name="area.import.PhysicalGoodsFromEuropeToTheWorld">

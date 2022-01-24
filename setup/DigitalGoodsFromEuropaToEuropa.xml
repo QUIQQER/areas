@@ -7,5 +7,9 @@
     </title>
     <areas>
 
+        <!-- alle areas importieren -> eu digital NUR EU ZONEN -->
+        <!-- TAX: alle TAX aktivieren -->
+        <!-- Tax import -> is euvat=0 von Land was ausgewählt ist, alle anderen EU länder auf 1 -->
+
     </areas>
 </quiqqer>

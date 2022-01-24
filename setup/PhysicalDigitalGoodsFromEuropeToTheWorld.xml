@@ -7,5 +7,19 @@
     </title>
     <areas>
 
+        <!-- alle areas importieren -->
+        <!-- TAX: alle TAX aktivieren -->
+
+        <!-- https://www.dhl.de/content/dam/dhlde/downloads/pdf/dhl-paket-zonenuebersicht-international.pdf -->
+        <!--
+
+        - Alle EU zonen importieren (nicht aus DHL, von euDigital)
+        - Schweiz einzeln
+        - Dann, alle übrigen und europäischen Länder
+        - USA
+        - Naher Osten
+        - Rest der Welt
+
+        -->
     </areas>
 </quiqqer>
