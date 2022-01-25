@@ -9,6 +9,12 @@
     <areas>
 
         <!-- nur ausgewähltes land anlegen + steuer 0 -->
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.{$currentCountry}"/>
+            </title>
+            <countries>{$currentCountry}</countries>
+        </area>
 
     </areas>
 </quiqqer>
