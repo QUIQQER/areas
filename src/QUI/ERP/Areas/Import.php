@@ -21,12 +21,12 @@ class Import
      */
     public static function getAvailableImports()
     {
-        $dir      = OPT_DIR.'quiqqer/areas/setup/';
+        $dir      = OPT_DIR . 'quiqqer/areas/setup/';
         $xmlFiles = QUI\Utils\System\File::readDir($dir);
         $result   = [];
 
         foreach ($xmlFiles as $xmlFile) {
-            $Document = XML::getDomFromXml($dir.$xmlFile);
+            $Document = XML::getDomFromXml($dir . $xmlFile);
             $Path     = new \DOMXPath($Document);
             $title    = $Path->query("//quiqqer/title");
 
@@ -56,7 +56,7 @@ class Import
             );
         }
 
-        self::import(OPT_DIR.'quiqqer/areas/setup/'.$fileName);
+        self::import(OPT_DIR . 'quiqqer/areas/setup/' . $fileName);
     }
 
     /**
@@ -111,6 +111,14 @@ class Import
                 $countries = explode(',', $countries);
 
                 foreach ($countries as $country) {
+                    if ($country === '{$currentCountry}') {
+                        try {
+                            $country = QUI\Countries\Manager::getDefaultCountry()->getCode();
+                        } catch (QUI\Exception $Exception) {
+                            continue;
+                        }
+                    }
+
                     try {
                         $Country       = QUI\Countries\Manager::get($country);
                         $countryList[] = $Country->getCode();

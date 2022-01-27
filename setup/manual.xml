@@ -1,0 +1,20 @@
+<quiqqer>
+    <!--
+        Manuelle Konfiguration (zb innerhalb USA)
+        Manual configuration (e.g. within USA)
+    -->
+    <title>
+        <locale group="quiqqer/areas" var="area.import.manual"/>
+    </title>
+    <areas>
+
+        <!-- nur ausgewähltes land anlegen + steuer 0 -->
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.{$currentCountry}"/>
+            </title>
+            <countries>{$currentCountry}</countries>
+        </area>
+
+    </areas>
+</quiqqer>

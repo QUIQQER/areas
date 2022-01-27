@@ -1,11 +1,16 @@
 <quiqqer>
     <!--
-        Zonen für digitale Güter in der EU
+        Zonen für Physische Güter von Europa nach Europa
     -->
     <title>
-        <locale group="quiqqer/areas" var="area.import.euDigital"/>
+        <locale group="quiqqer/areas" var="area.import.DigitalGoodsFromEuropaToEuropa"/>
     </title>
     <areas>
+
+        <!-- alle areas importieren -> eu digital NUR EU ZONEN -->
+        <!-- TAX: alle TAX aktivieren -->
+        <!-- Tax import -> is euvat=0 von Land was ausgewählt ist, alle anderen EU länder auf 1 -->
+
         <area>
             <title>
                 <locale group="quiqqer/countries" var="country.DE"/>
@@ -207,28 +212,6 @@
                 <locale group="quiqqer/countries" var="country.SE"/>
             </title>
             <countries>SE</countries>
-        </area>
-
-        <area>
-            <title>
-                <locale group="quiqqer/areas" var="import.text.world"/>
-            </title>
-            <countries>
-                EG,GQ,ET,AF,AL,DZ,AS,AD,AO,AI,AQ,AG,AR,AM,AW,
-                AZ,AU,BS,BH,BD,BB,BY,BZ,BJ,BM,BT,BO,BA,BW,BV,
-                BR,IO,BN,BF,BI,KY,CL,CN,CK,DJ,DM,DO,EC,SV,CI,
-                ER,FO,FK,FJ,FX,GF,PF,TF,GA,GM,GE,GH,GI,GD,GL,
-                GP,GU,GT,GN,GW,GY,HT,HM,HN,HK,IN,ID,IQ,IR,IS,
-                IL,JM,JP,YE,JO,YU,VG,VI,KH,CM,CA,CV,KZ,KE,KG,
-                KI,CC,CO,KM,CG,KP,KR,CR,CU,KW,LA,LS,LB,LR,LY,
-                LI,MO,MG,MW,MY,MV,ML,MA,MH,MQ,MR,MU,YT,MK,MX,
-                FM,MD,MC,MN,MS,MZ,MM,NA,NR,NP,NC,NZ,AN,NE,NG,
-                NI,NU,MP,NF,NO,OM,TP,PK,PW,PA,PG,PY,PE,PH,PN,
-                PR,QA,RE,RU,RW,KN,LC,VC,ZM,WS,SM,ST,SA,SN,SC,
-                SL,ZW,SG,SB,SO,GS,LK,SH,PM,SD,ZA,SR,SJ,SZ,SY,
-                TJ,TW,TZ,TH,TG,TK,TO,TT,TD,TR,TN,TM,TC,TV,UM,
-                UG,UA,UY,UZ,VU,VA,VE,AE,US,VN,WF,CX,EH,ZR,CF
-            </countries>
         </area>
 
     </areas>

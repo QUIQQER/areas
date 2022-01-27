@@ -1,0 +1,19 @@
+<quiqqer>
+    <!--
+        Zonen für Physische Güter in einem Land
+    -->
+    <title>
+        <locale group="quiqqer/areas" var="area.import.PhysicalGoodsInOneCountry"/>
+    </title>
+    <areas>
+
+        <!-- nur die area mit dem ausgewählten land angelegt -->
+        <!-- TAX: wenn in EU -> dann tax der eu importieren, aktivieren nur das eine land -->
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.{$currentCountry}"/>
+            </title>
+            <countries>{$currentCountry}</countries>
+        </area>
+    </areas>
+</quiqqer>

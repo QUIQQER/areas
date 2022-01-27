@@ -1,0 +1,294 @@
+<quiqqer>
+    <!--
+        Zonen für Physische Güter von Europa in die Welt
+    -->
+    <title>
+        <locale group="quiqqer/areas" var="area.import.DigitalGoodsFromEuropeToTheWorld"/>
+    </title>
+    <areas>
+
+        <!-- alle areas importieren -->
+        <!-- TAX: alle TAX aktivieren -->
+
+        <!-- https://www.dhl.de/content/dam/dhlde/downloads/pdf/dhl-paket-zonenuebersicht-international.pdf -->
+        <!--
+
+        - Alle EU zonen importieren (nicht aus DHL, von euDigital)
+        - Schweiz einzeln
+        - Dann, alle übrigen und europäischen Länder
+        - USA
+        - Naher Osten
+        - Rest der Welt
+
+        -->
+
+
+        <!-- Alle EU Zonen -->
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.DE"/>
+            </title>
+            <countries>DE</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.GR"/>
+            </title>
+            <countries>GR</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.DK"/>
+            </title>
+            <countries>DK</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.AT"/>
+            </title>
+            <countries>AT</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.BG"/>
+            </title>
+            <countries>BG</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.BE"/>
+            </title>
+            <countries>BE</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.CZ"/>
+            </title>
+            <countries>CZ</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.FR"/>
+            </title>
+            <countries>FR</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.GB"/>
+            </title>
+            <countries>GB</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.NL"/>
+            </title>
+            <countries>NL</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.PL"/>
+            </title>
+            <countries>PL</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.ES"/>
+            </title>
+            <countries>ES</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.EE"/>
+            </title>
+            <countries>EE</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.FI"/>
+            </title>
+            <countries>FI</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.IT"/>
+            </title>
+            <countries>IT</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.HR"/>
+            </title>
+            <countries>HR</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.LV"/>
+            </title>
+            <countries>LV</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.LT"/>
+            </title>
+            <countries>LT</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.LU"/>
+            </title>
+            <countries>LU</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.MT"/>
+            </title>
+            <countries>MT</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.PT"/>
+            </title>
+            <countries>PT</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.RO"/>
+            </title>
+            <countries>RO</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.CY"/>
+            </title>
+            <countries>CY</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.HU"/>
+            </title>
+            <countries>HU</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.IE"/>
+            </title>
+            <countries>IE</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.SI"/>
+            </title>
+            <countries>SI</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.SK"/>
+            </title>
+            <countries>SK</countries>
+        </area>
+
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.SE"/>
+            </title>
+            <countries>SE</countries>
+        </area>
+
+        <!-- Schweiz einzeln -->
+        <area>
+            <title>
+                <locale group="quiqqer/countries" var="country.CH"/>
+            </title>
+            <countries>CH</countries>
+        </area>
+
+        <!-- Dann, alle übrigen europäischen Länder -->
+        <area>
+            <title>
+                <locale group="quiqqer/areas" var="import.text.rest.eu"/>
+            </title>
+            <countries>
+                AX,AL,AD,AM,AZ,BY,BA,EA,FO,GE,GI,GL,IS,IC,KZ,
+                XK,HR,LI,MK,MD,ME,NO,RU,SM,RS,SJ,TR,UA,VA,CY
+            </countries>
+        </area>
+
+        <!-- USA -->
+        <area>
+            <title>
+                <locale group="quiqqer/areas" var="import.text.us"/>
+            </title>
+            <countries>
+                US
+            </countries>
+        </area>
+
+        <!-- Kanada -->
+        <area>
+            <title>
+                <locale group="quiqqer/areas" var="import.text.ca"/>
+            </title>
+            <countries>
+                CA
+            </countries>
+        </area>
+
+        <!-- Naher Osten -->
+        <area>
+            <title>
+                <locale group="quiqqer/areas" var="import.text.middle.east"/>
+            </title>
+            <countries>
+                EG,DZ,BH,IQ,IR,IL,YE,JO,QA,KW,LB,LY,MA,OM,SA,SY,TN,AE
+            </countries>
+        </area>
+
+        <!-- Rest der Welt -->
+        <area>
+            <title>
+                <locale group="quiqqer/areas" var="import.text.world"/>
+            </title>
+            <countries>
+                GQ,ET,AF,AS,AO,AI,AQ,AG,AR,AW,AU,BS,BD,BB,
+                BZ,BJ,BM,BT,BO,BW,BV,BR,IO,BN,BF,BI,KY,CL,
+                CN,CK,DJ,DM,DO,EC,SV,CI,ER,FK,FJ,FX,GF,PF,
+                TF,GA,GM,GH,GD,GP,GU,GT,GN,GW,GY,HT,HM,HN,
+                HK,IN,ID,JM,JP,YU,VG,VI,KH,CM,CV,KE,KG,KI,
+                CC,CO,KM,CG,KP,KR,CR,CU,LA,LS,LR,MO,MG,MW,
+                MY,MV,ML,MH,MQ,MR,MU,YT,MX,FM,MC,MN,MS,MZ,
+                MM,NA,NR,NP,NC,NZ,AN,NE,NG,NI,NU,MP,NF,TP,
+                PK,PW,PA,PG,PY,PE,PH,PN,PR,RE,RW,KN,LC,VC,
+                ZM,WS,ST,SN,SC,SL,ZW,SG,SB,SO,GS,LK,SH,PM,
+                SD,ZA,SR,SZ,TJ,TW,TZ,TH,TG,TK,TO,TT,TD,TM,
+                TC,TV,UM,UG,UY,UZ,VU,VE,VN,WF,CX,EH,ZR,CF
+            </countries>
+        </area>
+
+    </areas>
+</quiqqer>
