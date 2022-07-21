@@ -80,6 +80,9 @@ define('package/quiqqer/areas/bin/controls/Import', [
             );
 
             this.$Select = new QUISelect({
+                styles: {
+                    width: '100%'
+                },
                 events: {
                     onChange: function (value) {
                         if (value !== '') {
