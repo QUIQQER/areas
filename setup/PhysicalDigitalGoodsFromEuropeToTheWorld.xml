@@ -3,7 +3,7 @@
         Zonen für Physische Güter von Europa in die Welt
     -->
     <title>
-        <locale group="quiqqer/areas" var="area.import.DigitalGoodsFromEuropeToTheWorld"/>
+        <locale group="quiqqer/areas" var="area.import.PhysicalDigitalGoodsFromEuropeToTheWorld"/>
     </title>
     <areas>
 
