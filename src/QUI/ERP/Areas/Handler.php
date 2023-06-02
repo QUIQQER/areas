@@ -183,9 +183,11 @@ class Handler extends QUI\CRUD\Factory
 
         $result = [];
         $title  = '';
+        $data   = $NewArea->getAttribute('data');
 
-        $data = $NewArea->getAttribute('data');
-        $data = json_decode($data, true);
+        if (empty($data)) {
+            return $result;
+        }
 
         if (isset($data['importLocale'])) {
             $title = $data['importLocale'];
