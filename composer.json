@@ -1,29 +1,29 @@
 {
-    "name": "quiqqer\/areas",
-    "type": "quiqqer-module",
-    "description": "The QUIQQER Areas module allows you to group countries into so-called areas.",
-    "license": "GPL-3.0+",
-    "authors": [
-        {
-            "name": "Henning Leutz",
-            "email": "leutz@pcsg.de",
-            "homepage": "http:\/\/www.pcsg.de",
-            "role": "Developer"
-        }
-    ],
-    "support": {
-        "email": "support@pcsg.de"
-    },
-    "require": {
-        "quiqqer\/quiqqer": "*",
-        "quiqqer\/utils": ">=1.4|dev-master|dev-dev",
-        "quiqqer\/countries": "*",
-        "quiqqer\/translator": "*",
-        "quiqqer\/products": "*"
-    },
-    "autoload": {
-        "psr-4": {
-            "QUI\\ERP\\Areas\\": "src\/QUI\/ERP\/Areas"
-        }
+  "name": "quiqqer\/areas",
+  "type": "quiqqer-module",
+  "description": "The QUIQQER Areas module allows you to group countries into so-called areas.",
+  "license": "GPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "Henning Leutz",
+      "email": "leutz@pcsg.de",
+      "homepage": "http:\/\/www.pcsg.de",
+      "role": "Developer"
     }
+  ],
+  "support": {
+    "email": "support@pcsg.de"
+  },
+  "require": {
+    "quiqqer\/quiqqer": "*",
+    "quiqqer\/utils": ">=1.4|dev-master|dev-dev",
+    "quiqqer\/countries": "*",
+    "quiqqer\/translator": "*",
+    "quiqqer\/products": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "QUI\\ERP\\Areas\\": "src\/QUI\/ERP\/Areas"
+    }
+  }
 }
