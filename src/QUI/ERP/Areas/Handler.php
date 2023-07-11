@@ -9,6 +9,9 @@ namespace QUI\ERP\Areas;
 use QUI;
 use QUI\Permissions\Permission;
 
+use function is_string;
+use function json_decode;
+
 /**
  * Class Handler
  * Create and handles areas
@@ -31,11 +34,11 @@ class Handler extends QUI\CRUD\Factory
         // create new translation var for the area
         $this->Events->addEvent('onCreateEnd', function ($NewArea) {
             /* @var $NewArea QUI\ERP\Areas\Area */
-            $newVar = 'area.'.$NewArea->getId().'.title';
+            $newVar = 'area.' . $NewArea->getId() . '.title';
             $locale = $this->getLocaleData($NewArea);
 
             $locale['datatype'] = 'php,js';
-            $locale['package']  = 'quiqqer/areas';
+            $locale['package'] = 'quiqqer/areas';
 
             try {
                 QUI\Translator::addUserVar('quiqqer/areas', $newVar, $locale);
@@ -87,14 +90,14 @@ class Handler extends QUI\CRUD\Factory
      */
     public function getUnAssignedCountries()
     {
-        $result   = [];
+        $result = [];
         $children = $this->getChildrenData();
 
-        $signedCountries    = [];
+        $signedCountries = [];
         $availableCountries = QUI\Countries\Manager::getAllCountryCodes();
 
         foreach ($children as $entry) {
-            $countries       = explode(',', trim($entry['countries']));
+            $countries = explode(',', trim($entry['countries']));
             $signedCountries = array_merge($signedCountries, $countries);
         }
 
@@ -118,7 +121,7 @@ class Handler extends QUI\CRUD\Factory
      */
     public function search($freeText, $queryParams = [])
     {
-        $areas  = $this->getChildren();
+        $areas = $this->getChildren();
         $result = [];
 
         if (empty($freeText)) {
@@ -135,7 +138,8 @@ class Handler extends QUI\CRUD\Factory
 
                 /* @var $Country QUI\Countries\Country */
                 foreach ($countries as $Country) {
-                    if (mb_stripos($Country->getName(), $freeText) !== false
+                    if (
+                        mb_stripos($Country->getName(), $freeText) !== false
                         || mb_stripos($Country->getCode(), $freeText) !== false
                         || mb_stripos($Country->getCodeToLower(), $freeText) !== false
                         || mb_stripos($Country->getCurrencyCode(), $freeText) !== false
@@ -152,8 +156,8 @@ class Handler extends QUI\CRUD\Factory
 
             if (strpos($queryParams['limit'], ',') !== false) {
                 $explode = explode(',', $queryParams['limit']);
-                $start   = $explode[0];
-                $max     = $explode[1];
+                $start = $explode[0];
+                $max = $explode[1];
             } else {
                 $max = (int)$queryParams['limit'];
             }
@@ -182,11 +186,15 @@ class Handler extends QUI\CRUD\Factory
         }
 
         $result = [];
-        $title  = '';
-        $data   = $NewArea->getAttribute('data');
+        $title = '';
+        $data = $NewArea->getAttribute('data');
 
         if (empty($data)) {
             return $result;
+        }
+
+        if (is_string($data)) {
+            $data = json_decode($data, true);
         }
 
         if (isset($data['importLocale'])) {
