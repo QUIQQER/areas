@@ -7,6 +7,7 @@
 namespace QUI\ERP\Areas;
 
 use QUI;
+use QUI\Database\Exception;
 use QUI\Permissions\Permission;
 
 use function is_string;
@@ -55,7 +56,7 @@ class Handler extends QUI\CRUD\Factory
      *
      * @return string
      */
-    public function getDataBaseTableName()
+    public function getDataBaseTableName(): string
     {
         return QUI::getDBTableName('areas');
     }
@@ -65,7 +66,7 @@ class Handler extends QUI\CRUD\Factory
      *
      * @return string
      */
-    public function getChildClass()
+    public function getChildClass(): string
     {
         return 'QUI\ERP\Areas\Area';
     }
@@ -75,7 +76,7 @@ class Handler extends QUI\CRUD\Factory
      *
      * @return array
      */
-    public function getChildAttributes()
+    public function getChildAttributes(): array
     {
         return [
             'countries',
@@ -87,8 +88,9 @@ class Handler extends QUI\CRUD\Factory
      * Return the list of all unassigned countries
      *
      * @return array
+     * @throws Exception
      */
-    public function getUnAssignedCountries()
+    public function getUnAssignedCountries(): array
     {
         $result = [];
         $children = $this->getChildrenData();
@@ -118,8 +120,9 @@ class Handler extends QUI\CRUD\Factory
      * @param string $freeText
      * @param array $queryParams
      * @return array
+     * @throws Exception
      */
-    public function search($freeText, $queryParams = [])
+    public function search(string $freeText, array $queryParams = []): array
     {
         $areas = $this->getChildren();
         $result = [];
@@ -154,7 +157,7 @@ class Handler extends QUI\CRUD\Factory
         if (isset($queryParams['limit'])) {
             $start = 0;
 
-            if (strpos($queryParams['limit'], ',') !== false) {
+            if (str_contains($queryParams['limit'], ',')) {
                 $explode = explode(',', $queryParams['limit']);
                 $start = $explode[0];
                 $max = $explode[1];
@@ -175,15 +178,9 @@ class Handler extends QUI\CRUD\Factory
      * @param Area $NewArea
      * @return array
      */
-    public function getLocaleData(QUI\ERP\Areas\Area $NewArea)
+    public function getLocaleData(QUI\ERP\Areas\Area $NewArea): array
     {
-        try {
-            $availableLanguages = QUI\Translator::getAvailableLanguages();
-        } catch (QUI\Exception $Exception) {
-            QUI\System\Log::writeException($Exception);
-
-            return [];
-        }
+        $availableLanguages = QUI\Translator::getAvailableLanguages();
 
         $result = [];
         $title = '';

@@ -15,7 +15,7 @@ QUI::$Ajax->registerFunction(
     'package_quiqqer_areas_ajax_deleteChild',
     function ($areaId) {
         $Areas = new QUI\ERP\Areas\Handler();
-        $Area  = $Areas->getChild($areaId);
+        $Area = $Areas->getChild($areaId);
         $Area->delete();
     },
     ['areaId'],

@@ -6,9 +6,13 @@
 
 namespace QUI\ERP\Areas;
 
+use Exception;
 use QUI;
 use QUI\Countries\Country;
 use QUI\Interfaces\Users\User;
+
+use function get_class;
+use function is_object;
 
 /**
  * Class Utils
@@ -25,16 +29,16 @@ class Utils
      * @param array $areas - list of areas or areas ids
      * @return bool
      */
-    public static function isUserInAreas(User $User, array $areas)
+    public static function isUserInAreas(User $User, array $areas): bool
     {
-        $Areas   = new Handler();
+        $Areas = new Handler();
         $Country = $User->getCountry();
 
         foreach ($areas as $Area) {
-            if (!\is_object($Area) || \get_class($Area) != Area::class) {
+            if (!is_object($Area) || get_class($Area) != Area::class) {
                 try {
                     $Area = $Areas->getChild($Area);
-                } catch (QUI\Exception $Exception) {
+                } catch (QUI\Exception) {
                     continue;
                 }
             }
@@ -55,10 +59,14 @@ class Utils
      * @param array $areas
      * @return bool
      */
-    public static function isAddressInArea($Address, array $areas)
-    {
-        if (!($Address instanceof QUI\ERP\Address)
-            && !($Address instanceof QUI\Users\Address)) {
+    public static function isAddressInArea(
+        QUI\ERP\Address|QUI\Users\Address $Address,
+        array $areas
+    ): bool {
+        if (
+            !($Address instanceof QUI\ERP\Address)
+            && !($Address instanceof QUI\Users\Address)
+        ) {
             return false;
         }
 
@@ -66,15 +74,15 @@ class Utils
 
         try {
             $Country = $Address->getCountry();
-        } catch (\Exception $Exception) {
+        } catch (Exception) {
             return false;
         }
 
         foreach ($areas as $Area) {
-            if (!\is_object($Area) || \get_class($Area) != Area::class) {
+            if (!is_object($Area) || get_class($Area) != Area::class) {
                 try {
                     $Area = $Areas->getChild($Area);
-                } catch (QUI\Exception $Exception) {
+                } catch (QUI\Exception) {
                     continue;
                 }
             }
@@ -94,7 +102,7 @@ class Utils
      * @param Country $Country
      * @return bool|Area
      */
-    public static function getAreaByCountry($Country)
+    public static function getAreaByCountry(Country $Country): bool|Area
     {
         if (!QUI\Countries\Manager::isCountry($Country)) {
             return false;
@@ -104,7 +112,7 @@ class Utils
 
         try {
             $areas = $Areas->getChildren();
-        } catch (QUI\Exception $Exception) {
+        } catch (QUI\Exception) {
             return false;
         }
 
