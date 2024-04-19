@@ -82,7 +82,7 @@ class Area extends QUI\CRUD\Child
             try {
                 $Country = QUI\Countries\Manager::get($country);
                 $result[] = $Country;
-            } catch (QUI\Exception $Exception) {
+            } catch (QUI\Exception) {
             }
         }
 
@@ -102,7 +102,7 @@ class Area extends QUI\CRUD\Child
         if (!($Country instanceof QUI\Countries\Country)) {
             try {
                 $Country = QUI\Countries\Manager::get($Country);
-            } catch (QUI\Exception $Exception) {
+            } catch (QUI\Exception) {
                 return false;
             }
         }
