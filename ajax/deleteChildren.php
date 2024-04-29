@@ -5,7 +5,7 @@
  */
 
 /**
- * Delete multible areas
+ * Delete multiple areas
  *
  * @param string $areaIds - JSON array of Area-IDs
  *
@@ -14,8 +14,8 @@
 QUI::$Ajax->registerFunction(
     'package_quiqqer_areas_ajax_deleteChildren',
     function ($areaIds) {
-        $areaIds        = json_decode($areaIds, true);
-        $Areas          = new QUI\ERP\Areas\Handler();
+        $areaIds = json_decode($areaIds, true);
+        $Areas = new QUI\ERP\Areas\Handler();
         $ExceptionStack = new QUI\ExceptionStack();
 
         foreach ($areaIds as $areaId) {

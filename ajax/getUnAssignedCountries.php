@@ -11,10 +11,13 @@
  *
  * @return array
  */
+
+use QUI\ERP\Areas\Handler;
+
 QUI::$Ajax->registerFunction(
     'package_quiqqer_areas_ajax_getUnAssignedCountries',
     function () {
-        $Handler = new \QUI\ERP\Areas\Handler();
+        $Handler = new Handler();
 
         return $Handler->getUnAssignedCountries();
     },

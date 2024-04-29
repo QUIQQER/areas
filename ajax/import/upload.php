@@ -7,14 +7,17 @@
 /**
  * Returns the available imports
  *
- * @param \QUI\QDOM $id - Area-ID
+ * @param QDOM $id - Area-ID
  *
  * @return array
  */
+
+use QUI\QDOM;
+
 QUI::$Ajax->registerFunction(
     'package_quiqqer_areas_ajax_import_upload',
     function ($File) {
-        /* @var $File \QUI\QDOM */
+        /* @var $File QDOM */
         QUI\ERP\Areas\Import::import(
             $File->getAttribute('filepath')
         );

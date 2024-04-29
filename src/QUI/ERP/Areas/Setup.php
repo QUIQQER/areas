@@ -7,6 +7,7 @@
 namespace QUI\ERP\Areas;
 
 use QUI;
+use QUI\Database\Exception;
 
 /**
  * Class Setup
@@ -16,8 +17,9 @@ class Setup
 {
     /**
      * @param QUI\Package\Package $Package
+     * @throws Exception
      */
-    public static function onPackageSetup(QUI\Package\Package $Package)
+    public static function onPackageSetup(QUI\Package\Package $Package): void
     {
         // cleanup table
         $table = QUI::getDBTableName('areas');
@@ -28,17 +30,11 @@ class Setup
 
 
         // import locale for areas
-        $Areas    = new QUI\ERP\Areas\Handler();
+        $Areas = new QUI\ERP\Areas\Handler();
         $children = $Areas->getChildrenData();
-        $group    = 'quiqqer/areas';
+        $group = 'quiqqer/areas';
 
-        try {
-            $availableLanguages = QUI\Translator::getAvailableLanguages();
-        } catch (QUI\Exception $Exception) {
-            QUI\System\Log::writeException($Exception);
-
-            return;
-        }
+        $availableLanguages = QUI\Translator::getAvailableLanguages();
 
         foreach ($children as $child) {
             try {
@@ -49,14 +45,14 @@ class Setup
                 continue;
             }
 
-            $var = 'area.'.$Area->getId().'.title';
+            $var = 'area.' . $Area->getId() . '.title';
             $new = [];
 
             $localeData = QUI\Translator::get($group, $var);
             $areaLocale = $Areas->getLocaleData($Area);
 
             foreach ($availableLanguages as $language) {
-                if (isset($localeData[$language]) && !empty($localeData[$language])) {
+                if (!empty($localeData[$language])) {
                     continue;
                 }
 
@@ -88,7 +84,7 @@ class Setup
      *
      * @param string $xmlFile
      */
-    public static function import($xmlFile)
+    public static function import(string $xmlFile): void
     {
         QUI\ERP\Areas\Import::import($xmlFile);
     }

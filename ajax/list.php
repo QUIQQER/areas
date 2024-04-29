@@ -14,7 +14,7 @@
 QUI::$Ajax->registerFunction(
     'package_quiqqer_areas_ajax_list',
     function ($params) {
-        $Areas  = new QUI\ERP\Areas\Handler();
+        $Areas = new QUI\ERP\Areas\Handler();
         $result = [];
         $Locale = QUI::getLocale();
 
@@ -33,14 +33,14 @@ QUI::$Ajax->registerFunction(
             }
 
             $result[] = [
-                'id'        => $Area->getId(),
+                'id' => $Area->getId(),
                 'countries' => $Area->getAttribute('countries'),
-                'title'     => $Area->getTitle($Locale)
+                'title' => $Area->getTitle($Locale)
             ];
         }
 
         usort($result, function ($a, $b) {
-            return \strnatcmp($a['title'], $b['title']);
+            return strnatcmp($a['title'], $b['title']);
         });
 
         return $Grid->parseResult($result, $Areas->countChildren());
