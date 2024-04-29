@@ -100,12 +100,12 @@ class Utils
      * Return the area where the country is in
      *
      * @param Country $Country
-     * @return bool|Area
+     * @return null|Area
      */
-    public static function getAreaByCountry(Country $Country): bool|Area
+    public static function getAreaByCountry(mixed $Country): ?Area
     {
         if (!QUI\Countries\Manager::isCountry($Country)) {
-            return false;
+            return null;
         }
 
         $Areas = new Handler();
@@ -113,7 +113,7 @@ class Utils
         try {
             $areas = $Areas->getChildren();
         } catch (QUI\Exception) {
-            return false;
+            return null;
         }
 
         /* @var $Area Area */
@@ -123,6 +123,6 @@ class Utils
             }
         }
 
-        return false;
+        return null;
     }
 }
