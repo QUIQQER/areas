@@ -13,10 +13,8 @@ QUI::$Ajax->registerFunction(
     'package_quiqqer_areas_ajax_create',
     function ($params) {
         $params = json_decode($params, true);
-        $Areas  = new QUI\ERP\Areas\Handler();
-        $Area   = $Areas->createChild($params);
-
-
+        $Areas = new QUI\ERP\Areas\Handler();
+        $Area = $Areas->createChild($params);
 
         try {
             QUI\Translator::publish('quiqqer/areas');

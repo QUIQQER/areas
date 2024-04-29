@@ -15,8 +15,8 @@
 QUI::$Ajax->registerFunction(
     'package_quiqqer_areas_ajax_update',
     function ($areaId, $params) {
-        $Areas  = new QUI\ERP\Areas\Handler();
-        $Area   = $Areas->getChild($areaId);
+        $Areas = new QUI\ERP\Areas\Handler();
+        $Area = $Areas->getChild($areaId);
         $params = json_decode($params, true);
 
         $Area->setAttributes($params);

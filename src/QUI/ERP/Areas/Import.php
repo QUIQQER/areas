@@ -6,6 +6,8 @@
 
 namespace QUI\ERP\Areas;
 
+use DOMElement;
+use DOMXPath;
 use QUI;
 use QUI\Utils\DOM;
 use QUI\Utils\Text\XML;
@@ -19,20 +21,20 @@ class Import
     /**
      * @return array
      */
-    public static function getAvailableImports()
+    public static function getAvailableImports(): array
     {
-        $dir      = OPT_DIR . 'quiqqer/areas/setup/';
+        $dir = OPT_DIR . 'quiqqer/areas/setup/';
         $xmlFiles = QUI\Utils\System\File::readDir($dir);
-        $result   = [];
+        $result = [];
 
         foreach ($xmlFiles as $xmlFile) {
             $Document = XML::getDomFromXml($dir . $xmlFile);
-            $Path     = new \DOMXPath($Document);
-            $title    = $Path->query("//quiqqer/title");
+            $Path = new DOMXPath($Document);
+            $title = $Path->query("//quiqqer/title");
 
             if ($title->item(0)) {
                 $result[] = [
-                    'file'   => $xmlFile,
+                    'file' => $xmlFile,
                     'locale' => DOM::getTextFromNode($title->item(0), false)
                 ];
             }
@@ -47,7 +49,7 @@ class Import
      * @param string $fileName - file.xml
      * @throws QUI\Exception
      */
-    public static function importPreconfigureAreas($fileName)
+    public static function importPreconfigureAreas(string $fileName): void
     {
         if (self::existPreconfigure($fileName) === false) {
             throw new QUI\Exception(
@@ -65,7 +67,7 @@ class Import
      * @param string $file
      * @return boolean
      */
-    public static function existPreconfigure($file)
+    public static function existPreconfigure(string $file): bool
     {
         $availableImports = QUI\ERP\Areas\Import::getAvailableImports();
 
@@ -83,25 +85,25 @@ class Import
      *
      * @param string $xmlFile - XML File, path to the xml file
      */
-    public static function import($xmlFile)
+    public static function import(string $xmlFile): void
     {
         $Document = XML::getDomFromXml($xmlFile);
-        $Path     = new \DOMXPath($Document);
+        $Path = new DOMXPath($Document);
 
         $areas = $Path->query("//quiqqer/areas/area");
         $Areas = new QUI\ERP\Areas\Handler();
 
         foreach ($areas as $Area) {
-            /* @var $Area \DOMElement */
+            /* @var $Area DOMElement */
             $countries = $Area->getElementsByTagName('countries');
-            $title     = $Area->getElementsByTagName('title');
+            $title = $Area->getElementsByTagName('title');
 
             if (!$title->item(0)) {
                 continue;
             }
 
-            /* @var $Title \DOMElement */
-            $Title  = $title->item(0);
+            /* @var $Title DOMElement */
+            $Title = $title->item(0);
             $locale = $Title->getElementsByTagName('locale');
 
             $countryList = [];
@@ -114,24 +116,24 @@ class Import
                     if ($country === '{$currentCountry}') {
                         try {
                             $country = QUI\Countries\Manager::getDefaultCountry()->getCode();
-                        } catch (QUI\Exception $Exception) {
+                        } catch (QUI\Exception) {
                             continue;
                         }
                     }
 
                     try {
-                        $Country       = QUI\Countries\Manager::get($country);
+                        $Country = QUI\Countries\Manager::get($country);
                         $countryList[] = $Country->getCode();
-                    } catch (QUI\Exception $Exception) {
+                    } catch (QUI\Exception) {
                     }
                 }
             }
 
             if ($locale->item(0)) {
                 $group = $locale->item(0)->getAttribute('group');
-                $var   = $locale->item(0)->getAttribute('var');
+                $var = $locale->item(0)->getAttribute('var');
 
-                $localeValue = "[{$group}] {$var}";
+                $localeValue = "[$group] $var";
             } else {
                 $localeValue = trim($Title->nodeValue);
             }
@@ -139,7 +141,7 @@ class Import
             try {
                 $Areas->createChild([
                     'countries' => implode(',', $countryList),
-                    'data'      => json_encode(['importLocale' => $localeValue])
+                    'data' => json_encode(['importLocale' => $localeValue])
                 ]);
             } catch (QUI\Exception $Exception) {
                 QUI\System\Log::writeException($Exception);

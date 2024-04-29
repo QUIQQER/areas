@@ -12,22 +12,25 @@
  *
  * @return array
  */
+
+use QUI\ERP\Areas\Area;
+
 QUI::$Ajax->registerFunction(
     'package_quiqqer_areas_ajax_search',
     function ($freeText, $params) {
-        $Areas  = new QUI\ERP\Areas\Handler();
+        $Areas = new QUI\ERP\Areas\Handler();
         $result = [];
         $Locale = QUI::getLocale();
 
         $areas = $Areas->search($freeText, json_decode($params, true));
 
-        /* @var $Area \QUI\ERP\Areas\Area */
+        /* @var $Area Area */
         foreach ($areas as $Area) {
             $result[] = [
-                'id'        => $Area->getId(),
+                'id' => $Area->getId(),
                 'countries' => $Area->getAttribute('countries'),
-                'title'     => $Area->getTitle($Locale),
-                'text'      => $Area->getTitle($Locale)
+                'title' => $Area->getTitle($Locale),
+                'text' => $Area->getTitle($Locale)
             ];
         }
 

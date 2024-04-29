@@ -17,9 +17,9 @@ use QUI\Permissions\Permission;
 class Area extends QUI\CRUD\Child
 {
     /**
-     * @var array
+     * @var array|null
      */
-    protected $countries = null;
+    protected ?array $countries = null;
 
     /**
      * Area constructor.
@@ -38,7 +38,7 @@ class Area extends QUI\CRUD\Child
         $this->Events->addEvent('onDeleteEnd', function () {
             QUI\Translator::delete(
                 'quiqqer/areas',
-                'area.'.$this->getId().'.title'
+                'area.' . $this->getId() . '.title'
             );
         });
 
@@ -51,7 +51,7 @@ class Area extends QUI\CRUD\Child
      * @param null|QUI\Locale $Locale - optional
      * @return array|string
      */
-    public function getTitle($Locale = null)
+    public function getTitle(QUI\Locale $Locale = null): array|string
     {
         if ($Locale === null) {
             $Locale = QUI::getLocale();
@@ -59,30 +59,30 @@ class Area extends QUI\CRUD\Child
 
         return $Locale->get(
             'quiqqer/areas',
-            'area.'.$this->getId().'.title'
+            'area.' . $this->getId() . '.title'
         );
     }
 
     /**
      * Return the country list of the area
      *
-     * @return array - [QUI\Countries\Country, QUI\Countries\Country, QUI\Countries\Country]
+     * @return array|null - [QUI\Countries\Country, QUI\Countries\Country, QUI\Countries\Country]
      */
-    public function getCountries()
+    public function getCountries(): ?array
     {
         if (!is_null($this->countries)) {
             return $this->countries;
         }
 
-        $result    = [];
+        $result = [];
         $countries = $this->getAttribute('countries');
         $countries = explode(',', $countries);
 
         foreach ($countries as $country) {
             try {
-                $Country  = QUI\Countries\Manager::get($country);
+                $Country = QUI\Countries\Manager::get($country);
                 $result[] = $Country;
-            } catch (QUI\Exception $Exception) {
+            } catch (QUI\Exception) {
             }
         }
 
@@ -97,12 +97,12 @@ class Area extends QUI\CRUD\Child
      * @param string|QUI\Countries\Country $Country
      * @return boolean
      */
-    public function contains($Country)
+    public function contains(QUI\Countries\Country|string $Country): bool
     {
         if (!($Country instanceof QUI\Countries\Country)) {
             try {
                 $Country = QUI\Countries\Manager::get($Country);
-            } catch (QUI\Exception $Exception) {
+            } catch (QUI\Exception) {
                 return false;
             }
         }
