@@ -1,0 +1,221 @@
+parameters:
+	ignoreErrors:
+		-
+			message: "#^Cannot call method registerFunction\\(\\) on QUI\\\\Ajax\\|null\\.$#"
+			count: 1
+			path: ajax/create.php
+
+		-
+			message: "#^Cannot call method registerFunction\\(\\) on QUI\\\\Ajax\\|null\\.$#"
+			count: 1
+			path: ajax/deleteChild.php
+
+		-
+			message: "#^Cannot call method registerFunction\\(\\) on QUI\\\\Ajax\\|null\\.$#"
+			count: 1
+			path: ajax/deleteChildren.php
+
+		-
+			message: "#^Call to an undefined method QUI\\\\CRUD\\\\Child\\:\\:getTitle\\(\\)\\.$#"
+			count: 1
+			path: ajax/get.php
+
+		-
+			message: "#^Cannot call method registerFunction\\(\\) on QUI\\\\Ajax\\|null\\.$#"
+			count: 1
+			path: ajax/get.php
+
+		-
+			message: "#^Cannot call method registerFunction\\(\\) on QUI\\\\Ajax\\|null\\.$#"
+			count: 1
+			path: ajax/getUnAssignedCountries.php
+
+		-
+			message: "#^Cannot call method registerFunction\\(\\) on QUI\\\\Ajax\\|null\\.$#"
+			count: 1
+			path: ajax/import/available.php
+
+		-
+			message: "#^Cannot call method registerFunction\\(\\) on QUI\\\\Ajax\\|null\\.$#"
+			count: 1
+			path: ajax/import/preconfigure.php
+
+		-
+			message: "#^Cannot call method registerFunction\\(\\) on QUI\\\\Ajax\\|null\\.$#"
+			count: 1
+			path: ajax/import/upload.php
+
+		-
+			message: "#^Call to an undefined method QUI\\\\CRUD\\\\Child\\:\\:getTitle\\(\\)\\.$#"
+			count: 1
+			path: ajax/list.php
+
+		-
+			message: "#^Cannot call method registerFunction\\(\\) on QUI\\\\Ajax\\|null\\.$#"
+			count: 1
+			path: ajax/list.php
+
+		-
+			message: "#^Cannot call method registerFunction\\(\\) on QUI\\\\Ajax\\|null\\.$#"
+			count: 1
+			path: ajax/search.php
+
+		-
+			message: "#^Parameter \\#2 \\$callback of function usort expects callable\\(array\\{id\\: mixed, countries\\: mixed, title\\: mixed, text\\: mixed\\}, array\\{id\\: mixed, countries\\: mixed, title\\: mixed, text\\: mixed\\}\\)\\: int, Closure\\(mixed, mixed\\)\\: bool given\\.$#"
+			count: 1
+			path: ajax/search.php
+
+		-
+			message: "#^Cannot call method registerFunction\\(\\) on QUI\\\\Ajax\\|null\\.$#"
+			count: 1
+			path: ajax/update.php
+
+		-
+			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Area.php
+
+		-
+			message: "#^Cannot call method get\\(\\) on QUI\\\\Locale\\|null\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Area.php
+
+		-
+			message: "#^Method QUI\\\\ERP\\\\Areas\\\\Area\\:\\:getCountries\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Area.php
+
+		-
+			message: "#^Method QUI\\\\ERP\\\\Areas\\\\Area\\:\\:getTitle\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Area.php
+
+		-
+			message: "#^Property QUI\\\\ERP\\\\Areas\\\\Area\\:\\:\\$countries type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Area.php
+
+		-
+			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Handler.php
+
+		-
+			message: "#^Cannot call method addAttention\\(\\) on QUI\\\\Messages\\\\Handler\\|null\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Handler.php
+
+		-
+			message: "#^Cannot call method getByLang\\(\\) on QUI\\\\Locale\\|null\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Handler.php
+
+		-
+			message: "#^Cannot call method getPartsOfLocaleString\\(\\) on QUI\\\\Locale\\|null\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Handler.php
+
+		-
+			message: "#^Cannot call method isLocaleString\\(\\) on QUI\\\\Locale\\|null\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Handler.php
+
+		-
+			message: "#^Method QUI\\\\ERP\\\\Areas\\\\Handler\\:\\:getChildAttributes\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Handler.php
+
+		-
+			message: "#^Method QUI\\\\ERP\\\\Areas\\\\Handler\\:\\:getLocaleData\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Handler.php
+
+		-
+			message: "#^Method QUI\\\\ERP\\\\Areas\\\\Handler\\:\\:getUnAssignedCountries\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Handler.php
+
+		-
+			message: "#^Method QUI\\\\ERP\\\\Areas\\\\Handler\\:\\:search\\(\\) has parameter \\$queryParams with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Handler.php
+
+		-
+			message: "#^Method QUI\\\\ERP\\\\Areas\\\\Handler\\:\\:search\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Handler.php
+
+		-
+			message: "#^Parameter \\#2 \\$offset of function array_slice expects int, int\\|string given\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Handler.php
+
+		-
+			message: "#^Parameter \\#3 \\$length of function array_slice expects int\\|null, int\\|string given\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Handler.php
+
+		-
+			message: "#^Argument of an invalid type DOMNodeList\\<DOMNode\\>\\|false supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Import.php
+
+		-
+			message: "#^Call to an undefined method DOMNode\\:\\:getElementsByTagName\\(\\)\\.$#"
+			count: 2
+			path: src/QUI/ERP/Areas/Import.php
+
+		-
+			message: "#^Cannot call method getCode\\(\\) on QUI\\\\Countries\\\\Country\\|null\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Import.php
+
+		-
+			message: "#^Cannot call method item\\(\\) on DOMNodeList\\<DOMNode\\>\\|false\\.$#"
+			count: 2
+			path: src/QUI/ERP/Areas/Import.php
+
+		-
+			message: "#^Method QUI\\\\ERP\\\\Areas\\\\Import\\:\\:getAvailableImports\\(\\) return type has no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Import.php
+
+		-
+			message: "#^Argument of an invalid type array\\|null supplied for foreach, only iterables are supported\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Setup.php
+
+		-
+			message: "#^Cannot call method deleteColumn\\(\\) on QUI\\\\Database\\\\Tables\\|null\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Setup.php
+
+		-
+			message: "#^Cannot call method existColumnInTable\\(\\) on QUI\\\\Database\\\\Tables\\|null\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Setup.php
+
+		-
+			message: "#^Parameter \\#1 \\$NewArea of method QUI\\\\ERP\\\\Areas\\\\Handler\\:\\:getLocaleData\\(\\) expects QUI\\\\ERP\\\\Areas\\\\Area, QUI\\\\CRUD\\\\Child given\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Setup.php
+
+		-
+			message: "#^Call to an undefined method QUI\\\\CRUD\\\\Child\\:\\:contains\\(\\)\\.$#"
+			count: 2
+			path: src/QUI/ERP/Areas/Utils.php
+
+		-
+			message: "#^Method QUI\\\\ERP\\\\Areas\\\\Utils\\:\\:isAddressInArea\\(\\) has parameter \\$areas with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Utils.php
+
+		-
+			message: "#^Method QUI\\\\ERP\\\\Areas\\\\Utils\\:\\:isUserInAreas\\(\\) has parameter \\$areas with no value type specified in iterable type array\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Utils.php
+
+		-
+			message: "#^Result of && is always false\\.$#"
+			count: 1
+			path: src/QUI/ERP/Areas/Utils.php
