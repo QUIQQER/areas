@@ -14,7 +14,7 @@
 
 use QUI\ERP\Areas\Handler;
 
-QUI::$Ajax->registerFunction(
+QUI::getAjax()->registerFunction(
     'package_quiqqer_areas_ajax_getUnAssignedCountries',
     function () {
         $Handler = new Handler();

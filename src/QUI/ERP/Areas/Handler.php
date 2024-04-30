@@ -159,8 +159,8 @@ class Handler extends QUI\CRUD\Factory
 
             if (str_contains($queryParams['limit'], ',')) {
                 $explode = explode(',', $queryParams['limit']);
-                $start = $explode[0];
-                $max = $explode[1];
+                $start = (int)$explode[0];
+                $max = (int)$explode[1];
             } else {
                 $max = (int)$queryParams['limit'];
             }

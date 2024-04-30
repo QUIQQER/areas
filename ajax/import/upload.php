@@ -14,7 +14,7 @@
 
 use QUI\QDOM;
 
-QUI::$Ajax->registerFunction(
+QUI::getAjax()->registerFunction(
     'package_quiqqer_areas_ajax_import_upload',
     function ($File) {
         /* @var $File QDOM */
