@@ -29,7 +29,7 @@ class Utils
      * @param array $areas - list of areas or areas ids
      * @return bool
      */
-    public static function isUserInAreas(User $User, array $areas): bool
+    public static function isUserInAreas(User $User, array $areas = []): bool
     {
         $Areas = new Handler();
         $Country = $User->getCountry();
@@ -61,7 +61,7 @@ class Utils
      */
     public static function isAddressInArea(
         QUI\ERP\Address|QUI\Users\Address $Address,
-        array $areas
+        array $areas = []
     ): bool {
         if (
             !($Address instanceof QUI\ERP\Address)

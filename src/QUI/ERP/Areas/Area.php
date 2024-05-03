@@ -49,9 +49,9 @@ class Area extends QUI\CRUD\Child
 
     /**
      * @param null|QUI\Locale $Locale - optional
-     * @return array|string
+     * @return string
      */
-    public function getTitle(QUI\Locale $Locale = null): array|string
+    public function getTitle(QUI\Locale $Locale = null): string
     {
         if ($Locale === null) {
             $Locale = QUI::getLocale();
@@ -66,11 +66,11 @@ class Area extends QUI\CRUD\Child
     /**
      * Return the country list of the area
      *
-     * @return array|null - [QUI\Countries\Country, QUI\Countries\Country, QUI\Countries\Country]
+     * @return array - [QUI\Countries\Country, QUI\Countries\Country, QUI\Countries\Country]
      */
-    public function getCountries(): ?array
+    public function getCountries(): array
     {
-        if (!is_null($this->countries)) {
+        if ($this->countries !== null) {
             return $this->countries;
         }
 
