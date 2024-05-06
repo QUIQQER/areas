@@ -12,7 +12,7 @@
  *
  * @return array
  */
-QUI::$Ajax->registerFunction(
+QUI::getAjax()->registerFunction(
     'package_quiqqer_areas_ajax_update',
     function ($areaId, $params) {
         $Areas = new QUI\ERP\Areas\Handler();

@@ -11,7 +11,7 @@
  *
  * @return array
  */
-QUI::$Ajax->registerFunction(
+QUI::getAjax()->registerFunction(
     'package_quiqqer_areas_ajax_import_preconfigure',
     function ($importName) {
         QUI\ERP\Areas\Import::importPreconfigureAreas($importName);

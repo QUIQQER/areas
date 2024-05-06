@@ -15,7 +15,7 @@
 
 use QUI\ERP\Areas\Area;
 
-QUI::$Ajax->registerFunction(
+QUI::getAjax()->registerFunction(
     'package_quiqqer_areas_ajax_search',
     function ($freeText, $params) {
         $Areas = new QUI\ERP\Areas\Handler();
