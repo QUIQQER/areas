@@ -232,11 +232,11 @@ define('package/quiqqer/areas/bin/controls/Areas', [
                 maxWidth   : 450,
 
                 cancel_button: {
-                    text     : QUILocale.get('quiqqer/quiqqer', 'cancel'),
+                    text     : QUILocale.get('quiqqer/core', 'cancel'),
                     textimage: 'fa fa-remove'
                 },
                 ok_button    : {
-                    text     : QUILocale.get('quiqqer/quiqqer', 'create'),
+                    text     : QUILocale.get('quiqqer/core', 'create'),
                     textimage: 'fa fa-plus'
                 },
 
