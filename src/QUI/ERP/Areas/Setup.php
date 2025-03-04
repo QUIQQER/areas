@@ -38,7 +38,6 @@ class Setup
 
         foreach ($children as $child) {
             try {
-                /* @var $Area Area */
                 $Area = $Areas->getChild($child['id']);
             } catch (QUI\Exception $Exception) {
                 QUI\System\Log::writeException($Exception);

@@ -21,10 +21,8 @@ QUI::getAjax()->registerFunction(
         $Areas = new QUI\ERP\Areas\Handler();
         $result = [];
         $Locale = QUI::getLocale();
-
         $areas = $Areas->search($freeText, json_decode($params, true));
 
-        /* @var $Area Area */
         foreach ($areas as $Area) {
             $result[] = [
                 'id' => $Area->getId(),
@@ -35,7 +33,7 @@ QUI::getAjax()->registerFunction(
         }
 
         usort($result, function ($a, $b) {
-            return $a['text'] > $b['text'];
+            return strcmp($a['text'], $b['text']);
         });
 
         return $result;

@@ -94,7 +94,10 @@ class Import
         $Areas = new QUI\ERP\Areas\Handler();
 
         foreach ($areas as $Area) {
-            /* @var $Area DOMElement */
+            if (!method_exists($Area, 'getElementsByTagName')) {
+                continue;
+            }
+
             $countries = $Area->getElementsByTagName('countries');
             $title = $Area->getElementsByTagName('title');
 
@@ -102,7 +105,6 @@ class Import
                 continue;
             }
 
-            /* @var $Title DOMElement */
             $Title = $title->item(0);
             $locale = $Title->getElementsByTagName('locale');
 

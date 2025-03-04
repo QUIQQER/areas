@@ -7,6 +7,7 @@
 namespace QUI\ERP\Areas;
 
 use QUI;
+use QUI\CRUD\Child;
 use QUI\Database\Exception;
 use QUI\Permissions\Permission;
 
@@ -34,7 +35,6 @@ class Handler extends QUI\CRUD\Factory
 
         // create new translation var for the area
         $this->Events->addEvent('onCreateEnd', function ($NewArea) {
-            /* @var $NewArea QUI\ERP\Areas\Area */
             $newVar = 'area.' . $NewArea->getId() . '.title';
             $locale = $this->getLocaleData($NewArea);
 
@@ -84,6 +84,15 @@ class Handler extends QUI\CRUD\Factory
         ];
     }
 
+    public function getChild(int | string $id): Area
+    {
+        /* @var $child Area */
+        $child = parent::getChild($id);
+
+        // @phpstan-ignore-next-line
+        return $child;
+    }
+
     /**
      * Return the list of all unassigned countries
      *
@@ -130,7 +139,6 @@ class Handler extends QUI\CRUD\Factory
         if (empty($freeText)) {
             $result = $areas;
         } else {
-            /* @var $Area Area */
             foreach ($areas as $Area) {
                 if (mb_stripos($Area->getTitle(), $freeText) !== false) {
                     $result[] = $Area;
@@ -139,7 +147,6 @@ class Handler extends QUI\CRUD\Factory
 
                 $countries = $Area->getCountries();
 
-                /* @var $Country QUI\Countries\Country */
                 foreach ($countries as $Country) {
                     if (
                         mb_stripos($Country->getName(), $freeText) !== false

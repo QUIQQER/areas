@@ -51,7 +51,7 @@ class Area extends QUI\CRUD\Child
      * @param null|QUI\Locale $Locale - optional
      * @return string
      */
-    public function getTitle(QUI\Locale $Locale = null): string
+    public function getTitle(null | QUI\Locale $Locale = null): string
     {
         if ($Locale === null) {
             $Locale = QUI::getLocale();
@@ -97,7 +97,7 @@ class Area extends QUI\CRUD\Child
      * @param string|QUI\Countries\Country $Country
      * @return boolean
      */
-    public function contains(QUI\Countries\Country|string $Country): bool
+    public function contains(QUI\Countries\Country | string $Country): bool
     {
         if (!($Country instanceof QUI\Countries\Country)) {
             try {
@@ -109,7 +109,6 @@ class Area extends QUI\CRUD\Child
 
         $countries = $this->getCountries();
 
-        /* @var $Entry QUI\Countries\Country */
         foreach ($countries as $Entry) {
             if ($Entry->getCode() == $Country->getCode()) {
                 return true;
