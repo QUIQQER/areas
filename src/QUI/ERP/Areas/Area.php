@@ -109,7 +109,6 @@ class Area extends QUI\CRUD\Child
 
         $countries = $this->getCountries();
 
-        /* @var $Entry QUI\Countries\Country */
         foreach ($countries as $Entry) {
             if ($Entry->getCode() == $Country->getCode()) {
                 return true;

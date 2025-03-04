@@ -43,7 +43,6 @@ class Utils
                 }
             }
 
-            /* @var $Area Area */
             if ($Area->contains($Country)) {
                 return true;
             }
@@ -63,13 +62,6 @@ class Utils
         QUI\ERP\Address | QUI\Users\Address $Address,
         array $areas = []
     ): bool {
-        if (
-            !($Address instanceof QUI\ERP\Address)
-            && !($Address instanceof QUI\Users\Address)
-        ) {
-            return false;
-        }
-
         $Areas = new Handler();
 
         try {
@@ -87,7 +79,6 @@ class Utils
                 }
             }
 
-            /* @var $Area Area */
             if ($Area->contains($Country)) {
                 return true;
             }
@@ -116,7 +107,6 @@ class Utils
             return null;
         }
 
-        /* @var $Area Area */
         foreach ($areas as $Area) {
             if ($Area->contains($Country)) {
                 return $Area;
