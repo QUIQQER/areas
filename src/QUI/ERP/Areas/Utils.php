@@ -60,7 +60,7 @@ class Utils
      * @return bool
      */
     public static function isAddressInArea(
-        QUI\ERP\Address|QUI\Users\Address $Address,
+        QUI\ERP\Address | QUI\Users\Address $Address,
         array $areas = []
     ): bool {
         if (
