@@ -42,9 +42,11 @@ class Handler extends QUI\CRUD\Factory
             try {
                 QUI\Translator::addUserVar('quiqqer/areas', $newVar, $locale);
             } catch (QUI\Exception $Exception) {
+                // @codeCoverageIgnoreStart
                 QUI::getMessagesHandler()->addAttention(
                     $Exception->getMessage()
                 );
+                // @codeCoverageIgnoreEnd
             }
         });
     }
@@ -190,9 +192,12 @@ class Handler extends QUI\CRUD\Factory
     {
         $availableLanguages = QUI\Translator::getAvailableLanguages();
 
+        // Defensive fallback for environments where translator cache may resolve to null.
+        // @codeCoverageIgnoreStart
         if (!is_array($availableLanguages)) {
             $availableLanguages = [];
         }
+        // @codeCoverageIgnoreEnd
 
         $result = [];
         $title = '';

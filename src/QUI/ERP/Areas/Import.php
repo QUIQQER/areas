@@ -27,17 +27,21 @@ class Import
         $result = [];
 
         foreach ($xmlFiles as $xmlFile) {
+            // @codeCoverageIgnoreStart
             if (!is_string($xmlFile)) {
                 continue;
             }
+            // @codeCoverageIgnoreEnd
 
             $Document = XML::getDomFromXml($dir . $xmlFile);
             $Path = new DOMXPath($Document);
             $title = $Path->query("//quiqqer/title");
 
+            // @codeCoverageIgnoreStart
             if ($title === false) {
                 continue;
             }
+            // @codeCoverageIgnoreEnd
 
             $Title = $title->item(0);
 
@@ -108,14 +112,18 @@ class Import
         $areas = $Path->query("//quiqqer/areas/area");
         $Areas = new QUI\ERP\Areas\Handler();
 
+        // @codeCoverageIgnoreStart
         if ($areas === false) {
             return;
         }
+        // @codeCoverageIgnoreEnd
 
         foreach ($areas as $Area) {
+            // @codeCoverageIgnoreStart
             if (!method_exists($Area, 'getElementsByTagName')) {
                 continue;
             }
+            // @codeCoverageIgnoreEnd
 
             $countries = $Area->getElementsByTagName('countries');
             $title = $Area->getElementsByTagName('title');

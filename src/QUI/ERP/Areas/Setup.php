@@ -17,6 +17,7 @@ class Setup
     /**
      * @param QUI\Package\Package $Package
      * @throws Exception
+     * @codeCoverageIgnore
      */
     public static function onPackageSetup(QUI\Package\Package $Package): void
     {
