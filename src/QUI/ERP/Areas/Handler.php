@@ -17,8 +17,6 @@ use function json_decode;
 /**
  * Class Handler
  * Create and handles areas
- *
- * @package QUI\ERP\Areas
  */
 class Handler extends QUI\CRUD\Factory
 {
@@ -74,7 +72,7 @@ class Handler extends QUI\CRUD\Factory
     /**
      * Return the crud attributes for the children class
      *
-     * @return array
+     * @return list<string>
      */
     public function getChildAttributes(): array
     {
@@ -96,7 +94,7 @@ class Handler extends QUI\CRUD\Factory
     /**
      * Return the list of all unassigned countries
      *
-     * @return array
+     * @return list<string>
      * @throws Exception
      */
     public function getUnAssignedCountries(): array
@@ -127,8 +125,8 @@ class Handler extends QUI\CRUD\Factory
      * Search some areas
      *
      * @param string $freeText
-     * @param array $queryParams
-     * @return array
+     * @param array{limit?: string|int} $queryParams
+     * @return list<Area>
      * @throws Exception
      */
     public function search(string $freeText, array $queryParams = []): array
@@ -137,7 +135,9 @@ class Handler extends QUI\CRUD\Factory
         $result = [];
 
         if (empty($freeText)) {
-            $result = $areas;
+            foreach ($areas as $Area) {
+                $result[] = $Area;
+            }
         } else {
             foreach ($areas as $Area) {
                 if (mb_stripos($Area->getTitle(), $freeText) !== false) {
@@ -163,13 +163,14 @@ class Handler extends QUI\CRUD\Factory
 
         if (isset($queryParams['limit'])) {
             $start = 0;
+            $limit = (string)$queryParams['limit'];
 
-            if (str_contains($queryParams['limit'], ',')) {
-                $explode = explode(',', $queryParams['limit']);
+            if (str_contains($limit, ',')) {
+                $explode = explode(',', $limit);
                 $start = (int)$explode[0];
                 $max = (int)$explode[1];
             } else {
-                $max = (int)$queryParams['limit'];
+                $max = (int)$limit;
             }
 
             $result = array_slice($result, $start, $max);
@@ -183,11 +184,15 @@ class Handler extends QUI\CRUD\Factory
      * Return the translation vars for an area
      *
      * @param Area $NewArea
-     * @return array
+     * @return array<string, string>
      */
     public function getLocaleData(QUI\ERP\Areas\Area $NewArea): array
     {
         $availableLanguages = QUI\Translator::getAvailableLanguages();
+
+        if (!is_array($availableLanguages)) {
+            $availableLanguages = [];
+        }
 
         $result = [];
         $title = '';

@@ -14,12 +14,11 @@ use QUI\Utils\Text\XML;
 
 /**
  * Class Import
- * @package QUI\ERP\Areas
  */
 class Import
 {
     /**
-     * @return array
+     * @return array<int, array{file: string, locale: string}>
      */
     public static function getAvailableImports(): array
     {
@@ -28,14 +27,30 @@ class Import
         $result = [];
 
         foreach ($xmlFiles as $xmlFile) {
+            if (!is_string($xmlFile)) {
+                continue;
+            }
+
             $Document = XML::getDomFromXml($dir . $xmlFile);
             $Path = new DOMXPath($Document);
             $title = $Path->query("//quiqqer/title");
 
-            if ($title->item(0)) {
+            if ($title === false) {
+                continue;
+            }
+
+            $Title = $title->item(0);
+
+            if ($Title instanceof DOMElement) {
+                $locale = DOM::getTextFromNode($Title, false);
+
+                if (!is_string($locale)) {
+                    $locale = '';
+                }
+
                 $result[] = [
                     'file' => $xmlFile,
-                    'locale' => DOM::getTextFromNode($title->item(0), false)
+                    'locale' => $locale
                 ];
             }
         }
@@ -93,6 +108,10 @@ class Import
         $areas = $Path->query("//quiqqer/areas/area");
         $Areas = new QUI\ERP\Areas\Handler();
 
+        if ($areas === false) {
+            return;
+        }
+
         foreach ($areas as $Area) {
             if (!method_exists($Area, 'getElementsByTagName')) {
                 continue;
@@ -117,7 +136,13 @@ class Import
                 foreach ($countries as $country) {
                     if ($country === '{$currentCountry}') {
                         try {
-                            $country = QUI\Countries\Manager::getDefaultCountry()->getCode();
+                            $DefaultCountry = QUI\Countries\Manager::getDefaultCountry();
+
+                            if (!$DefaultCountry) {
+                                continue;
+                            }
+
+                            $country = $DefaultCountry->getCode();
                         } catch (QUI\Exception) {
                             continue;
                         }

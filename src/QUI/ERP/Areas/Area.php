@@ -11,13 +11,11 @@ use QUI\Permissions\Permission;
 
 /**
  * Class Handler
- *
- * @package QUI\ERP\Areas
  */
 class Area extends QUI\CRUD\Child
 {
     /**
-     * @var array|null
+     * @var QUI\Countries\Country[]|null
      */
     protected ?array $countries = null;
 
@@ -66,7 +64,7 @@ class Area extends QUI\CRUD\Child
     /**
      * Return the country list of the area
      *
-     * @return array - [QUI\Countries\Country, QUI\Countries\Country, QUI\Countries\Country]
+     * @return QUI\Countries\Country[]
      */
     public function getCountries(): array
     {

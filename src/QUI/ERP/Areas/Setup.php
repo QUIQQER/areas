@@ -11,7 +11,6 @@ use QUI\Database\Exception;
 
 /**
  * Class Setup
- * @package QUI\ERP\Areas
  */
 class Setup
 {
@@ -24,7 +23,7 @@ class Setup
         // cleanup table
         $table = QUI::getDBTableName('areas');
 
-        if (QUI::getDataBase()->table()->existColumnInTable($table, 'title')) {
+        if (QUI::getDataBase()->table()?->existColumnInTable($table, 'title')) {
             QUI::getDataBase()->table()->deleteColumn($table, 'title');
         }
 
@@ -35,6 +34,10 @@ class Setup
         $group = 'quiqqer/areas';
 
         $availableLanguages = QUI\Translator::getAvailableLanguages();
+
+        if (!is_array($availableLanguages)) {
+            $availableLanguages = [];
+        }
 
         foreach ($children as $child) {
             try {
