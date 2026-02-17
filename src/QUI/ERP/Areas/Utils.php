@@ -11,14 +11,9 @@ use QUI;
 use QUI\Countries\Country;
 use QUI\Interfaces\Users\User;
 
-use function get_class;
-use function is_object;
-
 /**
  * Class Utils
  * Helper for area usage
- *
- * @package QUI\ERP\Areas
  */
 class Utils
 {
@@ -26,7 +21,7 @@ class Utils
      * Checks if the user in the area list
      *
      * @param User $User - user
-     * @param array $areas - list of areas or areas ids
+     * @param array<int, Area|int|string> $areas - list of areas or area ids
      * @return bool
      */
     public static function isUserInAreas(User $User, array $areas = []): bool
@@ -35,7 +30,7 @@ class Utils
         $Country = $User->getCountry();
 
         foreach ($areas as $Area) {
-            if (!is_object($Area) || get_class($Area) != Area::class) {
+            if (!($Area instanceof Area)) {
                 try {
                     $Area = $Areas->getChild($Area);
                 } catch (QUI\Exception) {
@@ -43,7 +38,7 @@ class Utils
                 }
             }
 
-            if ($Area->contains($Country)) {
+            if ($Country && $Area->contains($Country)) {
                 return true;
             }
         }
@@ -55,7 +50,7 @@ class Utils
      * Checks if the address in the area list
      *
      * @param QUI\ERP\Address|QUI\Users\Address $Address
-     * @param array $areas
+     * @param array<int, Area|int|string> $areas - list of areas or area ids
      * @return bool
      */
     public static function isAddressInArea(
@@ -71,7 +66,7 @@ class Utils
         }
 
         foreach ($areas as $Area) {
-            if (!is_object($Area) || get_class($Area) != Area::class) {
+            if (!($Area instanceof Area)) {
                 try {
                     $Area = $Areas->getChild($Area);
                 } catch (QUI\Exception) {
