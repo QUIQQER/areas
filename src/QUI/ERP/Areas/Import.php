@@ -14,12 +14,11 @@ use QUI\Utils\Text\XML;
 
 /**
  * Class Import
- * @package QUI\ERP\Areas
  */
 class Import
 {
     /**
-     * @return array
+     * @return array<int, array{file: string, locale: string}>
      */
     public static function getAvailableImports(): array
     {
@@ -28,14 +27,34 @@ class Import
         $result = [];
 
         foreach ($xmlFiles as $xmlFile) {
+            // @codeCoverageIgnoreStart
+            if (!is_string($xmlFile)) {
+                continue;
+            }
+            // @codeCoverageIgnoreEnd
+
             $Document = XML::getDomFromXml($dir . $xmlFile);
             $Path = new DOMXPath($Document);
             $title = $Path->query("//quiqqer/title");
 
-            if ($title->item(0)) {
+            // @codeCoverageIgnoreStart
+            if ($title === false) {
+                continue;
+            }
+            // @codeCoverageIgnoreEnd
+
+            $Title = $title->item(0);
+
+            if ($Title instanceof DOMElement) {
+                $locale = DOM::getTextFromNode($Title, false);
+
+                if (!is_string($locale)) {
+                    $locale = '';
+                }
+
                 $result[] = [
                     'file' => $xmlFile,
-                    'locale' => DOM::getTextFromNode($title->item(0), false)
+                    'locale' => $locale
                 ];
             }
         }
@@ -93,10 +112,18 @@ class Import
         $areas = $Path->query("//quiqqer/areas/area");
         $Areas = new QUI\ERP\Areas\Handler();
 
+        // @codeCoverageIgnoreStart
+        if ($areas === false) {
+            return;
+        }
+        // @codeCoverageIgnoreEnd
+
         foreach ($areas as $Area) {
+            // @codeCoverageIgnoreStart
             if (!method_exists($Area, 'getElementsByTagName')) {
                 continue;
             }
+            // @codeCoverageIgnoreEnd
 
             $countries = $Area->getElementsByTagName('countries');
             $title = $Area->getElementsByTagName('title');
@@ -117,7 +144,13 @@ class Import
                 foreach ($countries as $country) {
                     if ($country === '{$currentCountry}') {
                         try {
-                            $country = QUI\Countries\Manager::getDefaultCountry()->getCode();
+                            $DefaultCountry = QUI\Countries\Manager::getDefaultCountry();
+
+                            if (!$DefaultCountry) {
+                                continue;
+                            }
+
+                            $country = $DefaultCountry->getCode();
                         } catch (QUI\Exception) {
                             continue;
                         }
