@@ -16,6 +16,7 @@ class Setup
 {
     /**
      * @param QUI\Package\Package $Package
+     * @throws \Doctrine\DBAL\Exception
      * @throws Exception
      * @codeCoverageIgnore
      */
@@ -25,13 +26,7 @@ class Setup
             return;
         }
 
-        // cleanup table
-        $table = QUI::getDBTableName('areas');
-
-        if (QUI::getDataBase()->table()?->existColumnInTable($table, 'title')) {
-            QUI::getDataBase()->table()->deleteColumn($table, 'title');
-        }
-
+        self::cleanupLegacyTitleColumn();
 
         // import locale for areas
         $Areas = new QUI\ERP\Areas\Handler();
@@ -94,5 +89,34 @@ class Setup
     public static function import(string $xmlFile): void
     {
         QUI\ERP\Areas\Import::import($xmlFile);
+    }
+
+    /**
+     * @throws \Doctrine\DBAL\Exception
+     */
+    private static function cleanupLegacyTitleColumn(): void
+    {
+        $table = QUI::getDBTableName('areas');
+
+        if ($table === '') {
+            return;
+        }
+
+        $schemaManager = QUI::getSchemaManager();
+
+        if (!$schemaManager->tablesExist([$table])) {
+            return;
+        }
+
+        if (!$schemaManager->introspectTableByUnquotedName($table)->hasColumn('title')) {
+            return;
+        }
+
+        $Connection = QUI::getDataBaseConnection();
+
+        $Connection->executeStatement(
+            'ALTER TABLE ' . $Connection->quoteSingleIdentifier($table)
+            . ' DROP COLUMN ' . $Connection->quoteSingleIdentifier('title')
+        );
     }
 }
