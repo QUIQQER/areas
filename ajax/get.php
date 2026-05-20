@@ -8,9 +8,9 @@
  * Returns an area
  *
  * @param string $id - Area-ID
- *
  * @return array
  */
+
 QUI::getAjax()->registerFunction(
     'package_quiqqer_areas_ajax_get',
     function ($id) {

@@ -9,9 +9,9 @@
  *
  * @param string|int $areaId - Area-ID
  * @param string $params - JSON Area attributes
- *
  * @return array
  */
+
 QUI::getAjax()->registerFunction(
     'package_quiqqer_areas_ajax_update',
     function ($areaId, $params) {

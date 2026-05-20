@@ -8,9 +8,9 @@
  * Returns area list for a grid
  *
  * @param string $params - JSON query params
- *
  * @return array
  */
+
 QUI::getAjax()->registerFunction(
     'package_quiqqer_areas_ajax_list',
     function ($params) {
