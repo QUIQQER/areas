@@ -21,6 +21,10 @@ class Setup
      */
     public static function onPackageSetup(QUI\Package\Package $Package): void
     {
+        if ($Package->getName() !== 'quiqqer/areas') {
+            return;
+        }
+
         // cleanup table
         $table = QUI::getDBTableName('areas');
 
