@@ -8,9 +8,9 @@
  * Delete multiple areas
  *
  * @param string $areaIds - JSON array of Area-IDs
- *
  * @return array
  */
+
 QUI::getAjax()->registerFunction(
     'package_quiqqer_areas_ajax_deleteChildren',
     function ($areaIds) {

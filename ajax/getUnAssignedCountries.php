@@ -8,7 +8,6 @@
  * Returns the available imports
  *
  * @param string $id - Area-ID
- *
  * @return array
  */
 
