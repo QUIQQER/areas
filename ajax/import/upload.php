@@ -8,7 +8,6 @@
  * Returns the available imports
  *
  * @param QDOM $id - Area-ID
- *
  * @return array
  */
 

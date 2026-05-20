@@ -7,13 +7,10 @@
 /**
  * Returns area list
  *
- * @param string $freeText - Freetext search, String to search
+ * @param string $freeText - FreeText search, String to search
  * @param string $params - JSON query params
- *
  * @return array
  */
-
-use QUI\ERP\Areas\Area;
 
 QUI::getAjax()->registerFunction(
     'package_quiqqer_areas_ajax_search',

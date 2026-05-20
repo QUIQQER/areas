@@ -9,6 +9,7 @@
  *
  * @return array
  */
+
 QUI::getAjax()->registerFunction(
     'package_quiqqer_areas_ajax_import_available',
     function () {
