@@ -15,7 +15,7 @@ class SetupUnitTest extends TestCase
 
     public function testOnPackageSetupTriggersSetupFlow(): void
     {
-        $Package = $this->createMock(\QUI\Package\Package::class);
+        $Package = $this->createStub(\QUI\Package\Package::class);
         $Package->method('getName')->willReturn('quiqqer/areas');
 
         try {
@@ -28,8 +28,8 @@ class SetupUnitTest extends TestCase
 
     public function testOnPackageSetupIgnoresOtherPackages(): void
     {
-        $Package = $this->createMock(\QUI\Package\Package::class);
-        $Package->expects($this->once())->method('getName')->willReturn('quiqqer/core');
+        $Package = $this->createStub(\QUI\Package\Package::class);
+        $Package->method('getName')->willReturn('quiqqer/core');
 
         Setup::onPackageSetup($Package);
 
