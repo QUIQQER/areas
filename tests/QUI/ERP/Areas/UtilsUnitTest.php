@@ -2,6 +2,9 @@
 
 namespace QUITests\ERP\Areas;
 
+use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\DriverManager;
+use Doctrine\DBAL\Schema\Schema;
 use PHPUnit\Framework\TestCase;
 use QUI\ERP\Areas\Area;
 use QUI\ERP\Areas\Utils;
@@ -9,13 +12,13 @@ use QUI\Interfaces\Users\User;
 
 class UtilsUnitTest extends TestCase
 {
-    private \QUI\Database\DB|null $oldDatabase = null;
+    private ?Connection $oldConnection = null;
 
     protected function tearDown(): void
     {
-        if ($this->oldDatabase !== null) {
-            \QUI::$DataBase2 = $this->oldDatabase;
-            $this->oldDatabase = null;
+        if ($this->oldConnection !== null) {
+            $this->setQueryBuilderConnection($this->oldConnection);
+            $this->oldConnection = null;
         }
 
         parent::tearDown();
@@ -39,7 +42,7 @@ class UtilsUnitTest extends TestCase
 
     public function testIsUserInAreasWithInvalidAreaIdFallsBackToFalse(): void
     {
-        $this->mockDatabaseToThrowOnFetch();
+        $this->mockDatabaseFetchResult([]);
 
         $Country = $this->createCountryCodeMock('DE');
         $User = $this->createMock(User::class);
@@ -83,7 +86,7 @@ class UtilsUnitTest extends TestCase
 
     public function testIsAddressInAreaWithInvalidAreaIdFallsBackToFalse(): void
     {
-        $this->mockDatabaseToThrowOnFetch();
+        $this->mockDatabaseFetchResult([]);
 
         $Country = $this->createCountryCodeMock('DE');
 
@@ -102,9 +105,9 @@ class UtilsUnitTest extends TestCase
         $this->assertNull(Utils::getAreaByCountry(new \stdClass()));
     }
 
-    public function testGetAreaByCountryReturnsNullOnHandlerException(): void
+    public function testGetAreaByCountryReturnsNullWhenNoAreasExist(): void
     {
-        $this->mockDatabaseToThrowOnFetch();
+        $this->mockDatabaseFetchResult([]);
 
         $Country = \QUI\Countries\Manager::get('DE');
         $this->assertNull(Utils::getAreaByCountry($Country));
@@ -148,32 +151,40 @@ class UtilsUnitTest extends TestCase
         return $Country;
     }
 
-    private function mockDatabaseToThrowOnFetch(): void
-    {
-        $this->oldDatabase = \QUI::$DataBase2;
-
-        $DB = $this->getMockBuilder(\QUI\Database\DB::class)
-            ->disableOriginalConstructor()
-            ->onlyMethods(['fetch'])
-            ->getMock();
-
-        $DB->method('fetch')->willThrowException(new \QUI\Exception('db fail'));
-        \QUI::$DataBase2 = $DB;
-    }
-
-    /**
-     * @param array<int, array<string, mixed>> $rows
-     */
     private function mockDatabaseFetchResult(array $rows): void
     {
-        $this->oldDatabase = \QUI::$DataBase2;
+        if ($this->oldConnection === null) {
+            $this->oldConnection = \QUI::getDataBaseConnection();
+        }
 
-        $DB = $this->getMockBuilder(\QUI\Database\DB::class)
-            ->disableOriginalConstructor()
-            ->onlyMethods(['fetch'])
-            ->getMock();
+        $Connection = DriverManager::getConnection([
+            'driver' => 'pdo_sqlite',
+            'memory' => true
+        ]);
 
-        $DB->method('fetch')->willReturn($rows);
-        \QUI::$DataBase2 = $DB;
+        $schema = new Schema();
+        $Table = $schema->createTable(\QUI::getDBTableName('areas'));
+        $Table->addColumn('id', 'integer');
+        $Table->addColumn('countries', 'text', ['notnull' => false]);
+        $Table->addColumn('data', 'text', ['notnull' => false]);
+        $Table->setPrimaryKey(['id']);
+
+        foreach ($schema->toSql($Connection->getDatabasePlatform()) as $statement) {
+            $Connection->executeStatement($statement);
+        }
+
+        foreach ($rows as $row) {
+            $Connection->insert(\QUI::getDBTableName('areas'), $row);
+        }
+
+        $this->setQueryBuilderConnection($Connection);
+    }
+
+    private function setQueryBuilderConnection(Connection $Connection): void
+    {
+        $Reflection = new \ReflectionClass(\QUI::class);
+        $property = $Reflection->getProperty('QueryBuilder');
+        $property->setAccessible(true);
+        $property->setValue($Connection);
     }
 }
