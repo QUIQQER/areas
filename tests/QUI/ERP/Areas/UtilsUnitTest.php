@@ -105,7 +105,7 @@ class UtilsUnitTest extends TestCase
         $this->assertNull(Utils::getAreaByCountry(new \stdClass()));
     }
 
-    public function testGetAreaByCountryReturnsNullOnHandlerException(): void
+    public function testGetAreaByCountryReturnsNullWhenNoAreasExist(): void
     {
         $this->mockDatabaseFetchResult([]);
 
