@@ -108,7 +108,14 @@ class Setup
             return;
         }
 
-        if (!$schemaManager->introspectTableByUnquotedName($table)->hasColumn('title')) {
+        // @phpstan-ignore function.alreadyNarrowedType
+        if (method_exists($schemaManager, 'introspectTableByUnquotedName')) {
+            $Table = $schemaManager->introspectTableByUnquotedName($table);
+        } else {
+            $Table = $schemaManager->introspectTable($table);
+        }
+
+        if (!$Table->hasColumn('title')) {
             return;
         }
 
