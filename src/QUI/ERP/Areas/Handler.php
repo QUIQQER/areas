@@ -230,14 +230,20 @@ class Handler extends QUI\CRUD\Factory
             }
 
             $parts = QUI::getLocale()->getPartsOfLocaleString($title);
+            $group = $parts[0] ?? null;
+            $variable = $parts[1] ?? null;
 
-            if (count($parts) === 2) {
-                $result[$language] = QUI::getLocale()->getByLang($language, $parts[0], $parts[1]);
+            // Plain titles may be parsed as [null, null]. Only resolve actual locale references;
+            // passing null to Locale::getByLang() causes project/package setup to fail.
+            if (
+                is_string($group) && $group !== ''
+                && is_string($variable) && $variable !== ''
+            ) {
+                $result[$language] = QUI::getLocale()->getByLang($language, $group, $variable);
 
                 continue;
             }
 
-            // getPartsOfLocaleString returns an array
             $result[$language] = $title;
         }
 
