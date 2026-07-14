@@ -6,6 +6,7 @@
 
 namespace QUI\ERP\Areas;
 
+use LogicException;
 use QUI;
 use QUI\CRUD\Child;
 use QUI\Database\Exception;
@@ -86,11 +87,33 @@ class Handler extends QUI\CRUD\Factory
 
     public function getChild(int | string $id): Area
     {
-        /* @var $child Area */
         $child = parent::getChild($id);
 
-        // @phpstan-ignore-next-line
+        if (!$child instanceof Area) {
+            throw new LogicException('The areas factory created an invalid child instance.');
+        }
+
         return $child;
+    }
+
+    /**
+     * @param array<string, mixed> $queryParams
+     * @return list<Area>
+     * @throws Exception
+     */
+    public function getChildren(array $queryParams = []): array
+    {
+        $result = [];
+
+        foreach (parent::getChildren($queryParams) as $child) {
+            if (!$child instanceof Area) {
+                throw new LogicException('The areas factory created an invalid child instance.');
+            }
+
+            $result[] = $child;
+        }
+
+        return $result;
     }
 
     /**

@@ -145,11 +145,6 @@ class Import
                     if ($country === '{$currentCountry}') {
                         try {
                             $DefaultCountry = QUI\Countries\Manager::getDefaultCountry();
-
-                            if (!$DefaultCountry) {
-                                continue;
-                            }
-
                             $country = $DefaultCountry->getCode();
                         } catch (QUI\Exception) {
                             continue;
