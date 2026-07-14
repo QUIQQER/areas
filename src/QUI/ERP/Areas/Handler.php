@@ -6,6 +6,7 @@
 
 namespace QUI\ERP\Areas;
 
+use LogicException;
 use QUI;
 use QUI\CRUD\Child;
 use QUI\Database\Exception;
@@ -86,11 +87,33 @@ class Handler extends QUI\CRUD\Factory
 
     public function getChild(int | string $id): Area
     {
-        /* @var $child Area */
         $child = parent::getChild($id);
 
-        // @phpstan-ignore-next-line
+        if (!$child instanceof Area) {
+            throw new LogicException('The areas factory created an invalid child instance.');
+        }
+
         return $child;
+    }
+
+    /**
+     * @param array<string, mixed> $queryParams
+     * @return list<Area>
+     * @throws Exception
+     */
+    public function getChildren(array $queryParams = []): array
+    {
+        $result = [];
+
+        foreach (parent::getChildren($queryParams) as $child) {
+            if (!$child instanceof Area) {
+                throw new LogicException('The areas factory created an invalid child instance.');
+            }
+
+            $result[] = $child;
+        }
+
+        return $result;
     }
 
     /**
@@ -230,14 +253,20 @@ class Handler extends QUI\CRUD\Factory
             }
 
             $parts = QUI::getLocale()->getPartsOfLocaleString($title);
+            $group = $parts[0] ?? null;
+            $variable = $parts[1] ?? null;
 
-            if (count($parts) === 2) {
-                $result[$language] = QUI::getLocale()->getByLang($language, $parts[0], $parts[1]);
+            // Plain titles may be parsed as [null, null]. Only resolve actual locale references;
+            // passing null to Locale::getByLang() causes project/package setup to fail.
+            if (
+                is_string($group) && $group !== ''
+                && is_string($variable) && $variable !== ''
+            ) {
+                $result[$language] = QUI::getLocale()->getByLang($language, $group, $variable);
 
                 continue;
             }
 
-            // getPartsOfLocaleString returns an array
             $result[$language] = $title;
         }
 

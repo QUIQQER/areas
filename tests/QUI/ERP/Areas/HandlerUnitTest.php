@@ -186,6 +186,31 @@ class HandlerUnitTest extends TestCase
         $this->assertIsArray($data);
     }
 
+    public function testGetLocaleDataKeepsPlainImportTitle(): void
+    {
+        $this->rememberAvailableLanguages();
+        $this->setAvailableLanguagesCache(['de']);
+
+        $Area = $this->getMockBuilder(Area::class)
+            ->disableOriginalConstructor()
+            ->onlyMethods(['getAttribute', 'getTitle'])
+            ->getMock();
+
+        $Area->method('getAttribute')->willReturnCallback(static function (string $name) {
+            if ($name === 'data') {
+                return json_encode(['importLocale' => 'Plain imported area title']);
+            }
+
+            return false;
+        });
+
+        $Area->method('getTitle')->willReturn('');
+
+        $data = (new Handler())->getLocaleData($Area);
+
+        $this->assertSame('Plain imported area title', $data['de']);
+    }
+
     public function testGetLocaleDataWithTitleFallback(): void
     {
         $Area = $this->getMockBuilder(Area::class)
