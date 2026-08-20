@@ -2,28 +2,13 @@
 
 namespace QUITests\ERP\Areas;
 
-use Doctrine\DBAL\Connection;
-use Doctrine\DBAL\DriverManager;
-use Doctrine\DBAL\Schema\Schema;
-use PHPUnit\Framework\TestCase;
 use QUI\ERP\Areas\Area;
 use QUI\ERP\Areas\Utils;
 use QUI\Interfaces\Users\User;
+use QUITests\ERP\Areas\DatabaseTestCase;
 
-class UtilsUnitTest extends TestCase
+class UtilsUnitTest extends DatabaseTestCase
 {
-    private ?Connection $oldConnection = null;
-
-    protected function tearDown(): void
-    {
-        if ($this->oldConnection !== null) {
-            $this->setQueryBuilderConnection($this->oldConnection);
-            $this->oldConnection = null;
-        }
-
-        parent::tearDown();
-    }
-
     public function testIsUserInAreasReturnsTrueForMatchingArea(): void
     {
         $Country = $this->createCountryCodeMock('DE');
@@ -153,38 +138,6 @@ class UtilsUnitTest extends TestCase
 
     private function mockDatabaseFetchResult(array $rows): void
     {
-        if ($this->oldConnection === null) {
-            $this->oldConnection = \QUI::getDataBaseConnection();
-        }
-
-        $Connection = DriverManager::getConnection([
-            'driver' => 'pdo_sqlite',
-            'memory' => true
-        ]);
-
-        $schema = new Schema();
-        $Table = $schema->createTable(\QUI::getDBTableName('areas'));
-        $Table->addColumn('id', 'integer');
-        $Table->addColumn('countries', 'text', ['notnull' => false]);
-        $Table->addColumn('data', 'text', ['notnull' => false]);
-        $Table->setPrimaryKey(['id']);
-
-        foreach ($schema->toSql($Connection->getDatabasePlatform()) as $statement) {
-            $Connection->executeStatement($statement);
-        }
-
-        foreach ($rows as $row) {
-            $Connection->insert(\QUI::getDBTableName('areas'), $row);
-        }
-
-        $this->setQueryBuilderConnection($Connection);
-    }
-
-    private function setQueryBuilderConnection(Connection $Connection): void
-    {
-        $Reflection = new \ReflectionClass(\QUI::class);
-        $property = $Reflection->getProperty('QueryBuilder');
-        $property->setAccessible(true);
-        $property->setValue($Connection);
+        $this->useAreaFixtures($rows);
     }
 }
