@@ -16,7 +16,15 @@ class ImportUnitTest extends TestCase
         $this->assertArrayHasKey('file', $imports[0]);
         $this->assertArrayHasKey('locale', $imports[0]);
         $this->assertIsString($imports[0]['file']);
-        $this->assertIsString($imports[0]['locale']);
+        $this->assertIsArray($imports[0]['locale']);
+        $this->assertCount(2, $imports[0]['locale']);
+
+        $importsByFile = array_column($imports, null, 'file');
+
+        $this->assertSame(
+            ['quiqqer/areas', 'area.import.manual'],
+            $importsByFile['manual.xml']['locale']
+        );
     }
 
     public function testExistPreconfigureRecognizesKnownFile(): void
