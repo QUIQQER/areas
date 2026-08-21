@@ -18,7 +18,7 @@ use QUI\Utils\Text\XML;
 class Import
 {
     /**
-     * @return array<int, array{file: string, locale: string}>
+     * @return array<int, array{file: string, locale: array{0: string, 1: string}}>
      */
     public static function getAvailableImports(): array
     {
@@ -46,15 +46,9 @@ class Import
             $Title = $title->item(0);
 
             if ($Title instanceof DOMElement) {
-                $locale = DOM::getTextFromNode($Title, false);
-
-                if (!is_string($locale)) {
-                    $locale = '';
-                }
-
                 $result[] = [
                     'file' => $xmlFile,
-                    'locale' => $locale
+                    'locale' => DOM::getTextFromNode($Title, false)
                 ];
             }
         }
