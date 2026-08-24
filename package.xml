@@ -8,6 +8,15 @@
             <locale group="quiqqer/areas" var="package.description"/>
         </description>
 
+        <capabilities schemaVersion="1">
+            <capability id="commerce.country-areas">
+                <title>Country area management</title>
+                <description>
+                    Creates and manages named country groups for tax, shipping and other commerce rules.
+                </description>
+            </capability>
+        </capabilities>
+
         <image src="URL_OPT_DIR/quiqqer/areas/bin/images/Logo.jpg"/>
 
         <preview>
