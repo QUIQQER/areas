@@ -5,10 +5,15 @@
         <locale name="package.title">
             <de><![CDATA[QUIQQER - Shop - Zonen]]></de>
             <en><![CDATA[QUIQQER - Shop - Areas]]></en>
+            <es><![CDATA[QUIQQER - Tienda - Zonas]]></es>
+            <pt><![CDATA[QUIQQER - Loja - Zonas]]></pt>
+            <fr><![CDATA[QUIQQER - Boutique - Zones]]></fr>
+            <it><![CDATA[QUIQQER - Negozio - Zone]]></it>
+            <pl><![CDATA[QUIQQER - Sklep - Strefy]]></pl>
         </locale>
         <locale name="package.description">
             <de><![CDATA[
-            Mit dem QUIQQER Zonen Module können Sie Länder zu sogenannten Gebieten zusammenfassen.
+            Mit dem QUIQQER Zonen Modul können Sie Länder zu sogenannten Gebieten zusammenfassen.
             Definieren Sie unterschiedliche Steuerzonen oder Versandzonen und legen Sie unterschiedliche Verhaltensweisen
             für Ihren Shop und für verschiedene Länder fest.
 
@@ -23,172 +28,352 @@
             - In combination with the QUIQQER Tax module, different VAT zones can be set up.
             - In combination with the QUIQQER Discount module you can offer different discounts for different areas.
             ]]></en>
+            <es><![CDATA[El módulo de zonas de QUIQQER permite agrupar países en zonas. Define distintas zonas fiscales o de envío y configura el comportamiento de tu tienda según el país.
+
+- En combinación con el módulo QUIQQER Tax, puedes establecer distintas zonas de IVA.
+- En combinación con el módulo de descuentos de QUIQQER, puedes ofrecer descuentos diferentes en cada zona.]]></es>
+            <pt><![CDATA[O módulo de zonas do QUIQQER permite agrupar países em zonas. Define diferentes zonas fiscais ou de envio e configura o comportamento da tua loja consoante o país.
+
+- Em combinação com o módulo QUIQQER Tax, podes definir diferentes zonas de IVA.
+- Em combinação com o módulo de descontos do QUIQQER, podes oferecer descontos diferentes em cada zona.]]></pt>
+            <fr><![CDATA[Le module de zones QUIQQER permet de regrouper des pays en zones. Définissez différentes zones fiscales ou de livraison et adaptez le fonctionnement de votre boutique à chaque pays.
+
+- Avec le module QUIQQER Tax, vous pouvez définir différentes zones de TVA.
+- Avec le module de remises QUIQQER, vous pouvez proposer des remises différentes selon les zones.]]></fr>
+            <it><![CDATA[Il modulo delle zone di QUIQQER permette di raggruppare i paesi in zone. Definisci zone fiscali o di spedizione diverse e configura il comportamento del tuo negozio in base al paese.
+
+- In combinazione con il modulo QUIQQER Tax, puoi configurare diverse zone IVA.
+- In combinazione con il modulo degli sconti di QUIQQER, puoi offrire sconti diversi per ciascuna zona.]]></it>
+            <pl><![CDATA[Moduł stref QUIQQER pozwala grupować kraje w strefy. Zdefiniuj różne strefy podatkowe lub wysyłkowe i dostosuj działanie sklepu do poszczególnych krajów.
+
+- W połączeniu z modułem QUIQQER Tax możesz utworzyć różne strefy VAT.
+- W połączeniu z modułem rabatów QUIQQER możesz oferować różne rabaty w poszczególnych strefach.]]></pl>
         </locale>
 
         <locale name="permission.quiqqer.areas._header">
             <de><![CDATA[Shop - Zonen]]></de>
             <en><![CDATA[Shop - Areas]]></en>
+            <es><![CDATA[Tienda - Zonas]]></es>
+            <pt><![CDATA[Loja - Zonas]]></pt>
+            <fr><![CDATA[Boutique - Zones]]></fr>
+            <it><![CDATA[Negozio - Zone]]></it>
+            <pl><![CDATA[Sklep - Strefy]]></pl>
         </locale>
         <locale name="permission.quiqqer.areas.area._header">
             <de><![CDATA[Zonen]]></de>
             <en><![CDATA[Areas]]></en>
+            <es><![CDATA[Zonas]]></es>
+            <pt><![CDATA[Zonas]]></pt>
+            <fr><![CDATA[Zones]]></fr>
+            <it><![CDATA[Zone]]></it>
+            <pl><![CDATA[Strefy]]></pl>
         </locale>
         <locale name="permission.quiqqer.areas.area.delete">
             <de><![CDATA[Darf Zonen löschen]]></de>
             <en><![CDATA[Is allowed to delete areas]]></en>
+            <es><![CDATA[Puede eliminar zonas]]></es>
+            <pt><![CDATA[Pode eliminar zonas]]></pt>
+            <fr><![CDATA[Peut supprimer des zones]]></fr>
+            <it><![CDATA[Può eliminare le zone]]></it>
+            <pl><![CDATA[Może usuwać strefy]]></pl>
         </locale>
         <locale name="permission.quiqqer.areas.area.edit">
             <de><![CDATA[Darf Zonen bearbeiten]]></de>
             <en><![CDATA[Is allowed to edit areas]]></en>
+            <es><![CDATA[Puede editar zonas]]></es>
+            <pt><![CDATA[Pode editar zonas]]></pt>
+            <fr><![CDATA[Peut modifier des zones]]></fr>
+            <it><![CDATA[Può modificare le zone]]></it>
+            <pl><![CDATA[Może edytować strefy]]></pl>
         </locale>
         <locale name="permission.quiqqer.areas.area.create">
             <de><![CDATA[Darf Zonen erstellen]]></de>
             <en><![CDATA[Is allowed to create areas]]></en>
+            <es><![CDATA[Puede crear zonas]]></es>
+            <pt><![CDATA[Pode criar zonas]]></pt>
+            <fr><![CDATA[Peut créer des zones]]></fr>
+            <it><![CDATA[Può creare le zone]]></it>
+            <pl><![CDATA[Może tworzyć strefy]]></pl>
         </locale>
 
         <locale name="menu.erp.title">
             <de><![CDATA[Shop]]></de>
             <en><![CDATA[Shop]]></en>
+            <es><![CDATA[Tienda]]></es>
+            <pt><![CDATA[Loja]]></pt>
+            <fr><![CDATA[Boutique]]></fr>
+            <it><![CDATA[Negozio]]></it>
+            <pl><![CDATA[Sklep]]></pl>
         </locale>
         <locale name="menu.erp.areas.title">
             <de><![CDATA[Zonen]]></de>
             <en><![CDATA[Areas]]></en>
+            <es><![CDATA[Zonas]]></es>
+            <pt><![CDATA[Zonas]]></pt>
+            <fr><![CDATA[Zones]]></fr>
+            <it><![CDATA[Zone]]></it>
+            <pl><![CDATA[Strefy]]></pl>
         </locale>
 
         <locale name="area.grid.areaname.title">
             <de><![CDATA[Zonen]]></de>
             <en><![CDATA[Areas]]></en>
+            <es><![CDATA[Zonas]]></es>
+            <pt><![CDATA[Zonas]]></pt>
+            <fr><![CDATA[Zones]]></fr>
+            <it><![CDATA[Zone]]></it>
+            <pl><![CDATA[Strefy]]></pl>
         </locale>
         <locale name="area.grid.areaname.countries">
             <de><![CDATA[Länder]]></de>
             <en><![CDATA[Countries]]></en>
+            <es><![CDATA[Países]]></es>
+            <pt><![CDATA[Países]]></pt>
+            <fr><![CDATA[Pays]]></fr>
+            <it><![CDATA[Paesi]]></it>
+            <pl><![CDATA[Kraje]]></pl>
         </locale>
 
         <locale name="menu.erp.areas.panel.title">
             <de><![CDATA[Zonen]]></de>
             <en><![CDATA[Areas]]></en>
+            <es><![CDATA[Zonas]]></es>
+            <pt><![CDATA[Zonas]]></pt>
+            <fr><![CDATA[Zones]]></fr>
+            <it><![CDATA[Zone]]></it>
+            <pl><![CDATA[Strefy]]></pl>
         </locale>
         <locale name="area.import.euDigital">
             <de><![CDATA[Zonen für digitale Güter in der EU (deprecated)]]></de>
             <en><![CDATA[Areas for digital goods in the EU (deprecated)]]></en>
+            <es><![CDATA[Zonas para bienes digitales en la UE (obsoleto)]]></es>
+            <pt><![CDATA[Zonas para bens digitais na UE (obsoleto)]]></pt>
+            <fr><![CDATA[Zones pour les biens numériques dans l’UE (obsolète)]]></fr>
+            <it><![CDATA[Zone per beni digitali nell’UE (obsoleto)]]></it>
+            <pl><![CDATA[Strefy dla towarów cyfrowych w UE (przestarzałe)]]></pl>
         </locale>
         <locale name="import.text.world">
             <de><![CDATA[Andere Länder]]></de>
             <en><![CDATA[Other countries]]></en>
+            <es><![CDATA[Otros países]]></es>
+            <pt><![CDATA[Outros países]]></pt>
+            <fr><![CDATA[Autres pays]]></fr>
+            <it><![CDATA[Altri paesi]]></it>
+            <pl><![CDATA[Inne kraje]]></pl>
         </locale>
 
         <locale name="area.import.DigitalGoodsFromEuropaToEuropa">
             <de><![CDATA[
-            Digitale Güter von Europa nach Europa (One-Stop-Shop - zb von Deutschland nach Deutschland + Österreich)
+            Digitale Güter von Europa nach Europa (One-Stop-Shop - z. B. von Deutschland nach Deutschland + Österreich)
             ]]></de>
             <en><![CDATA[
-            Digital goods from Europe to Europe (One-Stop-Shop - zb von Deutschland nach Deutschland + Österreich)
+            Digital goods from Europe to Europe (One-Stop-Shop - e.g. from Germany to Germany + Austria)
             ]]></en>
+            <es><![CDATA[Bienes digitales de Europa a Europa (One-Stop-Shop - p. ej., de Alemania a Alemania + Austria)]]></es>
+            <pt><![CDATA[Bens digitais da Europa para a Europa (One-Stop-Shop - por exemplo, da Alemanha para a Alemanha + Áustria)]]></pt>
+            <fr><![CDATA[Biens numériques de l’Europe vers l’Europe (One-Stop-Shop - par exemple, de l’Allemagne vers l’Allemagne + l’Autriche)]]></fr>
+            <it><![CDATA[Beni digitali dall’Europa all’Europa (One-Stop-Shop - ad es. dalla Germania alla Germania + Austria)]]></it>
+            <pl><![CDATA[Towary cyfrowe z Europy do Europy (One-Stop-Shop - np. z Niemiec do Niemiec + Austrii)]]></pl>
         </locale>
         <locale name="area.import.DigitalGoodsFromEuropeToTheWorld">
             <de><![CDATA[
-            Digitale Güter von Europa in die Welt (zb von Deutschland nach Österreich + Schweiz)
+            Digitale Güter von Europa in die Welt (z. B. von Deutschland nach Österreich + Schweiz)
             ]]></de>
             <en><![CDATA[
             Digital goods from Europe to the world (e.g. from Germany to Austria + Switzerland)
             ]]></en>
+            <es><![CDATA[Bienes digitales de Europa al resto del mundo (p. ej., de Alemania a Austria + Suiza)]]></es>
+            <pt><![CDATA[Bens digitais da Europa para o resto do mundo (por exemplo, da Alemanha para a Áustria + Suíça)]]></pt>
+            <fr><![CDATA[Biens numériques de l’Europe vers le reste du monde (par exemple, de l’Allemagne vers l’Autriche + la Suisse)]]></fr>
+            <it><![CDATA[Beni digitali dall’Europa al resto del mondo (ad es. dalla Germania all’Austria + Svizzera)]]></it>
+            <pl><![CDATA[Towary cyfrowe z Europy do reszty świata (np. z Niemiec do Austrii + Szwajcarii)]]></pl>
         </locale>
         <locale name="area.import.DigitalGoodsInOneCountry">
-            <de><![CDATA[Digitale Güter in einem EU-Land (zb von Deutschland nach Deutschland)]]></de>
-            <en><![CDATA[Digital goods in one european country (eg from Germany to Germany)]]></en>
+            <de><![CDATA[Digitale Güter in einem EU-Land (z. B. von Deutschland nach Deutschland)]]></de>
+            <en><![CDATA[Digital goods in one EU country (e.g. from Germany to Germany)]]></en>
+            <es><![CDATA[Bienes digitales dentro de un país de la UE (p. ej., de Alemania a Alemania)]]></es>
+            <pt><![CDATA[Bens digitais dentro de um país da UE (por exemplo, da Alemanha para a Alemanha)]]></pt>
+            <fr><![CDATA[Biens numériques au sein d’un pays de l’UE (par exemple, de l’Allemagne vers l’Allemagne)]]></fr>
+            <it><![CDATA[Beni digitali all’interno di un paese dell’UE (ad es. dalla Germania alla Germania)]]></it>
+            <pl><![CDATA[Towary cyfrowe w obrębie jednego kraju UE (np. z Niemiec do Niemiec)]]></pl>
         </locale>
 
         <locale name="area.import.PhysicalDigitalGoodsFromEuropaToEuropa">
             <de><![CDATA[
-            Physische + Digitale Güter von Europa nach Europa (One-Stop-Shop - zb von Deutschland nach Deutschland + Österreich)
+            Physische + Digitale Güter von Europa nach Europa (One-Stop-Shop - z. B. von Deutschland nach Deutschland + Österreich)
             ]]></de>
             <en><![CDATA[
-            Physical + Digital Goods from Europe to Europe (One-Stop-Shop - zb von Deutschland nach Deutschland + Österreich)
+            Physical + Digital Goods from Europe to Europe (One-Stop-Shop - e.g. from Germany to Germany + Austria)
             ]]></en>
+            <es><![CDATA[Bienes físicos y digitales de Europa a Europa (One-Stop-Shop - p. ej., de Alemania a Alemania + Austria)]]></es>
+            <pt><![CDATA[Bens físicos e digitais da Europa para a Europa (One-Stop-Shop - por exemplo, da Alemanha para a Alemanha + Áustria)]]></pt>
+            <fr><![CDATA[Biens physiques et numériques de l’Europe vers l’Europe (One-Stop-Shop - par exemple, de l’Allemagne vers l’Allemagne + l’Autriche)]]></fr>
+            <it><![CDATA[Beni fisici e digitali dall’Europa all’Europa (One-Stop-Shop - ad es. dalla Germania alla Germania + Austria)]]></it>
+            <pl><![CDATA[Towary fizyczne i cyfrowe z Europy do Europy (One-Stop-Shop - np. z Niemiec do Niemiec + Austrii)]]></pl>
         </locale>
         <locale name="area.import.PhysicalDigitalGoodsFromEuropeToTheWorld">
             <de><![CDATA[
-            Physische + Digitale Güter von Europa in die Welt (zb von Deutschland nach Österreich + Schweiz)
+            Physische + Digitale Güter von Europa in die Welt (z. B. von Deutschland nach Österreich + Schweiz)
             ]]></de>
             <en><![CDATA[
             Physical + digital goods from Europe to the world (e.g. from Germany to Austria + Switzerland)
             ]]></en>
+            <es><![CDATA[Bienes físicos y digitales de Europa al resto del mundo (p. ej., de Alemania a Austria + Suiza)]]></es>
+            <pt><![CDATA[Bens físicos e digitais da Europa para o resto do mundo (por exemplo, da Alemanha para a Áustria + Suíça)]]></pt>
+            <fr><![CDATA[Biens physiques et numériques de l’Europe vers le reste du monde (par exemple, de l’Allemagne vers l’Autriche + la Suisse)]]></fr>
+            <it><![CDATA[Beni fisici e digitali dall’Europa al resto del mondo (ad es. dalla Germania all’Austria + Svizzera)]]></it>
+            <pl><![CDATA[Towary fizyczne i cyfrowe z Europy do reszty świata (np. z Niemiec do Austrii + Szwajcarii)]]></pl>
         </locale>
         <locale name="area.import.PhysicalDigitalGoodsInOneCountry">
-            <de><![CDATA[Physische + Digitale Güter in einem Land (zb von Deutschland nach Deutschland)]]></de>
+            <de><![CDATA[Physische + Digitale Güter in einem Land (z. B. von Deutschland nach Deutschland)]]></de>
             <en><![CDATA[Physical + digital goods in one country (e.g. from Germany to Germany)]]></en>
+            <es><![CDATA[Bienes físicos y digitales dentro de un país (p. ej., de Alemania a Alemania)]]></es>
+            <pt><![CDATA[Bens físicos e digitais dentro de um país (por exemplo, da Alemanha para a Alemanha)]]></pt>
+            <fr><![CDATA[Biens physiques et numériques au sein d’un pays (par exemple, de l’Allemagne vers l’Allemagne)]]></fr>
+            <it><![CDATA[Beni fisici e digitali all’interno di un paese (ad es. dalla Germania alla Germania)]]></it>
+            <pl><![CDATA[Towary fizyczne i cyfrowe w obrębie jednego kraju (np. z Niemiec do Niemiec)]]></pl>
         </locale>
         <locale name="area.import.PhysicalGoodsFromEuropaToEuropa">
             <de><![CDATA[
-            Physische Güter von Europa nach Europa (One-Stop-Shop - zb von Deutschland nach Deutschland + Österreich)
+            Physische Güter von Europa nach Europa (One-Stop-Shop - z. B. von Deutschland nach Deutschland + Österreich)
             ]]></de>
             <en><![CDATA[
-            Physical goods from Europe to Europe (One-Stop-Shop - zb von Deutschland nach Deutschland + Österreich)
+            Physical goods from Europe to Europe (One-Stop-Shop - e.g. from Germany to Germany + Austria)
             ]]></en>
+            <es><![CDATA[Bienes físicos de Europa a Europa (One-Stop-Shop - p. ej., de Alemania a Alemania + Austria)]]></es>
+            <pt><![CDATA[Bens físicos da Europa para a Europa (One-Stop-Shop - por exemplo, da Alemanha para a Alemanha + Áustria)]]></pt>
+            <fr><![CDATA[Biens physiques de l’Europe vers l’Europe (One-Stop-Shop - par exemple, de l’Allemagne vers l’Allemagne + l’Autriche)]]></fr>
+            <it><![CDATA[Beni fisici dall’Europa all’Europa (One-Stop-Shop - ad es. dalla Germania alla Germania + Austria)]]></it>
+            <pl><![CDATA[Towary fizyczne z Europy do Europy (One-Stop-Shop - np. z Niemiec do Niemiec + Austrii)]]></pl>
         </locale>
         <locale name="area.import.PhysicalGoodsFromEuropeToTheWorld">
-            <de><![CDATA[Physische Güter von Europa in die Welt (zb von Deutschland nach Österreich + Schweiz)]]></de>
+            <de><![CDATA[Physische Güter von Europa in die Welt (z. B. von Deutschland nach Österreich + Schweiz)]]></de>
             <en><![CDATA[Physical goods from Europe to the world (e.g. from Germany to Austria + Switzerland)]]></en>
+            <es><![CDATA[Bienes físicos de Europa al resto del mundo (p. ej., de Alemania a Austria + Suiza)]]></es>
+            <pt><![CDATA[Bens físicos da Europa para o resto do mundo (por exemplo, da Alemanha para a Áustria + Suíça)]]></pt>
+            <fr><![CDATA[Biens physiques de l’Europe vers le reste du monde (par exemple, de l’Allemagne vers l’Autriche + la Suisse)]]></fr>
+            <it><![CDATA[Beni fisici dall’Europa al resto del mondo (ad es. dalla Germania all’Austria + Svizzera)]]></it>
+            <pl><![CDATA[Towary fizyczne z Europy do reszty świata (np. z Niemiec do Austrii + Szwajcarii)]]></pl>
         </locale>
         <locale name="area.import.PhysicalGoodsInOneCountry">
-            <de><![CDATA[Physische Güter in einem Land (zb von Deutschland nach Deutschland)]]></de>
-            <en><![CDATA[Physical goods in a country (e.g. from Germany to Germany]]></en>
+            <de><![CDATA[Physische Güter in einem Land (z. B. von Deutschland nach Deutschland)]]></de>
+            <en><![CDATA[Physical goods in a country (e.g. from Germany to Germany)]]></en>
+            <es><![CDATA[Bienes físicos dentro de un país (p. ej., de Alemania a Alemania)]]></es>
+            <pt><![CDATA[Bens físicos dentro de um país (por exemplo, da Alemanha para a Alemanha)]]></pt>
+            <fr><![CDATA[Biens physiques au sein d’un pays (par exemple, de l’Allemagne vers l’Allemagne)]]></fr>
+            <it><![CDATA[Beni fisici all’interno di un paese (ad es. dalla Germania alla Germania)]]></it>
+            <pl><![CDATA[Towary fizyczne w obrębie jednego kraju (np. z Niemiec do Niemiec)]]></pl>
         </locale>
         <locale name="area.import.manual">
-            <de><![CDATA[Manuelle Konfiguration (zb innerhalb USA)]]></de>
+            <de><![CDATA[Manuelle Konfiguration (z. B. innerhalb USA)]]></de>
             <en><![CDATA[Manual configuration (e.g. within USA)]]></en>
+            <es><![CDATA[Configuración manual (p. ej., dentro de EE. UU.)]]></es>
+            <pt><![CDATA[Configuração manual (por exemplo, dentro dos EUA)]]></pt>
+            <fr><![CDATA[Configuration manuelle (par exemple, au sein des États-Unis)]]></fr>
+            <it><![CDATA[Configurazione manuale (ad es. all’interno degli Stati Uniti)]]></it>
+            <pl><![CDATA[Konfiguracja ręczna (np. w obrębie USA)]]></pl>
         </locale>
 
     </groups>
 
     <groups name="quiqqer/areas" datatype="js">
         <locale name="control.AreaEdit.btn.delete">
-            <de><![CDATA[Markierte Länder löschen]]></de>
-            <en><![CDATA[Delete marked countries]]></en>
+            <de><![CDATA[Markierte Länder aus der Zone entfernen]]></de>
+            <en><![CDATA[Remove selected countries from the area]]></en>
+            <es><![CDATA[Quitar de la zona los países seleccionados]]></es>
+            <pt><![CDATA[Remover da zona os países selecionados]]></pt>
+            <fr><![CDATA[Retirer de la zone les pays sélectionnés]]></fr>
+            <it><![CDATA[Rimuovi dalla zona i paesi selezionati]]></it>
+            <pl><![CDATA[Usuń wybrane kraje ze strefy]]></pl>
         </locale>
         <locale name="control.AreaEdit.btn.add">
             <de><![CDATA[Markierte Länder übernehmen]]></de>
             <en><![CDATA[Add marked countries]]></en>
+            <es><![CDATA[Añadir los países seleccionados]]></es>
+            <pt><![CDATA[Adicionar os países selecionados]]></pt>
+            <fr><![CDATA[Ajouter les pays sélectionnés]]></fr>
+            <it><![CDATA[Aggiungi i paesi selezionati]]></it>
+            <pl><![CDATA[Dodaj wybrane kraje]]></pl>
         </locale>
 
         <locale name="window.edit.data">
             <de><![CDATA[Daten]]></de>
             <en><![CDATA[Data]]></en>
+            <es><![CDATA[Datos]]></es>
+            <pt><![CDATA[Dados]]></pt>
+            <fr><![CDATA[Données]]></fr>
+            <it><![CDATA[Dati]]></it>
+            <pl><![CDATA[Dane]]></pl>
         </locale>
         <locale name="window.edit.id">
             <de><![CDATA[ID]]></de>
             <en><![CDATA[ID]]></en>
+            <es><![CDATA[ID]]></es>
+            <pt><![CDATA[ID]]></pt>
+            <fr><![CDATA[ID]]></fr>
+            <it><![CDATA[ID]]></it>
+            <pl><![CDATA[ID]]></pl>
         </locale>
         <locale name="window.edit.title">
             <de><![CDATA[Zonen-Titel]]></de>
             <en><![CDATA[Area title]]></en>
+            <es><![CDATA[Título de la zona]]></es>
+            <pt><![CDATA[Título da zona]]></pt>
+            <fr><![CDATA[Titre de la zone]]></fr>
+            <it><![CDATA[Titolo della zona]]></it>
+            <pl><![CDATA[Tytuł strefy]]></pl>
         </locale>
         <locale name="window.edit.countries">
             <de><![CDATA[Länderzuweisung]]></de>
             <en><![CDATA[Country assignment]]></en>
+            <es><![CDATA[Asignación de países]]></es>
+            <pt><![CDATA[Atribuição de países]]></pt>
+            <fr><![CDATA[Affectation des pays]]></fr>
+            <it><![CDATA[Assegnazione dei paesi]]></it>
+            <pl><![CDATA[Przypisanie krajów]]></pl>
         </locale>
         <locale name="window.edit.countries.add">
-            <de><![CDATA[Länder in der Zonen]]></de>
+            <de><![CDATA[Länder in der Zone]]></de>
             <en><![CDATA[Countries in the area]]></en>
+            <es><![CDATA[Países de la zona]]></es>
+            <pt><![CDATA[Países da zona]]></pt>
+            <fr><![CDATA[Pays de la zone]]></fr>
+            <it><![CDATA[Paesi della zona]]></it>
+            <pl><![CDATA[Kraje w strefie]]></pl>
         </locale>
         <locale name="window.edit.countries.list">
-            <de><![CDATA[Noch vorhandene Länder]]></de>
-            <en><![CDATA[Countries still existing]]></en>
+            <de><![CDATA[Noch nicht zugewiesene Länder]]></de>
+            <en><![CDATA[Unassigned countries]]></en>
+            <es><![CDATA[Países aún sin asignar]]></es>
+            <pt><![CDATA[Países ainda não atribuídos]]></pt>
+            <fr><![CDATA[Pays non encore affectés]]></fr>
+            <it><![CDATA[Paesi non ancora assegnati]]></it>
+            <pl><![CDATA[Kraje jeszcze nieprzypisane]]></pl>
         </locale>
 
 
         <locale name="window.delete.title">
             <de><![CDATA[Markierte Zonen löschen]]></de>
             <en><![CDATA[Delete selected areas]]></en>
+            <es><![CDATA[Eliminar las zonas seleccionadas]]></es>
+            <pt><![CDATA[Eliminar as zonas selecionadas]]></pt>
+            <fr><![CDATA[Supprimer les zones sélectionnées]]></fr>
+            <it><![CDATA[Elimina le zone selezionate]]></it>
+            <pl><![CDATA[Usuń wybrane strefy]]></pl>
         </locale>
         <locale name="window.delete.text">
             <de><![CDATA[Möchten Sie folgende Zonen wirklich löschen?]]></de>
             <en><![CDATA[Do you really want to delete the following areas?]]></en>
+            <es><![CDATA[¿Seguro que quieres eliminar las siguientes zonas?]]></es>
+            <pt><![CDATA[Tens a certeza de que pretendes eliminar as seguintes zonas?]]></pt>
+            <fr><![CDATA[Voulez-vous vraiment supprimer les zones suivantes ?]]></fr>
+            <it><![CDATA[Vuoi davvero eliminare le seguenti zone?]]></it>
+            <pl><![CDATA[Czy na pewno chcesz usunąć następujące strefy?]]></pl>
         </locale>
         <locale name="window.delete.information">
             <de><![CDATA[
                 Die Zonen sind nach dem Löschvorgang nicht
-                wieder herstellbar. Folgende Zonen werden gelöscht:<br /><br />
+                wiederherstellbar. Folgende Zonen werden gelöscht:<br /><br />
                 [areaList]
             ]]></de>
             <en><![CDATA[
@@ -196,41 +381,86 @@
                 The following areas would be deleted: <br /><br />
                 [areaList]
             ]]></en>
+            <es><![CDATA[Las zonas no se podrán recuperar una vez eliminadas. Se eliminarán las siguientes zonas:<br /><br />[areaList]]]></es>
+            <pt><![CDATA[Não será possível recuperar as zonas após a eliminação. Serão eliminadas as seguintes zonas:<br /><br />[areaList]]]></pt>
+            <fr><![CDATA[Les zones ne pourront pas être restaurées après leur suppression. Les zones suivantes seront supprimées :<br /><br />[areaList]]]></fr>
+            <it><![CDATA[Le zone non potranno essere ripristinate dopo l’eliminazione. Verranno eliminate le seguenti zone:<br /><br />[areaList]]]></it>
+            <pl><![CDATA[Po usunięciu stref nie będzie można ich przywrócić. Usunięte zostaną następujące strefy:<br /><br />[areaList]]]></pl>
         </locale>
 
         <locale name="window.create.title">
             <de><![CDATA[Neue Zone anlegen]]></de>
             <en><![CDATA[Create a new area]]></en>
+            <es><![CDATA[Crear una zona]]></es>
+            <pt><![CDATA[Criar uma zona]]></pt>
+            <fr><![CDATA[Créer une zone]]></fr>
+            <it><![CDATA[Crea una zona]]></it>
+            <pl><![CDATA[Utwórz strefę]]></pl>
         </locale>
         <locale name="window.create.text">
             <de><![CDATA[Neue Zone anlegen]]></de>
             <en><![CDATA[Create a new area]]></en>
+            <es><![CDATA[Crear una zona]]></es>
+            <pt><![CDATA[Criar uma zona]]></pt>
+            <fr><![CDATA[Créer une zone]]></fr>
+            <it><![CDATA[Crea una zona]]></it>
+            <pl><![CDATA[Utwórz strefę]]></pl>
         </locale>
         <locale name="window.create.information">
             <de><![CDATA[Nach dem Anlegen der Zone können Sie Länder der Zone zuweisen.]]></de>
             <en><![CDATA[After creating the area, you can assign countries to it.]]></en>
+            <es><![CDATA[Una vez creada la zona, puedes asignarle países.]]></es>
+            <pt><![CDATA[Depois de criares a zona, podes atribuir-lhe países.]]></pt>
+            <fr><![CDATA[Après avoir créé la zone, vous pouvez y affecter des pays.]]></fr>
+            <it><![CDATA[Dopo aver creato la zona, puoi assegnarle dei paesi.]]></it>
+            <pl><![CDATA[Po utworzeniu strefy możesz przypisać do niej kraje.]]></pl>
         </locale>
         <locale name="window.create.label">
             <de><![CDATA[Name der neuen Zone]]></de>
             <en><![CDATA[Name of the new area]]></en>
+            <es><![CDATA[Nombre de la nueva zona]]></es>
+            <pt><![CDATA[Nome da nova zona]]></pt>
+            <fr><![CDATA[Nom de la nouvelle zone]]></fr>
+            <it><![CDATA[Nome della nuova zona]]></it>
+            <pl><![CDATA[Nazwa nowej strefy]]></pl>
         </locale>
 
         <locale name="control.select.placeholder">
             <de><![CDATA[Suche nach einer Zone ...]]></de>
             <en><![CDATA[Search for an area ...]]></en>
+            <es><![CDATA[Buscar una zona...]]></es>
+            <pt><![CDATA[Pesquisar uma zona...]]></pt>
+            <fr><![CDATA[Rechercher une zone…]]></fr>
+            <it><![CDATA[Cerca una zona...]]></it>
+            <pl><![CDATA[Szukaj strefy...]]></pl>
         </locale>
 
         <locale name="control.search.window.title">
             <de><![CDATA[Suche nach einer Zone]]></de>
             <en><![CDATA[Search for an area]]></en>
+            <es><![CDATA[Buscar una zona]]></es>
+            <pt><![CDATA[Pesquisar uma zona]]></pt>
+            <fr><![CDATA[Rechercher une zone]]></fr>
+            <it><![CDATA[Cerca una zona]]></it>
+            <pl><![CDATA[Szukaj strefy]]></pl>
         </locale>
         <locale name="control.window.button.search">
             <de><![CDATA[Zonen suchen]]></de>
             <en><![CDATA[Search area]]></en>
+            <es><![CDATA[Buscar zonas]]></es>
+            <pt><![CDATA[Pesquisar zonas]]></pt>
+            <fr><![CDATA[Rechercher des zones]]></fr>
+            <it><![CDATA[Cerca zone]]></it>
+            <pl><![CDATA[Szukaj stref]]></pl>
         </locale>
         <locale name="control.window.button.back">
-            <de><![CDATA[Zur suchen]]></de>
+            <de><![CDATA[Zur Suche]]></de>
             <en><![CDATA[To the search]]></en>
+            <es><![CDATA[Volver a la búsqueda]]></es>
+            <pt><![CDATA[Voltar à pesquisa]]></pt>
+            <fr><![CDATA[Retour à la recherche]]></fr>
+            <it><![CDATA[Torna alla ricerca]]></it>
+            <pl><![CDATA[Wróć do wyszukiwania]]></pl>
         </locale>
     </groups>
 </locales>
