@@ -63,7 +63,7 @@ define('package/quiqqer/areas/bin/controls/Areas', [
             // buttons
             this.addButton({
                 name     : 'add',
-                text     : QUILocale.get('quiqqer/system', 'add'),
+                text     : QUILocale.get('quiqqer/core', 'add'),
                 textimage: 'fa fa-plus',
                 events   : {
                     onClick: this.createChild
@@ -72,7 +72,7 @@ define('package/quiqqer/areas/bin/controls/Areas', [
 
             this.addButton({
                 name     : 'delete',
-                text     : QUILocale.get('quiqqer/system', 'delete'),
+                text     : QUILocale.get('quiqqer/core', 'delete'),
                 textimage: 'fa fa-trash',
                 disabled : true,
                 events   : {
@@ -99,7 +99,7 @@ define('package/quiqqer/areas/bin/controls/Areas', [
                 multipleSelection: true,
                 pagination       : true,
                 columnModel      : [{
-                    header   : QUILocale.get('quiqqer/system', 'id'),
+                    header   : QUILocale.get('quiqqer/core', 'id'),
                     dataIndex: 'id',
                     dataType : 'number',
                     width    : 60
@@ -356,7 +356,7 @@ define('package/quiqqer/areas/bin/controls/Areas', [
                             }).inject(Sheet.getContent());
 
                             Sheet.addButton({
-                                text     : QUILocale.get('quiqqer/system', 'save'),
+                                text     : QUILocale.get('quiqqer/core', 'save'),
                                 textimage: 'fa fa-save',
                                 events   : {
                                     click: function () {

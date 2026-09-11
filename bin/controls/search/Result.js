@@ -63,7 +63,7 @@ define('package/quiqqer/areas/bin/controls/search/Result', [
                 filterInput      : this.getAttribute('filterInput'),
                 multipleSelection: this.getAttribute('multipleSelection'),
                 columnModel      : [{
-                    header   : QUILocale.get('quiqqer/system', 'id'),
+                    header   : QUILocale.get('quiqqer/core', 'id'),
                     dataIndex: 'id',
                     dataType : 'number',
                     width    : 60
