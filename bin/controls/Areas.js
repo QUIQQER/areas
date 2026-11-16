@@ -60,44 +60,42 @@ define('package/quiqqer/areas/bin/controls/Areas', [
          * event : on create
          */
         $onCreate: function () {
-            // buttons
-            this.addButton({
-                name     : 'add',
-                text     : QUILocale.get('quiqqer/core', 'add'),
-                textimage: 'fa fa-plus',
-                events   : {
-                    onClick: this.createChild
-                }
-            });
-
-            this.addButton({
-                name     : 'delete',
-                text     : QUILocale.get('quiqqer/core', 'delete'),
-                textimage: 'fa fa-trash',
-                disabled : true,
-                events   : {
-                    onClick: function () {
-                        var selected = this.$Grid.getSelectedData();
-
-                        var ids = selected.map(function (data) {
-                            return data.id;
-                        });
-
-                        this.deleteChildren(ids);
-                    }.bind(this)
-                }
-            });
-
             // Grid
-            var self = this;
+            const self = this;
 
-            var Container = new Element('div').inject(
-                this.getContent()
-            );
+            const Container = document.createElement('div');
+            this.getContent().appendChild(Container);
+            const deleteLabel = QUILocale.get(lg, 'window.delete.title');
 
             this.$Grid = new Grid(Container, {
                 multipleSelection: true,
                 pagination       : true,
+                buttons: [
+                    {
+                        name: 'add',
+                        text: QUILocale.get(lg, 'window.create.title'),
+                        textimage: 'fa fa-plus',
+                        events: {onClick: () => this.createChild()}
+                    },
+                    {
+                        name: 'delete',
+                        'class': 'quiqqer-areas-delete',
+                        text: deleteLabel,
+                        title: deleteLabel,
+                        icon: 'fa fa-trash',
+                        disabled: true,
+                        position: 'right',
+                        events: {
+                            onClick: () => {
+                                const ids = this.$Grid.getSelectedData().map(data => data.id);
+
+                                if (ids.length) {
+                                    this.deleteChildren(ids);
+                                }
+                            }
+                        }
+                    }
+                ],
                 columnModel      : [{
                     header   : QUILocale.get('quiqqer/core', 'id'),
                     dataIndex: 'id',
@@ -116,6 +114,13 @@ define('package/quiqqer/areas/bin/controls/Areas', [
                 }]
             });
 
+            ['add', 'delete'].forEach(name => {
+                const Elm = this.$Grid.getButton(name).getElm();
+                Elm.style.removeProperty('outline');
+                Elm.firstElementChild?.setAttribute('aria-hidden', 'true');
+            });
+            this.$Grid.getButton('delete').getElm().setAttribute('aria-label', deleteLabel);
+
             this.$Grid.addEvents({
                 onRefresh : this.refresh,
                 onDblClick: function (event) {
@@ -124,12 +129,12 @@ define('package/quiqqer/areas/bin/controls/Areas', [
                     );
                 },
                 onClick   : function () {
-                    var selected = self.$Grid.getSelectedData();
+                    const selected = self.$Grid.getSelectedData();
 
                     if (selected.length) {
-                        self.getButtons('delete').enable();
+                        self.$Grid.getButton('delete').enable();
                     } else {
-                        self.getButtons('delete').disable();
+                        self.$Grid.getButton('delete').disable();
                     }
                 }
             });
@@ -169,7 +174,7 @@ define('package/quiqqer/areas/bin/controls/Areas', [
             importCheck = importCheck || true;
 
             this.Loader.show();
-            this.getButtons('delete').disable();
+            this.$Grid.getButton('delete').disable();
 
             Areas.getList({
                 perPage: this.$Grid.options.perPage,

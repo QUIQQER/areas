@@ -17,3 +17,20 @@
 .quiqqer-areas-edit-countries select {
     height: 200px;
 }
+
+.quiqqer-areas-delete {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    padding: 0;
+}
+
+.quiqqer-areas-delete .qui-button-text {
+    display: none;
+}
+
+.quiqqer-areas-delete:focus-visible {
+    outline: 2px solid var(--qui-colors-primary);
+    outline-offset: 1px;
+}
