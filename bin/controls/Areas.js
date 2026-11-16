@@ -63,7 +63,9 @@ define('package/quiqqer/areas/bin/controls/Areas', [
             // Grid
             const self = this;
 
+            this.getContent().style.padding = '10px';
             const Container = document.createElement('div');
+            Container.style.height = '100%';
             this.getContent().appendChild(Container);
             const deleteLabel = QUILocale.get(lg, 'window.delete.title');
 
@@ -159,8 +161,10 @@ define('package/quiqqer/areas/bin/controls/Areas', [
 
             var size = Body.getSize();
 
-            this.$Grid.setHeight(size.y - 40);
-            this.$Grid.setWidth(size.x - 40);
+            return Promise.all([
+                this.$Grid.setHeight(size.y - 20),
+                this.$Grid.setWidth(size.x - 20)
+            ]).then(() => this.$Grid.resize());
         },
 
         /**
